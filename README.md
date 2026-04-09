@@ -13,6 +13,7 @@ It works best as a final pass after drafting with agents such as Claude Code, Op
 - A reusable skill in `skills/anti-vibe-writing/`
 - Supporting references and assets for consistent rewrites
 - A local developer agent file at `agents/anti-vibe-writing-dev.agent.md`, kept out of git by default
+- A public template at `agents/anti-vibe-writing-dev.agent.example.md` for contributors to copy locally
 
 ## Repository layout
 
@@ -54,6 +55,8 @@ README.zh-CN.md
 The repository keeps the source files in top-level folders for a cleaner project layout.
 
 The skill files are versioned. The developer agent file is local and gitignored by default, so contributors can adjust it without changing the public repository.
+
+To create a local agent file, copy `agents/anti-vibe-writing-dev.agent.example.md` to `agents/anti-vibe-writing-dev.agent.md`.
 
 If you want tool-specific auto-discovery, you may still need to mirror these files into the locations required by the target agent platform.
 

@@ -13,6 +13,7 @@
 - 一个可复用的技能目录，位于 `skills/anti-vibe-writing/`
 - 一组辅助参考和素材文件，用于稳定重写质量
 - 一个本地开发用 agent 文件，位于 `agents/anti-vibe-writing-dev.agent.md`，默认不进入 Git
+- 一个可公开提交的模板文件，位于 `agents/anti-vibe-writing-dev.agent.example.md`，供贡献者复制使用
 
 ## 仓库结构
 
@@ -54,6 +55,8 @@ README.zh-CN.md
 这个仓库将源文件放在一级目录下，便于项目本身保持清晰的结构。
 
 技能文件会进入版本控制。开发用 agent 文件默认为本地文件，并通过 Git 忽略，方便每个贡献者单独调整而不污染公开仓库。
+
+如果你要创建本地 agent 文件，可以将 `agents/anti-vibe-writing-dev.agent.example.md` 复制为 `agents/anti-vibe-writing-dev.agent.md`。
 
 如果你需要某个具体 agent 平台自动发现这些文件，仍然可能需要把它们同步到该平台要求的位置。
 
