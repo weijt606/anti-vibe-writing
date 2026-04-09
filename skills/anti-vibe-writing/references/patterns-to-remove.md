@@ -79,3 +79,44 @@ Common cleanup moves:
 - Merge lists that repeat the same idea.
 - Remove decorative bolding.
 - Keep only the headings the reader will use.
+
+## Emoji and Icon Dressing
+
+Generated drafts often try to add energy with decorative symbols instead of stronger wording.
+
+Watch for:
+
+- "✨ Key Features"
+- "🚀 Getting Started"
+- "💡 Pro Tip"
+- Icons repeated across headings or bullets
+
+In most technical and product writing, these make the document feel more templated, not more human.
+
+## Stock Markdown Modules
+
+Watch for sections that appear because a model likes the shape, not because the document needs them:
+
+- Overview
+- Key Features
+- Benefits
+- Why It Matters
+- In Summary
+- Conclusion
+- FAQ with invented questions
+
+Keep the sections that do real work. Collapse or remove the rest.
+
+## Faux Warmth
+
+Some drafts try to sound human by sounding extra friendly.
+
+Watch for:
+
+- We are excited to share
+- Hopefully this helps
+- Thoughtfully designed
+- Delightful experience
+- Friendly but empty encouragement
+
+Warmth should come from useful detail, respect for the reader, and confident restraint.

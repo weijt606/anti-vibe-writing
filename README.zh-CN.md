@@ -8,6 +8,8 @@
 
 它最适合作为最终润色层，放在 Claude Code、OpenClaw、Codex、Hermes 等 agent 完成初稿之后使用。目标不是把文字写得更花，而是在保留原意的前提下，去掉那些明显的生成式痕迹：模板化措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲，以及那种看似周全实则不下判断的语气。
 
+这个 skill 现在采用更接近 Claude 标准 skill 的组织方式：主 `SKILL.md` 保持简洁，把深入方法放进 `references/`，把可复用提示词和检查清单放进 `assets/`。
+
 ## 包含内容
 
 - 一个可复用的技能目录，位于 `skills/anti-vibe-writing/`
@@ -25,6 +27,9 @@ skills/
   anti-vibe-writing/
     SKILL.md
     references/
+      before-after-benchmarks.md
+      common-problems-and-fixes.md
+      human-passes.md
       patterns-to-remove.md
     assets/
       final-pass-checklist.md
@@ -32,6 +37,15 @@ skills/
 README.md
 README.zh-CN.md
 ```
+
+## Skill 结构
+
+- `SKILL.md` 保留高层原则、使用时机和输出约束，方便快速加载。
+- `references/before-after-benchmarks.md` 提供具体的前后对照样例，便于后续做回归判断。
+- `references/human-passes.md` 提供分阶段的人味儿编辑流程。
+- `references/common-problems-and-fixes.md` 汇总常见 AI 文风问题和对应修法。
+- `references/patterns-to-remove.md` 记录需要优先清理的措辞、格式和语气痕迹。
+- `assets/` 用于存放可复用的提示词模板和最终检查清单。
 
 ## 适用场景
 

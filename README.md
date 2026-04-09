@@ -8,6 +8,8 @@ An agent writing skill for removing the typical AI-generated feel from documents
 
 It works best as a final pass after drafting with agents such as Claude Code, OpenClaw, Codex, or Hermes. The goal is not decorative prose. The goal is to keep the substance and remove the tells: templated phrasing, vague abstraction, consultant-speak, markdown-heavy formatting, over-structured outlines, and the cautious over-balancing that makes writing feel assembled.
 
+The skill now uses a Claude-style structure: a compact `SKILL.md` for discovery and execution, with deeper method notes in `references/` and reusable prompts or checklists in `assets/`.
+
 ## Included
 
 - A reusable skill in `skills/anti-vibe-writing/`
@@ -25,6 +27,9 @@ skills/
   anti-vibe-writing/
     SKILL.md
     references/
+      before-after-benchmarks.md
+      common-problems-and-fixes.md
+      human-passes.md
       patterns-to-remove.md
     assets/
       final-pass-checklist.md
@@ -32,6 +37,15 @@ skills/
 README.md
 README.zh-CN.md
 ```
+
+## Skill structure
+
+- `SKILL.md` keeps the philosophy, usage rules, and response contract short enough to load quickly.
+- `references/before-after-benchmarks.md` provides concrete before-and-after examples to evaluate future changes.
+- `references/human-passes.md` contains the multi-pass editing workflow.
+- `references/common-problems-and-fixes.md` maps recognizable AI-writing failures to practical fixes.
+- `references/patterns-to-remove.md` tracks the phrasing, formatting, and tone tells that should be stripped out early.
+- `assets/` stores reusable prompt templates and final-pass checks.
 
 ## Use cases
 
