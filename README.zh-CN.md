@@ -3,58 +3,84 @@
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh-CN.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
+[![Skill version](https://img.shields.io/badge/skill-1.2.0-orange?style=flat-square)](./CHANGELOG.md)
 
-一个用于去除文档中典型“AI 生成感”的 agent 写作技能。
+一个用于去除文档"AI 生成感"的 agent 写作技能。同时支持中英文，并提供可选模式用于贴合特定作者的语言风格。
 
-它最适合作为最终润色层，放在 Claude Code、OpenClaw、Codex、Hermes 等 agent 完成初稿之后使用。目标不是把文字写得更花，而是在保留原意的前提下，去掉那些明显的生成式痕迹：模板化措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲，以及那种看似周全实则不下判断的语气。
+它最适合放在初稿之后做最终润色——Claude Code、Codex 等任何基于大模型的 agent 起完稿之后，由它收尾。目标不是把文字写得更花。目标是在不改原意的前提下，去掉那些明显的生成式痕迹：模板措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲，以及那种"什么都讲一点、什么都不下判断"的伪平衡。
 
-这个 skill 现在采用更接近 Claude 标准 skill 的组织方式：主 `SKILL.md` 保持简洁，把深入方法放进 `references/`，把可复用提示词和检查清单放进 `assets/`。
+如果默认的"干净模式"还不够，skill 还提供：
+- **人味儿质感模式**：在合适的位置注入倒装、语气词、残句、非标准标点等真人写作痕迹（可选）
+- **学习模式**：基于用户提供的真实样本提取一份可复用的 host profile，让后续稿子像"那个人写的"
+- **场景预设**：针对推特 / 微博 / 博客 / 播客 / 专业报告五个场景的具体约束
 
-## 包含内容
+## 1.2.0 新增
 
-- 一个可复用的技能目录，位于 `skills/anti-vibe-writing/`
-- 一组辅助参考和素材文件，用于稳定重写质量
-- 一个本地开发用 agent 文件，位于 `agents/anti-vibe-writing-dev.agent.md`，默认不进入 Git
-- 一个可公开提交的模板文件，位于 `agents/anti-vibe-writing-dev.agent.example.md`，供贡献者复制使用
+- 中文 AI 味规则与中文前后对照基准（`references/chinese-*.md`）
+- 人味儿质感模式（`references/human-texture.md`）
+- 学习模式与 host profile 工作流（`references/learning-mode.md`）
+- 五个场景预设：X / 微博 / 博客 / 播客 / 报告（`references/scenario-presets.md`）
+- host profile 模板与一次性风格提取提示词
+- 修正 SKILL.md 中 `tools:` 字段为 Claude Code 真实工具名
+
+完整版本历史见 [CHANGELOG.md](./CHANGELOG.md)。
+
+## 快速示例
+
+外部读者扫一眼就能看到的前后对照在 [examples/](./examples/) 目录下。完整的回归基准仍放在 `references/` 里。
 
 ## 仓库结构
 
 ```text
 agents/
   README.md
-  anti-vibe-writing-dev.agent.md
+  anti-vibe-writing-dev.agent.md           # 本地，不进 git
+  anti-vibe-writing-dev.agent.example.md
 skills/
   anti-vibe-writing/
     SKILL.md
     references/
-      before-after-benchmarks.md
+      patterns-to-remove.md                # 英文 AI 味
+      chinese-patterns-to-remove.md        # 中文 AI 味
+      before-after-benchmarks.md           # 英文基准
+      chinese-before-after.md              # 中文基准
       common-problems-and-fixes.md
       human-passes.md
-      patterns-to-remove.md
+      human-texture.md                     # 可选不规范
+      learning-mode.md                     # 样本驱动的风格学习
+      scenario-presets.md                  # 分场景约束
     assets/
       final-pass-checklist.md
       rewrite-prompt-template.md
+      host-profile-template.md             # 可填的 host profile
+      style-extraction-prompt.md           # 一次性提取提示词
+examples/
+  ...
+CHANGELOG.md
+CONTRIBUTING.md
 README.md
 README.zh-CN.md
+LICENSE
 ```
 
-## Skill 结构
+## 三种声音模式
 
-- `SKILL.md` 保留高层原则、使用时机和输出约束，方便快速加载。
-- `references/before-after-benchmarks.md` 提供具体的前后对照样例，便于后续做回归判断。
-- `references/human-passes.md` 提供分阶段的人味儿编辑流程。
-- `references/common-problems-and-fixes.md` 汇总常见 AI 文风问题和对应修法。
-- `references/patterns-to-remove.md` 记录需要优先清理的措辞、格式和语气痕迹。
-- `assets/` 用于存放可复用的提示词模板和最终检查清单。
+| 模式 | 适用场景 | 触发方式 |
+|---|---|---|
+| 默认（干净） | 大部分产品、文档、专业稿件 | 默认行为，无需声明 |
+| 人味儿质感 | 个人博客、创始人笔记、社交媒体 | "放松一点 / 博客风 / 像本人写的" |
+| 学习模式 | 系列内容、个人 newsletter、声音一致的对外沟通 | 用户提供样本，或说"学我的风格" |
+
+模式可与场景预设（推特 / 微博 / 博客 / 播客 / 报告）叠加。冲突时的优先级在 `SKILL.md` 里写明。
 
 ## 适用场景
 
-- README 清理与润色
-- 产品文档
-- 落地页文案
-- 提案
-- 创始人备忘或说明
-- 技术备忘录
+- 社交媒体（X、微博、即刻、小红书）
+- 博客、newsletter、公众号
+- 播客 show notes 与视频脚本
+- README 清理
+- 产品文档、落地页文案
+- 提案、创始人笔记、技术备忘、内部报告
 
 ## 目标输出
 
@@ -62,17 +88,20 @@ README.zh-CN.md
 - 更有意图的结构
 - 更干净的措辞
 - 更明确的声音
-- 更少的“AI 味”
+- 更少的"AI 味"
+- 读起来像有人选过每一个字，而不是被系统组装出来
 
 ## 文件使用说明
-
-这个仓库将源文件放在一级目录下，便于项目本身保持清晰的结构。
 
 技能文件会进入版本控制。开发用 agent 文件默认为本地文件，并通过 Git 忽略，方便每个贡献者单独调整而不污染公开仓库。
 
 如果你要创建本地 agent 文件，可以将 `agents/anti-vibe-writing-dev.agent.example.md` 复制为 `agents/anti-vibe-writing-dev.agent.md`。
 
 如果你需要某个具体 agent 平台自动发现这些文件，仍然可能需要把它们同步到该平台要求的位置。
+
+## 贡献
+
+新增 pattern、benchmark、场景预设的规则见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
 
 ## 许可证
 
