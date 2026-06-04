@@ -4,6 +4,23 @@ All notable changes to the `anti-vibe-writing` skill are recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the skill itself (declared in `skills/anti-vibe-writing/SKILL.md` frontmatter).
 
+## [1.4.0] — 2026-06-05
+
+### Added
+
+- **"随手打" (casual typing) layer** under human-texture mode — a tightly-gated, social-only, default-off option for a tiny amount of real-person phone-typing imperfection (dropped end punctuation, no capitalization, an omitted particle), in `references/human-texture.md`. Hard guardrails:
+  - Only in casual social scenarios (X / Weibo / Jike); forbidden in docs, reports, announcements, and any professional copy
+  - Never touches numbers, names, code, links, prices, dates, or terms
+  - Only omissions, never meaning-changing typos (的/得/地, 在/再, 哪/那 are off-limits)
+  - Capped at 1–2 touches per post, stated at the end so the user can revert
+  - Framed as phone-typing texture, explicitly **not** error injection to evade AI detection
+- Cross-references to the 随手打 layer in the tweet and Weibo presets (`references/scenario-presets.md`)
+
+### Changed
+
+- `SKILL.md` Mode 2 (Human Texture) documents the casual-typing layer and its guardrails; `metadata.version` bumped `1.3.0` → `1.4.0`
+- READMEs: version badge → 1.4.0, modes table note about the social-only casual-typing layer, and a 1.4.0 entry in Version highlights
+
 ## [1.3.0] — 2026-06-05
 
 ### Added

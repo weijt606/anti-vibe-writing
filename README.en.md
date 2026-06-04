@@ -3,7 +3,7 @@
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.3.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.4.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > **One goal: make AI sound genuinely idiomatic — 倍儿地道.**
 
@@ -61,6 +61,8 @@ The skill runs in one of three modes:
 | Learning mode | Series content, personal newsletters, voice-consistent comms | User provides samples, or asks "learn my style" |
 
 Modes combine with scenario presets (tweet / Weibo / blog / podcast / report). Conflict resolution rules are documented in `SKILL.md`.
+
+Human-texture mode also has a **social-only "casual typing" (随手打) layer** (off by default; activates only when you ask for "like a quick phone post"): a tiny amount of phone-typing texture on casual posts — dropped end punctuation, no capitalization, an omitted particle — that **never touches numbers, names, or links** and never makes meaning-changing typos. It's phone-typing texture, not error injection to dodge AI detectors.
 
 ## Use cases
 
@@ -156,6 +158,9 @@ This project is open source under the MIT License. See `LICENSE`.
 - Keep structure only when it helps the reader.
 
 ## Version highlights
+
+**1.4.0**
+- Human-texture mode gains a "casual typing" (随手打) layer: a social-only, default-off, hard-guardrailed sliver of phone-typing texture (dropped punctuation / no caps / omitted particle) — never on numbers or names, never meaning-changing typos, and not for dodging detectors
 
 **1.3.0**
 - A sharper Chinese track for more idiomatic (地道) output: a 翻译腔 / 欧化句式 layer (被字句, 作为一个…, 不仅…而且…, 对…进行…, 复数"们"), a 四字成语 overuse rule, and a 改写心态 section that swaps the 资深文案 / 营销专家 stance for a friend / 公众号 editor / journalist voice

@@ -5,7 +5,7 @@ argument-hint: 'Paste the draft, or describe the document, audience, scenario (t
 user-invocable: true
 disable-model-invocation: false
 metadata:
-  version: 1.3.0
+  version: 1.4.0
   language_support: [en, zh]
   tools: [Read, Edit, Write, Grep, Glob, Bash, WebFetch, WebSearch, TaskCreate, Agent]
 ---
@@ -82,6 +82,8 @@ Triggered by user signals such as:
 - "Loosen it up" / "放松一点" / "blog voice" / "make it feel personal"
 - "Like the founder actually wrote it"
 - "A little less polished is fine"
+
+Within this mode there is one further, tightly-gated layer — **casual typing (随手打)** — for social posts only. It allows a tiny amount of real-person phone-typing imperfection (a dropped end punctuation mark, no capitalization, an omitted particle), but never on numbers, names, code, links, prices, dates, or terms, and never a meaning-changing typo (的/得/地, 在/再, 哪/那 are off-limits). It is off by default, activates only when the user explicitly asks for "像手机随手发的 / like a quick phone post", and is forbidden in docs, reports, announcements, and any professional copy. When used, cap it at 1–2 touches and state them at the end. This is phone-typing texture, not error injection to evade AI detection. See the 随手打 section in [human-texture.md](./references/human-texture.md).
 
 Details and concrete techniques: [human-texture.md](./references/human-texture.md).
 

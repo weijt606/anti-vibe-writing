@@ -3,7 +3,7 @@
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.3.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.4.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > **目标只有一个：让 AI 说话，倍儿地道。**
 
@@ -59,6 +59,8 @@ git clone https://github.com/weijt606/anti-vibe-writing.git
 | 学习模式 | 系列内容、个人 newsletter、声音一致的对外沟通 | 用户提供样本，或说"学我的风格" |
 
 模式可与场景预设（推特 / 微博 / 博客 / 播客 / 报告）叠加。冲突时的优先级在 `SKILL.md` 里写明。
+
+人味儿质感模式下还有一个**社交专用的「随手打」子档**（默认关，需明确说"像手机随手发的"才开）：只在推特 / 微博等休闲场景加极少量随手感——漏句末标点、不大写、漏个虚词，**绝不碰数字、名称、链接**，也不做会改义的错别字。它是手机口语手感，不是"制造错误骗检测"。
 
 ## 适用场景
 
@@ -154,6 +156,9 @@ LICENSE
 - 只有在结构确实帮助读者时才保留结构。
 
 ## 版本亮点
+
+**1.4.0**
+- 人味儿质感模式新增「随手打」子档：社交专用、默认关、带硬护栏的极少量"手机随手打"手感（漏标点 / 不大写 / 漏虚词），不碰数字与名称，不做会改义的错别字，也不为骗检测
 
 **1.3.0**
 - 中文表达更地道：新增"翻译腔 / 欧化句式"层（被字句、作为一个……、不仅……而且……、对……进行……、复数"们"）、"四字成语堆砌"规则，以及"改写心态"一节——改写时不当资深文案 / 营销专家，换成发微信的朋友 / 公众号编辑 / 资深媒体人来写，改完念一遍
