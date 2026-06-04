@@ -17,3 +17,15 @@ Use this checklist before returning rewritten copy.
 - Facts, numbers, and technical claims remain unchanged.
 - Any necessary nuance is carried in the sentence itself.
 - The result is shorter or sharper, not just different.
+
+## Optional Scoring Pass
+
+For a borderline draft, score it on five dimensions (1–10 each) before returning. Adapted from the `stop-slop` rubric (see Credits in the README).
+
+- **Directness** — states things; doesn't announce that it's about to state them.
+- **Rhythm** — sentence lengths vary; no monotone march of equal clauses.
+- **Trust** — respects the reader's intelligence; no over-explaining the obvious.
+- **Authenticity** — reads like a person chose the words, not a system.
+- **Density** — every sentence earns its place; no filler.
+
+Below 35 / 50 means it still reads generated — make another pass.

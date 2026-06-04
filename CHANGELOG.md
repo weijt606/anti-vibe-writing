@@ -4,6 +4,31 @@ All notable changes to the `anti-vibe-writing` skill are recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the skill itself (declared in `skills/anti-vibe-writing/SKILL.md` frontmatter).
 
+## [1.3.0] — 2026-06-05
+
+### Added
+
+- `examples/07-tweet-zh.md` — Chinese X/Twitter before/after, with a "为什么这版更地道" note that calls out the specific authenticity moves (口语判断句, no 四字成语 stacking, verbs over nominalization)
+- `examples/08-translationese-zh.md` — Chinese translationese demo wiring each new 1.3.0 tell (身体动作写抽象 / 形容词+冒号 / 抽象名词主语 / 回避"是" / 同义词循环 / 四字成语 / 欧化句式) to a one-line fix
+- `examples/09-sentence-tells-en.md` — English demo of the new sentence-level tells (copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing)
+- New layers in `references/chinese-patterns-to-remove.md`:
+  - **翻译腔 / 欧化句式 layer** — machine-translation tells that survive even when no buzzword is present: over-dense subject pronouns, 被字句 overuse, 复数"们", 作为一个…, …之一, 不仅…而且… / 一方面…另一方面…, 对…进行… / 使…得到…
+  - **四字成语堆砌** under the vocabulary layer — one chengyu per sentence max, prefer plain speech
+  - **改写时的身份与心态 section** — drop the 资深文案 / 营销专家 stance (it opens the ad-vocabulary register), rewrite as a friend / 公众号 editor / seasoned journalist, pin down reader and scenario, favor short sentences and 大白话, and read the result aloud as a final check
+- Two 快速识别法 signals (四字成语 stacking, 翻译腔 sentence shapes) and three 退化警报 entries in `references/chinese-before-after.md`
+- Externally-sourced patterns studied from open humanizer projects and adapted into this skill's structure:
+  - Chinese: 用身体动作写抽象 (机翻体感词 接住/击穿/收口…), 形容词+冒号预判读者, 抽象名词主语+评价谓语 (from yage.ai's translationese analysis); 回避系动词"是", 同义词循环 (from op7418/Humanizer-zh)
+  - English: copula avoidance, negative parallelism, synonym cycling, false ranges, signposting announcements, diff-anchored writing in `references/patterns-to-remove.md` (from blader/humanizer)
+- Optional five-dimension scoring pass (Directness / Rhythm / Trust / Authenticity / Density, threshold 35/50) in `assets/final-pass-checklist.md` (from hardikpandya/stop-slop)
+- **Credits & references** section in `README.md` and `README.zh-CN.md` acknowledging blader/humanizer, hardikpandya/stop-slop, op7418/Humanizer-zh, yage.ai, and @dotey
+
+### Changed
+
+- `SKILL.md` `metadata.version` bumped from `1.2.0` to `1.3.0`
+- `SKILL.md` "Editing Heuristics" gains two Chinese-specific heuristics: spot 翻译腔 / 欧化 sentence shapes, and adopt the non-marketing rewrite stance
+- `assets/rewrite-prompt-template.md` gains a "中文改写（带负向约束）" block — a ready-to-hand instruction with role-setting, an explicit 禁止出现 list, and positive 短句 / 大白话 requirements
+- `examples/README.md`, `README.md`, and `README.zh-CN.md` updated for the new example and version
+
 ## [1.2.0] — 2026-05-19
 
 ### Added

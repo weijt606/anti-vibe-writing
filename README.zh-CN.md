@@ -3,7 +3,7 @@
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh-CN.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.2.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.3.0-orange?style=flat-square)](./CHANGELOG.md)
 
 一个用于去除文档"AI 生成感"的 agent 写作技能。同时支持中英文，并提供可选模式用于贴合特定作者的语言风格。
 
@@ -13,6 +13,13 @@
 - **人味儿质感模式**：在合适的位置注入倒装、语气词、残句、非标准标点等真人写作痕迹（可选）
 - **学习模式**：基于用户提供的真实样本提取一份可复用的 host profile，让后续稿子像"那个人写的"
 - **场景预设**：针对推特 / 微博 / 博客 / 播客 / 专业报告五个场景的具体约束
+
+## 1.3.0 新增
+
+- 中文表达更地道：新增"翻译腔 / 欧化句式"层（被字句、作为一个……、不仅……而且……、对……进行……、复数"们"）、"四字成语堆砌"规则，以及"改写心态"一节——改写时不当资深文案 / 营销专家，换成发微信的朋友 / 公众号编辑 / 资深媒体人来写，改完念一遍
+- 新增英文句子级痕迹（回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写），改编自开源 humanizer 项目——见「参考与致谢」
+- 新增三个示例：中文推特 / X 发帖（`07`）、中文翻译腔专项（`08`）、英文句子级痕迹（`09`）
+- `assets/rewrite-prompt-template.md` 新增"中文改写（带负向约束）"提示词块；final-pass 清单新增可选的五维打分
 
 ## 1.2.0 新增
 
@@ -98,6 +105,21 @@ LICENSE
 如果你要创建本地 agent 文件，可以将 `agents/anti-vibe-writing-dev.agent.example.md` 复制为 `agents/anti-vibe-writing-dev.agent.md`。
 
 如果你需要某个具体 agent 平台自动发现这些文件，仍然可能需要把它们同步到该平台要求的位置。
+
+## 参考与致谢
+
+这个 skill 借鉴了几个开源的 de-AI / humanizer 项目和文章。下面这些 pattern 是研究后改写进本项目自己的结构里的，原始分析和措辞归原作者所有。感谢：
+
+英文：
+- [blader/humanizer](https://github.com/blader/humanizer) —— 30 条 pattern 的 humanizer skill（MIT）。启发了英文的句子级痕迹：回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写而非按现状写。
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) —— AI slop 检测 skill（MIT）。`assets/final-pass-checklist.md` 里那套可选的五维打分（直接 / 节奏 / 信任 / 真人感 / 密度）来自它。
+
+中文：
+- [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh) —— 24 条 pattern 的中文 humanizer skill，本身是 blader/humanizer 的中文改编（MIT）。启发了中文轨里"回避系动词'是'"和"同义词循环"两条。
+- [yage.ai《AI 中文翻译腔》](https://yage.ai/share/ai-chinese-translationese-20260418.html) —— 对中文翻译腔的拆解（用身体动作词写抽象 / 形容词加冒号替读者下判断 / 抽象名词当主语）。启发了 `references/chinese-patterns-to-remove.md` 的"翻译腔层"。
+- [X 上的 @dotey](https://x.com/dotey/status/2022774029220749538) —— 关于去 AI 味提示词技巧的讨论（身份设定、负向约束），影响了"改写心态"一节和中文改写提示词块。
+
+这些都是各自独立、各有边界的项目，本仓库借鉴的是思路，不是代码。如果你是其中某个项目的维护者、想调整致谢写法，欢迎开 issue。
 
 ## 贡献
 

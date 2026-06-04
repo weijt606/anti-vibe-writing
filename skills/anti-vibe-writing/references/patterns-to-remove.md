@@ -107,6 +107,34 @@ Watch for sections that appear because a model likes the shape, not because the 
 
 Keep the sections that do real work. Collapse or remove the rest.
 
+## Sentence-Level Tells
+
+These survive even after the buzzwords are gone. Surfaced by community humanizer projects (see Credits in the README).
+
+Copula avoidance — the model dodges plain "is" / "has":
+- Weak: The tool serves as a final pass. It boasts three modes and features bilingual support.
+- Strong: The tool is a final pass. It has three modes and works in two languages.
+
+Negative parallelism / tailing negation — "It's not X, it's Y" used as a reflex:
+- Weak: This isn't about speed. It's about trust.
+- Strong: This is about trust. (Make the claim; drop the setup.) One per piece at most.
+
+Synonym cycling — renaming the same thing to avoid repetition:
+- Weak: The model... the system... the assistant... the engine... (all the same thing)
+- Strong: Pick the clearest term and repeat it. Repetition reads as precision, not poverty.
+
+False ranges — "from X to Y" where there's no real spectrum:
+- Weak: Everything from onboarding to analytics to billing.
+- Strong: Onboarding, analytics, and billing. List the items; don't fake a range.
+
+Signposting announcements — narrating the structure instead of writing it:
+- Cut: "Let's dive in", "Here's what you need to know", "Now, let's talk about", "But first..."
+- Just say the thing. The reader doesn't need a tour guide.
+
+Diff-anchored writing — describing what changed instead of what is:
+- Weak: We've now updated the API to also support streaming.
+- Strong: The API supports streaming. (Unless the change itself is the point, describe the current state.)
+
 ## Faux Warmth
 
 Some drafts try to sound human by sounding extra friendly.

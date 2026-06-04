@@ -5,7 +5,7 @@ argument-hint: 'Paste the draft, or describe the document, audience, scenario (t
 user-invocable: true
 disable-model-invocation: false
 metadata:
-  version: 1.2.0
+  version: 1.3.0
   language_support: [en, zh]
   tools: [Read, Edit, Write, Grep, Glob, Bash, WebFetch, WebSearch, TaskCreate, Agent]
 ---
@@ -162,6 +162,8 @@ When changing the skill itself, compare behavior against [before-after-benchmark
 - If the tone keeps "balancing" instead of deciding, make the claim and carry the nuance in the sentence rather than around it.
 - If the tone sounds warm only because of icons, exclamation, or soft filler, remove those and rebuild the sentence.
 - Chinese-specific: if a paragraph contains "首先 / 其次", a three-clause parallelism, AND ends with "让 X 更 Y", it's almost certainly AI-shaped — rewrite the paragraph, don't just edit it.
+- Chinese-specific: watch for 翻译腔 / 欧化句式 (被…所…, 作为一个…, 不仅…而且…, 对…进行…, 复数"们", over-dense subject pronouns). These read like machine translation even when no buzzword is present — restore active voice and verbs.
+- Chinese-specific: drop the "资深文案 / 营销专家" stance — it pulls in ad vocabulary. Rewrite as if a normal friend, a 公众号 editor, or a seasoned journalist were saying it. Read the result aloud; if you wouldn't talk to a friend that way, edit again. See the 改写心态 section in [chinese-patterns-to-remove.md](./references/chinese-patterns-to-remove.md).
 
 ## Task Questions
 
