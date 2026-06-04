@@ -28,9 +28,10 @@ clone 本仓库，或只复制 `skills/anti-vibe-writing/` 这个目录：
 git clone https://github.com/weijt606/anti-vibe-writing.git
 ```
 
-**2. 喂给你的 agent（二选一）**
+**2. 喂给你的 agent（挑一种顺手的）**
 
-- **临时用一次（任何 agent 都行，门槛最低）**：打开 `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`，里面有现成的指令块——英文的 Full Rewrite / Light Cleanup，和中文的「中文改写（带负向约束）」。复制对应语言那一段，连同草稿一起发给 agent。
+- **最简单：直接把仓库链接丢给它**。不用先 clone——把 `https://github.com/weijt606/anti-vibe-writing` 发给 agent，让它自己读 `SKILL.md` 和 `references/`，照着配置、改写。能联网或能跑 git 的 agent 基本都行。
+- **临时用一次（任何 agent 都行）**：打开 `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`，里面有现成的指令块——英文的 Full Rewrite / Light Cleanup，和中文的「中文改写（带负向约束）」。复制对应语言那一段，连同草稿一起发给 agent。
 - **让它长期照这套规则走**：把 `SKILL.md` 和对应语言的 `references/*patterns-to-remove.md` 放进你的 agent 加载上下文的地方。各家叫法不同：
   - 有 skills 目录的（如 Claude Code）：放到 `~/.claude/skills/anti-vibe-writing/`，之后用 `/anti-vibe-writing` 调用
   - 有项目指令文件的（如 Codex 的 `AGENTS.md`）：把规则写进去或 include 进去

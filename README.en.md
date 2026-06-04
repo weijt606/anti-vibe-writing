@@ -28,9 +28,10 @@ Clone the repo, or just copy the `skills/anti-vibe-writing/` folder:
 git clone https://github.com/weijt606/anti-vibe-writing.git
 ```
 
-**2. Feed it to your agent (pick one)**
+**2. Feed it to your agent (pick whichever fits)**
 
-- **One-off (any agent, lowest friction)**: open `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`. It has ready-made instruction blocks — Full Rewrite / Light Cleanup in English, and "中文改写（带负向约束）" for Chinese. Copy the block for your language and send it with your draft.
+- **Simplest: just hand it the repo link.** No need to clone first — send `https://github.com/weijt606/anti-vibe-writing` and let the agent read `SKILL.md` and `references/` and configure itself. Works with any agent that can browse the web or run git.
+- **One-off (any agent)**: open `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`. It has ready-made instruction blocks — Full Rewrite / Light Cleanup in English, and "中文改写（带负向约束）" for Chinese. Copy the block for your language and send it with your draft.
 - **Persistent**: put `SKILL.md` and the matching `references/*patterns-to-remove.md` wherever your agent loads context. Names differ by tool:
   - Agents with a skills directory (e.g. Claude Code): drop it in `~/.claude/skills/anti-vibe-writing/`, then call `/anti-vibe-writing`
   - Agents with a project-instructions file (e.g. Codex's `AGENTS.md`): write or include the rules there
