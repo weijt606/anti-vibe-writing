@@ -16,6 +16,44 @@ If the default "clean" mode is not enough, the skill also supports:
 - **Learning mode**: build a reusable host profile from real samples so future drafts sound like the person who would write them
 - **Scenario presets**: format and tone constraints tuned for tweets, Weibo, blogs, podcast show notes, and professional reports
 
+## Quick start
+
+This is a Claude Code skill. Three steps to use it.
+
+**1. Install it into Claude Code**
+
+Copy the whole `skills/anti-vibe-writing/` folder into your Claude Code skills directory:
+- Available everywhere: `~/.claude/skills/anti-vibe-writing/`
+- Scoped to one project: `<your-project>/.claude/skills/anti-vibe-writing/`
+
+Or clone this repo and copy it over:
+
+```bash
+git clone https://github.com/weijt606/anti-vibe-writing.git
+cp -r anti-vibe-writing/skills/anti-vibe-writing ~/.claude/skills/
+```
+
+**2. Invoke it**
+
+In Claude Code, run the slash command and paste your draft:
+
+```text
+/anti-vibe-writing
+De-AI the following:
+<paste your draft>
+```
+
+You can also skip the command and just say "humanize this" or "this reads too much like AI" — the skill triggers on its own.
+
+**3. (Optional) Name the scenario and mode**
+
+One line of context changes the result a lot:
+- Scenario: "this is a tweet / a newsletter / a technical memo"
+- Loosen up: "make it feel personal" / "blog voice" → enables human-texture mode
+- Match a voice: paste a few of your own samples and say "learn my style" → enables learning mode
+
+When in doubt, say nothing — the default clean mode is right for most drafts.
+
 ## Quick examples
 
 Curated before/after snippets live in [examples/](./examples/) for anyone scanning the repo. The full regression set stays under `references/`.

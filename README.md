@@ -16,6 +16,44 @@
 - **学习模式**：基于用户提供的真实样本提取一份可复用的 host profile，让后续稿子像"那个人写的"
 - **场景预设**：针对推特 / 微博 / 博客 / 播客 / 专业报告五个场景的具体约束
 
+## 快速上手
+
+这是一个 Claude Code skill，三步就能用上。
+
+**1. 装进 Claude Code**
+
+把 `skills/anti-vibe-writing/` 整个目录复制到 Claude Code 的 skills 目录：
+- 想全局都能用：`~/.claude/skills/anti-vibe-writing/`
+- 只在某个项目里用：`<你的项目>/.claude/skills/anti-vibe-writing/`
+
+或者直接 clone 本仓库再复制过去：
+
+```bash
+git clone https://github.com/weijt606/anti-vibe-writing.git
+cp -r anti-vibe-writing/skills/anti-vibe-writing ~/.claude/skills/
+```
+
+**2. 调用它**
+
+在 Claude Code 里打斜杠命令，把稿子贴进去：
+
+```text
+/anti-vibe-writing
+把下面这段去掉 AI 味：
+<粘贴你的草稿>
+```
+
+也可以不打命令，直接说"帮我把这段改地道点 / 这段太像 AI 写的了"，skill 会自动触发。
+
+**3.（可选）说清场景和模式**
+
+一句话给够上下文，结果差很多：
+- 场景：「这是一条推特 / 一篇公众号 / 一份技术备忘」
+- 放松：「放松一点 / 博客风 / 像本人写的」→ 启用人味儿质感模式
+- 学风格：贴几段你自己写的，说「学我的风格」→ 启用学习模式
+
+拿不准就先什么都不说，默认的"干净模式"对大多数稿子都够用。
+
 ## 快速示例
 
 外部读者扫一眼就能看到的前后对照在 [examples/](./examples/) 目录下。完整的回归基准仍放在 `references/` 里。
