@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
 [![Skill version](https://img.shields.io/badge/skill-1.3.0-orange?style=flat-square)](./CHANGELOG.md)
 
+> **One goal: make AI sound genuinely idiomatic — 倍儿地道.**
+
 An agent writing skill that removes the AI-generated feel from documents. Works in English and Chinese, with optional modes for matching a specific author's voice.
 
 It runs best as a final pass after drafting with Claude Code, Codex, or any LLM-backed agent. The goal is not to make the prose prettier. The goal is to keep the substance and remove the tells: templated phrasing, vague abstraction, consultant-speak, markdown-heavy formatting, over-structured outlines, and the cautious over-balancing that makes writing feel assembled.
@@ -13,24 +15,6 @@ If the default "clean" mode is not enough, the skill also supports:
 - **Human-texture mode**: inject controlled irregularities (inversions, particles, half-sentences, non-standard punctuation) for personal voice
 - **Learning mode**: build a reusable host profile from real samples so future drafts sound like the person who would write them
 - **Scenario presets**: format and tone constraints tuned for tweets, Weibo, blogs, podcast show notes, and professional reports
-
-## What's new in 1.3.0
-
-- A sharper Chinese track for more idiomatic (地道) output: a 翻译腔 / 欧化句式 layer (被字句, 作为一个…, 不仅…而且…, 对…进行…, 复数"们"), a 四字成语 overuse rule, and a 改写心态 section that swaps the 资深文案 / 营销专家 stance for a friend / 公众号 editor / journalist voice
-- New sentence-level English tells (copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing), adapted from open humanizer projects — see Credits
-- Three new examples: a Chinese X/Twitter post (`07`), a Chinese translationese demo (`08`), and an English sentence-tells demo (`09`)
-- A ready-to-use "中文改写（带负向约束）" prompt block in `assets/rewrite-prompt-template.md`, plus an optional five-dimension scoring pass in the final-pass checklist
-
-## What's new in 1.2.0
-
-- Chinese AI-smell rules and Chinese before/after benchmarks (`references/chinese-*.md`)
-- Human-texture mode for opt-in irregularity (`references/human-texture.md`)
-- Learning mode with host profile workflow (`references/learning-mode.md`)
-- Five scenario presets: X / Weibo / blog / podcast / report (`references/scenario-presets.md`)
-- Host profile template and one-shot style extraction prompt
-- Fixed `tools:` field in SKILL.md to use Claude Code's real tool names
-
-See [CHANGELOG.md](./CHANGELOG.md) for the full version history.
 
 ## Quick examples
 
@@ -136,3 +120,21 @@ This project is open source under the MIT License. See `LICENSE`.
 - Preserve meaning. Sharpen the writing without changing facts.
 - Prefer concrete edits over generic style advice.
 - Keep structure only when it helps the reader.
+
+## Version highlights
+
+**1.3.0**
+- A sharper Chinese track for more idiomatic (地道) output: a 翻译腔 / 欧化句式 layer (被字句, 作为一个…, 不仅…而且…, 对…进行…, 复数"们"), a 四字成语 overuse rule, and a 改写心态 section that swaps the 资深文案 / 营销专家 stance for a friend / 公众号 editor / journalist voice
+- New sentence-level English tells (copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing), adapted from open humanizer projects — see Credits
+- Three new examples: a Chinese X/Twitter post (`07`), a Chinese translationese demo (`08`), and an English sentence-tells demo (`09`)
+- A ready-to-use "中文改写（带负向约束）" prompt block in `assets/rewrite-prompt-template.md`, plus an optional five-dimension scoring pass in the final-pass checklist
+
+**1.2.0**
+- Chinese AI-smell rules and Chinese before/after benchmarks (`references/chinese-*.md`)
+- Human-texture mode for opt-in irregularity (`references/human-texture.md`)
+- Learning mode with host profile workflow (`references/learning-mode.md`)
+- Five scenario presets: X / Weibo / blog / podcast / report (`references/scenario-presets.md`)
+- Host profile template and one-shot style extraction prompt
+- Fixed `tools:` field in SKILL.md to use Claude Code's real tool names
+
+See [CHANGELOG.md](./CHANGELOG.md) for the full version history.

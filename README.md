@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
 [![Skill version](https://img.shields.io/badge/skill-1.3.0-orange?style=flat-square)](./CHANGELOG.md)
 
+> **目标只有一个：让 AI 说话，倍儿地道。**
+
 一个用于去除文档"AI 生成感"的 agent 写作技能。同时支持中英文，并提供可选模式用于贴合特定作者的语言风格。
 
 它最适合放在初稿之后做最终润色——Claude Code、Codex 等任何基于大模型的 agent 起完稿之后，由它收尾。目标不是把文字写得更花。目标是在不改原意的前提下，去掉那些明显的生成式痕迹：模板措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲，以及那种"什么都讲一点、什么都不下判断"的伪平衡。
@@ -13,24 +15,6 @@
 - **人味儿质感模式**：在合适的位置注入倒装、语气词、残句、非标准标点等真人写作痕迹（可选）
 - **学习模式**：基于用户提供的真实样本提取一份可复用的 host profile，让后续稿子像"那个人写的"
 - **场景预设**：针对推特 / 微博 / 博客 / 播客 / 专业报告五个场景的具体约束
-
-## 1.3.0 新增
-
-- 中文表达更地道：新增"翻译腔 / 欧化句式"层（被字句、作为一个……、不仅……而且……、对……进行……、复数"们"）、"四字成语堆砌"规则，以及"改写心态"一节——改写时不当资深文案 / 营销专家，换成发微信的朋友 / 公众号编辑 / 资深媒体人来写，改完念一遍
-- 新增英文句子级痕迹（回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写），改编自开源 humanizer 项目——见「参考与致谢」
-- 新增三个示例：中文推特 / X 发帖（`07`）、中文翻译腔专项（`08`）、英文句子级痕迹（`09`）
-- `assets/rewrite-prompt-template.md` 新增"中文改写（带负向约束）"提示词块；final-pass 清单新增可选的五维打分
-
-## 1.2.0 新增
-
-- 中文 AI 味规则与中文前后对照基准（`references/chinese-*.md`）
-- 人味儿质感模式（`references/human-texture.md`）
-- 学习模式与 host profile 工作流（`references/learning-mode.md`）
-- 五个场景预设：X / 微博 / 博客 / 播客 / 报告（`references/scenario-presets.md`）
-- host profile 模板与一次性风格提取提示词
-- 修正 SKILL.md 中 `tools:` 字段为 Claude Code 真实工具名
-
-完整版本历史见 [CHANGELOG.md](./CHANGELOG.md)。
 
 ## 快速示例
 
@@ -134,3 +118,21 @@ LICENSE
 - 保留原意，不要在润色过程中改动事实。
 - 优先给出具体改写，不要给空泛风格建议。
 - 只有在结构确实帮助读者时才保留结构。
+
+## 版本亮点
+
+**1.3.0**
+- 中文表达更地道：新增"翻译腔 / 欧化句式"层（被字句、作为一个……、不仅……而且……、对……进行……、复数"们"）、"四字成语堆砌"规则，以及"改写心态"一节——改写时不当资深文案 / 营销专家，换成发微信的朋友 / 公众号编辑 / 资深媒体人来写，改完念一遍
+- 新增英文句子级痕迹（回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写），改编自开源 humanizer 项目——见「参考与致谢」
+- 新增三个示例：中文推特 / X 发帖（`07`）、中文翻译腔专项（`08`）、英文句子级痕迹（`09`）
+- `assets/rewrite-prompt-template.md` 新增"中文改写（带负向约束）"提示词块；final-pass 清单新增可选的五维打分
+
+**1.2.0**
+- 中文 AI 味规则与中文前后对照基准（`references/chinese-*.md`）
+- 人味儿质感模式（`references/human-texture.md`）
+- 学习模式与 host profile 工作流（`references/learning-mode.md`）
+- 五个场景预设：X / 微博 / 博客 / 播客 / 报告（`references/scenario-presets.md`）
+- host profile 模板与一次性风格提取提示词
+- 修正 SKILL.md 中 `tools:` 字段为 Claude Code 真实工具名
+
+完整版本历史见 [CHANGELOG.md](./CHANGELOG.md)。
