@@ -62,7 +62,7 @@ The skill runs in one of three modes:
 
 Modes combine with scenario presets (tweet / Weibo / blog / podcast / report). Conflict resolution rules are documented in `SKILL.md`.
 
-Human-texture mode also has a **social-only "casual typing" (随手打) layer** (off by default; activates only when you ask for "like a quick phone post"): a tiny amount of phone-typing texture on casual posts — dropped end punctuation, no capitalization, an omitted particle — that **never touches numbers, names, or links** and never makes meaning-changing typos. It's phone-typing texture, not error injection to dodge AI detectors.
+Human-texture mode also has a **social-only "casual typing" (随手打) layer** (off by default; turn it on by naming it — "casual typing" / "开随手打" — or describing the effect — "like a quick phone post"; matched by intent, not a fixed phrase, and a plain "loosen it up" won't trigger it): a tiny amount of phone-typing texture on casual posts — dropped end punctuation, no capitalization, an omitted particle — that **never touches numbers, names, or links** and never makes meaning-changing typos. It's phone-typing texture, not error injection to dodge AI detectors.
 
 ## Use cases
 
