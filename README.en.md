@@ -50,40 +50,6 @@ When in doubt, say nothing — the default clean mode is right for most drafts.
 
 Curated before/after snippets live in [examples/](./examples/) for anyone scanning the repo. The full regression set stays under `references/`.
 
-## Repository layout
-
-```text
-agents/
-  README.md
-  anti-vibe-writing-dev.agent.md           # local, gitignored
-  anti-vibe-writing-dev.agent.example.md
-skills/
-  anti-vibe-writing/
-    SKILL.md
-    references/
-      patterns-to-remove.md                # English AI-smell
-      chinese-patterns-to-remove.md        # 中文 AI 味
-      before-after-benchmarks.md           # English benchmarks
-      chinese-before-after.md              # 中文基准
-      common-problems-and-fixes.md
-      human-passes.md
-      human-texture.md                     # Optional irregularity
-      learning-mode.md                     # Sample-driven style learning
-      scenario-presets.md                  # Per-scenario constraints
-    assets/
-      final-pass-checklist.md
-      rewrite-prompt-template.md
-      host-profile-template.md             # Fillable host profile
-      style-extraction-prompt.md           # One-shot extraction prompt
-examples/
-  ...
-CHANGELOG.md
-CONTRIBUTING.md
-README.md                                    # Chinese (default)
-README.en.md                                 # English
-LICENSE
-```
-
 ## Voice modes
 
 The skill runs in one of three modes:
@@ -117,6 +83,40 @@ Other common cases:
 - Stronger voice
 - Less AI smell
 - Sounds chosen by a person, not assembled by a system
+
+## Repository layout
+
+```text
+agents/
+  README.md
+  anti-vibe-writing-dev.agent.md           # local, gitignored
+  anti-vibe-writing-dev.agent.example.md
+skills/
+  anti-vibe-writing/
+    SKILL.md
+    references/
+      patterns-to-remove.md                # English AI-smell
+      chinese-patterns-to-remove.md        # 中文 AI 味
+      before-after-benchmarks.md           # English benchmarks
+      chinese-before-after.md              # 中文基准
+      common-problems-and-fixes.md
+      human-passes.md
+      human-texture.md                     # Optional irregularity
+      learning-mode.md                     # Sample-driven style learning
+      scenario-presets.md                  # Per-scenario constraints
+    assets/
+      final-pass-checklist.md
+      rewrite-prompt-template.md
+      host-profile-template.md             # Fillable host profile
+      style-extraction-prompt.md           # One-shot extraction prompt
+examples/
+  ...
+CHANGELOG.md
+CONTRIBUTING.md
+README.md                                    # Chinese (default)
+README.en.md                                 # English
+LICENSE
+```
 
 ## Working with the files
 
