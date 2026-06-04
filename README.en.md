@@ -18,7 +18,11 @@ If the default "clean" mode is not enough, the skill also supports:
 
 ## Quick start
 
-This is a Claude Code skill. Three steps to use it.
+At its core this is just a set of markdown rules (`SKILL.md` + `references/` + `assets/`) — not tied to any one agent. Any agent that can read files or take an instruction prompt can use it: Claude Code, Codex, Kimi, work-buddy, Hermes, and the like.
+
+### Option A: Claude Code (native skill)
+
+Three steps.
 
 **1. Install it into Claude Code**
 
@@ -53,6 +57,15 @@ One line of context changes the result a lot:
 - Match a voice: paste a few of your own samples and say "learn my style" → enables learning mode
 
 When in doubt, say nothing — the default clean mode is right for most drafts.
+
+### Option B: any other agent (Codex / Kimi / work-buddy / Hermes …)
+
+Nothing here depends on Claude-only features, so other agents work the same way:
+
+- **Easiest**: open `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`. It has ready-made instruction blocks — Full Rewrite / Light Cleanup in English, and "中文改写（带负向约束）" for Chinese. Copy the block for your language and send it with your draft.
+- **To make the agent follow these rules persistently**: if your agent supports a project- or custom-instructions file (e.g. Codex's `AGENTS.md`, or any agent's system prompt / knowledge base), load `SKILL.md` and the matching `references/*patterns-to-remove.md` as context.
+
+Lowest-friction path: copy the prompt block, paste your draft, send.
 
 ## Quick examples
 
@@ -105,6 +118,10 @@ The skill runs in one of three modes:
 Modes combine with scenario presets (tweet / Weibo / blog / podcast / report). Conflict resolution rules are documented in `SKILL.md`.
 
 ## Use cases
+
+**The flagship case: Chinese posts on X.** Chinese AI-smell is most obvious on X — 赋能 / 打通, 首先 / 其次, three-clause parallelism, and machine-translation syntax give it away at a glance. This skill is built for exactly that: take an "obviously AI-written" Chinese post and make it read like something a person actually typed. See [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md) and [`examples/08-translationese-zh.md`](./examples/08-translationese-zh.md).
+
+Other common cases:
 
 - Social posts (X, Weibo, Jike, RedNote)
 - Blogs, newsletters, public WeChat articles

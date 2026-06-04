@@ -18,7 +18,11 @@
 
 ## 快速上手
 
-这是一个 Claude Code skill，三步就能用上。
+本质上它就是一套 markdown 规则（`SKILL.md` + `references/` + `assets/`），不绑定某一个 agent。只要你的 agent 能读文件、或能接受一段指令，就能用——Claude Code、Codex、Kimi、work-buddy、Hermes 之类都行。
+
+### 方式一：Claude Code（原生 skill）
+
+三步就能用上。
 
 **1. 装进 Claude Code**
 
@@ -53,6 +57,15 @@ cp -r anti-vibe-writing/skills/anti-vibe-writing ~/.claude/skills/
 - 学风格：贴几段你自己写的，说「学我的风格」→ 启用学习模式
 
 拿不准就先什么都不说，默认的"干净模式"对大多数稿子都够用。
+
+### 方式二：其他任意 agent（Codex / Kimi / work-buddy / Hermes …）
+
+它不依赖 Claude 的专有能力，换个 agent 一样用：
+
+- **最省事**：打开 `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`，里面有现成的指令块——英文的 Full Rewrite / Light Cleanup，和中文的「中文改写（带负向约束）」。复制对应语言那一段，连同草稿一起发给你的 agent 就行。
+- **想让 agent 长期照这套规则走**：如果你的 agent 支持"项目指令 / 自定义指令"文件（比如 Codex 的 `AGENTS.md`，或各类 agent 的 system prompt / 知识库），把 `SKILL.md` 和对应语言的 `references/*patterns-to-remove.md` 作为上下文加载进去即可。
+
+门槛最低的一种：直接复制中文负向约束块，贴上你的稿子，发出去。
 
 ## 快速示例
 
@@ -103,6 +116,10 @@ LICENSE
 模式可与场景预设（推特 / 微博 / 博客 / 播客 / 报告）叠加。冲突时的优先级在 `SKILL.md` 里写明。
 
 ## 适用场景
+
+**最典型的一个场景:中文推特(X)。** 中文里的 AI 味在 X 上最容易露馅——"赋能、打通""首先其次"、三连排比、机翻句式,一眼就能看出是 AI 写的。这个 skill 就是专门冲着这种"明显是机器写的"中文短贴去的,把它改回像真人随手发的那种。前后对照见 [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md) 和 [`examples/08-translationese-zh.md`](./examples/08-translationese-zh.md)。
+
+其他常见场景:
 
 - 社交媒体（X、微博、即刻、小红书）
 - 博客、newsletter、公众号
