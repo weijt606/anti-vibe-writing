@@ -20,14 +20,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
   - Chinese: 用身体动作写抽象 (机翻体感词 接住/击穿/收口…), 形容词+冒号预判读者, 抽象名词主语+评价谓语 (from yage.ai's translationese analysis); 回避系动词"是", 同义词循环 (from op7418/Humanizer-zh)
   - English: copula avoidance, negative parallelism, synonym cycling, false ranges, signposting announcements, diff-anchored writing in `references/patterns-to-remove.md` (from blader/humanizer)
 - Optional five-dimension scoring pass (Directness / Rhythm / Trust / Authenticity / Density, threshold 35/50) in `assets/final-pass-checklist.md` (from hardikpandya/stop-slop)
-- **Credits & references** section in `README.md` and `README.zh-CN.md` acknowledging blader/humanizer, hardikpandya/stop-slop, op7418/Humanizer-zh, yage.ai, and @dotey
+- **Credits & references** section in both READMEs acknowledging blader/humanizer, hardikpandya/stop-slop, op7418/Humanizer-zh, yage.ai, and @dotey
 
 ### Changed
 
 - `SKILL.md` `metadata.version` bumped from `1.2.0` to `1.3.0`
 - `SKILL.md` "Editing Heuristics" gains two Chinese-specific heuristics: spot 翻译腔 / 欧化 sentence shapes, and adopt the non-marketing rewrite stance
 - `assets/rewrite-prompt-template.md` gains a "中文改写（带负向约束）" block — a ready-to-hand instruction with role-setting, an explicit 禁止出现 list, and positive 短句 / 大白话 requirements
-- `examples/README.md`, `README.md`, and `README.zh-CN.md` updated for the new example and version
+- `examples/README.md` and both top-level READMEs updated for the new examples and version
+- **Default README language is now Chinese.** `README.md` holds the Chinese version (GitHub's default landing page); the English version moved to `README.en.md`. The former `README.zh-CN.md` is removed (its content is now `README.md`). Language badges in both files switch between them.
 
 ## [1.2.0] — 2026-05-19
 
