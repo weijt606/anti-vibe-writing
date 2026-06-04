@@ -28,7 +28,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - `SKILL.md` "Editing Heuristics" gains two Chinese-specific heuristics: spot 翻译腔 / 欧化 sentence shapes, and adopt the non-marketing rewrite stance
 - `assets/rewrite-prompt-template.md` gains a "中文改写（带负向约束）" block — a ready-to-hand instruction with role-setting, an explicit 禁止出现 list, and positive 短句 / 大白话 requirements
 - `examples/README.md` and both top-level READMEs updated for the new examples and version
-- Both READMEs gain a **Quick start** with two paths — Claude Code (native skill, `/anti-vibe-writing`) and any other agent (Codex / Kimi / work-buddy / Hermes via the `assets/rewrite-prompt-template.md` prompt block or an `AGENTS.md`-style instructions file) — making the agent-agnostic nature explicit
+- Both READMEs gain a single, agent-agnostic **Quick start**: get the rules, feed them to any agent (one-off via the `assets/rewrite-prompt-template.md` prompt block, or persistently via a skills dir / `AGENTS.md` / system prompt — Claude Code is just one example), then optionally name the scenario and voice mode
 - Use-cases section now leads with the flagship case: removing obvious AI traces from Chinese posts on X
 - **Default README language is now Chinese.** `README.md` holds the Chinese version (GitHub's default landing page); the English version moved to `README.en.md`. The former `README.zh-CN.md` is removed (its content is now `README.md`). Language badges in both files switch between them.
 

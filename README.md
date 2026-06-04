@@ -18,36 +18,23 @@
 
 ## 快速上手
 
-本质上它就是一套 markdown 规则（`SKILL.md` + `references/` + `assets/`），不绑定某一个 agent。只要你的 agent 能读文件、或能接受一段指令，就能用——Claude Code、Codex、Kimi、work-buddy、Hermes 之类都行。
+本质上它就是一套 markdown 规则（`SKILL.md` + `references/` + `assets/`），不绑定任何一个 agent。Claude Code、Codex、Kimi、work-buddy、Hermes 之类——只要能读文件、或能接受一段指令，就能用。
 
-### 方式一：Claude Code（原生 skill）
+**1. 拿到规则**
 
-三步就能用上。
-
-**1. 装进 Claude Code**
-
-把 `skills/anti-vibe-writing/` 整个目录复制到 Claude Code 的 skills 目录：
-- 想全局都能用：`~/.claude/skills/anti-vibe-writing/`
-- 只在某个项目里用：`<你的项目>/.claude/skills/anti-vibe-writing/`
-
-或者直接 clone 本仓库再复制过去：
+clone 本仓库，或只复制 `skills/anti-vibe-writing/` 这个目录：
 
 ```bash
 git clone https://github.com/weijt606/anti-vibe-writing.git
-cp -r anti-vibe-writing/skills/anti-vibe-writing ~/.claude/skills/
 ```
 
-**2. 调用它**
+**2. 喂给你的 agent（二选一）**
 
-在 Claude Code 里打斜杠命令，把稿子贴进去：
-
-```text
-/anti-vibe-writing
-把下面这段去掉 AI 味：
-<粘贴你的草稿>
-```
-
-也可以不打命令，直接说"帮我把这段改地道点 / 这段太像 AI 写的了"，skill 会自动触发。
+- **临时用一次（任何 agent 都行，门槛最低）**：打开 `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`，里面有现成的指令块——英文的 Full Rewrite / Light Cleanup，和中文的「中文改写（带负向约束）」。复制对应语言那一段，连同草稿一起发给 agent。
+- **让它长期照这套规则走**：把 `SKILL.md` 和对应语言的 `references/*patterns-to-remove.md` 放进你的 agent 加载上下文的地方。各家叫法不同：
+  - 有 skills 目录的（如 Claude Code）：放到 `~/.claude/skills/anti-vibe-writing/`，之后用 `/anti-vibe-writing` 调用
+  - 有项目指令文件的（如 Codex 的 `AGENTS.md`）：把规则写进去或 include 进去
+  - 其他：贴进 system prompt / 自定义指令 / 知识库
 
 **3.（可选）说清场景和模式**
 
@@ -57,15 +44,6 @@ cp -r anti-vibe-writing/skills/anti-vibe-writing ~/.claude/skills/
 - 学风格：贴几段你自己写的，说「学我的风格」→ 启用学习模式
 
 拿不准就先什么都不说，默认的"干净模式"对大多数稿子都够用。
-
-### 方式二：其他任意 agent（Codex / Kimi / work-buddy / Hermes …）
-
-它不依赖 Claude 的专有能力，换个 agent 一样用：
-
-- **最省事**：打开 `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`，里面有现成的指令块——英文的 Full Rewrite / Light Cleanup，和中文的「中文改写（带负向约束）」。复制对应语言那一段，连同草稿一起发给你的 agent 就行。
-- **想让 agent 长期照这套规则走**：如果你的 agent 支持"项目指令 / 自定义指令"文件（比如 Codex 的 `AGENTS.md`，或各类 agent 的 system prompt / 知识库），把 `SKILL.md` 和对应语言的 `references/*patterns-to-remove.md` 作为上下文加载进去即可。
-
-门槛最低的一种：直接复制中文负向约束块，贴上你的稿子，发出去。
 
 ## 快速示例
 

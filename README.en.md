@@ -18,36 +18,23 @@ If the default "clean" mode is not enough, the skill also supports:
 
 ## Quick start
 
-At its core this is just a set of markdown rules (`SKILL.md` + `references/` + `assets/`) — not tied to any one agent. Any agent that can read files or take an instruction prompt can use it: Claude Code, Codex, Kimi, work-buddy, Hermes, and the like.
+At its core this is just a set of markdown rules (`SKILL.md` + `references/` + `assets/`) — not tied to any one agent. Claude Code, Codex, Kimi, work-buddy, Hermes — if it can read files or take an instruction prompt, it can use this.
 
-### Option A: Claude Code (native skill)
+**1. Get the rules**
 
-Three steps.
-
-**1. Install it into Claude Code**
-
-Copy the whole `skills/anti-vibe-writing/` folder into your Claude Code skills directory:
-- Available everywhere: `~/.claude/skills/anti-vibe-writing/`
-- Scoped to one project: `<your-project>/.claude/skills/anti-vibe-writing/`
-
-Or clone this repo and copy it over:
+Clone the repo, or just copy the `skills/anti-vibe-writing/` folder:
 
 ```bash
 git clone https://github.com/weijt606/anti-vibe-writing.git
-cp -r anti-vibe-writing/skills/anti-vibe-writing ~/.claude/skills/
 ```
 
-**2. Invoke it**
+**2. Feed it to your agent (pick one)**
 
-In Claude Code, run the slash command and paste your draft:
-
-```text
-/anti-vibe-writing
-De-AI the following:
-<paste your draft>
-```
-
-You can also skip the command and just say "humanize this" or "this reads too much like AI" — the skill triggers on its own.
+- **One-off (any agent, lowest friction)**: open `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`. It has ready-made instruction blocks — Full Rewrite / Light Cleanup in English, and "中文改写（带负向约束）" for Chinese. Copy the block for your language and send it with your draft.
+- **Persistent**: put `SKILL.md` and the matching `references/*patterns-to-remove.md` wherever your agent loads context. Names differ by tool:
+  - Agents with a skills directory (e.g. Claude Code): drop it in `~/.claude/skills/anti-vibe-writing/`, then call `/anti-vibe-writing`
+  - Agents with a project-instructions file (e.g. Codex's `AGENTS.md`): write or include the rules there
+  - Otherwise: paste into the system prompt / custom instructions / knowledge base
 
 **3. (Optional) Name the scenario and mode**
 
@@ -57,15 +44,6 @@ One line of context changes the result a lot:
 - Match a voice: paste a few of your own samples and say "learn my style" → enables learning mode
 
 When in doubt, say nothing — the default clean mode is right for most drafts.
-
-### Option B: any other agent (Codex / Kimi / work-buddy / Hermes …)
-
-Nothing here depends on Claude-only features, so other agents work the same way:
-
-- **Easiest**: open `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`. It has ready-made instruction blocks — Full Rewrite / Light Cleanup in English, and "中文改写（带负向约束）" for Chinese. Copy the block for your language and send it with your draft.
-- **To make the agent follow these rules persistently**: if your agent supports a project- or custom-instructions file (e.g. Codex's `AGENTS.md`, or any agent's system prompt / knowledge base), load `SKILL.md` and the matching `references/*patterns-to-remove.md` as context.
-
-Lowest-friction path: copy the prompt block, paste your draft, send.
 
 ## Quick examples
 
