@@ -29,13 +29,13 @@ in one call.
 
 ## What changed (one tell per fix)
 
-- **Negative parallelism** — "This isn't just another database. It's a rethink..." dropped; the piece opens on the claim itself
-- **Copula avoidance** — "serves as", "boasts", "features" become "is", "are", "handles"
-- **Synonym cycling** — "Our engine / The platform / the system" all named one thing; the rewrite says "database" once and reuses it
-- **False range** — "everything from caching to indexing to backups" becomes a plain list: "caching, indexing, and backups"
-- **Em-dash insertion** — the "— the system —" aside is gone
-- **Diff-anchored writing** — "We've now updated it to also support vector search" becomes the present-state "It also does vector search"
-- **Signposting** — "Let's dive into what that means" cut; the next sentence just says what it means
+- **Negative parallelism**: "This isn't just another database. It's a rethink..." dropped; the piece opens on the claim itself
+- **Copula avoidance**: "serves as", "boasts", "features" become "is", "are", "handles"
+- **Synonym cycling**: "Our engine / The platform / the system" all named one thing; the rewrite says "database" once and reuses it
+- **False range**: "everything from caching to indexing to backups" becomes a plain list: "caching, indexing, and backups"
+- **Em-dash insertion**: the "— the system —" aside is gone
+- **Diff-anchored writing**: "We've now updated it to also support vector search" becomes the present-state "It also does vector search"
+- **Signposting**: "Let's dive into what that means" cut; the next sentence just says what it means
 
 ## Effect
 

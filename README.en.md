@@ -3,9 +3,9 @@
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.4.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.5.0-orange?style=flat-square)](./CHANGELOG.md)
 
-> **One goal: make AI sound genuinely idiomatic — 倍儿地道.**
+> **One goal: make AI sound genuinely idiomatic, 倍儿地道.**
 
 An agent writing skill that removes the AI-generated feel from documents. Works in English and Chinese, with optional modes for matching a specific author's voice.
 
@@ -18,7 +18,7 @@ If the default "clean" mode is not enough, the skill also supports:
 
 ## Quick start
 
-At its core this is just a set of markdown rules (`SKILL.md` + `references/` + `assets/`) — not tied to any one agent. Claude Code, Codex, Kimi, work-buddy, Hermes — if it can read files or take an instruction prompt, it can use this.
+At its core this is just a set of markdown rules (`SKILL.md` + `references/` + `assets/`), not tied to any one agent. Claude Code, Codex, Kimi, work-buddy, Hermes. If it can read files or take an instruction prompt, it can use this.
 
 **1. Get the rules**
 
@@ -30,8 +30,8 @@ git clone https://github.com/weijt606/anti-vibe-writing.git
 
 **2. Feed it to your agent (pick whichever fits)**
 
-- **Simplest: just hand it the repo link.** No need to clone first — send `https://github.com/weijt606/anti-vibe-writing` and let the agent read `SKILL.md` and `references/` and configure itself. Works with any agent that can browse the web or run git.
-- **One-off (any agent)**: open `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`. It has ready-made instruction blocks — Full Rewrite / Light Cleanup in English, and "中文改写（带负向约束）" for Chinese. Copy the block for your language and send it with your draft.
+- **Simplest: just hand it the repo link.** No need to clone first: send `https://github.com/weijt606/anti-vibe-writing` and let the agent read `SKILL.md` and `references/` and configure itself. Works with any agent that can browse the web or run git.
+- **One-off (any agent)**: open `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`. It has ready-made instruction blocks: Full Rewrite / Light Cleanup in English, and "中文改写（带负向约束）" for Chinese. Copy the block for your language and send it with your draft.
 - **Persistent**: put `SKILL.md` and the matching `references/*patterns-to-remove.md` wherever your agent loads context. Names differ by tool:
   - Agents with a skills directory (e.g. Claude Code): drop it in `~/.claude/skills/anti-vibe-writing/`, then call `/anti-vibe-writing`
   - Agents with a project-instructions file (e.g. Codex's `AGENTS.md`): write or include the rules there
@@ -44,7 +44,7 @@ One line of context changes the result a lot:
 - Loosen up: "make it feel personal" / "blog voice" → enables human-texture mode
 - Match a voice: paste a few of your own samples and say "learn my style" → enables learning mode
 
-When in doubt, say nothing — the default clean mode is right for most drafts.
+When in doubt, say nothing. The default clean mode is right for most drafts.
 
 ## Quick examples
 
@@ -56,17 +56,17 @@ The skill runs in one of three modes:
 
 | Mode | When to use | Triggered by |
 |---|---|---|
-| Default (clean) | Most product, docs, and professional copy | Default — no opt-in needed |
+| Default (clean) | Most product, docs, and professional copy | Default, no opt-in needed |
 | Human texture | Personal blogs, founder notes, social posts | "Loosen it up" / "blog voice" / "make it feel personal" |
 | Learning mode | Series content, personal newsletters, voice-consistent comms | User provides samples, or asks "learn my style" |
 
 Modes combine with scenario presets (tweet / Weibo / blog / podcast / report). Conflict resolution rules are documented in `SKILL.md`.
 
-Human-texture mode also has a **social-only "casual typing" (随手打) layer** (off by default; turn it on by naming it — "casual typing" / "开随手打" — or describing the effect — "like a quick phone post"; matched by intent, not a fixed phrase, and a plain "loosen it up" won't trigger it): a tiny amount of phone-typing texture on casual posts — dropped end punctuation, no capitalization, an omitted particle — that **never touches numbers, names, or links** and never makes meaning-changing typos. It's phone-typing texture, not error injection to dodge AI detectors.
+Human-texture mode also has a **social-only "casual typing" (随手打) layer** (off by default; turn it on by naming it, "casual typing" / "开随手打", or describing the effect, "like a quick phone post"; matched by intent, not a fixed phrase, and a plain "loosen it up" won't trigger it): a tiny amount of phone-typing texture on casual posts (dropped end punctuation, no capitalization, an omitted particle) that **never touches numbers, names, or links** and never makes meaning-changing typos. It's phone-typing texture, not error injection to dodge AI detectors.
 
 ## Use cases
 
-**The flagship case: Chinese posts on X.** Chinese AI-smell is most obvious on X — 赋能 / 打通, 首先 / 其次, three-clause parallelism, and machine-translation syntax give it away at a glance. This skill is built for exactly that: take an "obviously AI-written" Chinese post and make it read like something a person actually typed. See [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md) and [`examples/08-translationese-zh.md`](./examples/08-translationese-zh.md).
+**The flagship case: Chinese posts on X.** Chinese AI-smell is most obvious on X: 赋能 / 打通, 首先 / 其次, three-clause parallelism, and machine-translation syntax give it away at a glance. This skill is built for exactly that: take an "obviously AI-written" Chinese post and make it read like something a person actually typed. See [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md) and [`examples/08-translationese-zh.md`](./examples/08-translationese-zh.md).
 
 Other common cases:
 
@@ -133,13 +133,13 @@ If you want tool-specific auto-discovery, you may still need to mirror these fil
 This skill stands on the shoulders of several open de-AI / humanizer projects and writeups. The patterns below were studied and adapted into this skill's own structure; the original analysis and wording belong to their authors. Thanks to:
 
 English:
-- [blader/humanizer](https://github.com/blader/humanizer) — a 30-pattern humanizer skill (MIT). Informed the sentence-level tells: copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing.
-- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) — AI-slop detection skill (MIT). Source of the optional five-dimension scoring pass (Directness / Rhythm / Trust / Authenticity / Density) in `assets/final-pass-checklist.md`.
+- [blader/humanizer](https://github.com/blader/humanizer): a 30-pattern humanizer skill (MIT). Informed the sentence-level tells: copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing.
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop): AI-slop detection skill (MIT). Source of the optional five-dimension scoring pass (Directness / Rhythm / Trust / Authenticity / Density) in `assets/final-pass-checklist.md`.
 
 中文 / Chinese:
-- [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh) — a 24-pattern Chinese humanizer skill, itself a Chinese adaptation of blader/humanizer (MIT). Informed the copula-"是" avoidance and synonym-cycling tells in the Chinese track.
-- ["AI 中文翻译腔" by yage.ai](https://yage.ai/share/ai-chinese-translationese-20260418.html) — the analysis of Chinese translationese (物理动作动词写抽象 / 形容词加冒号预判读者 / 抽象名词主语). Informed the 翻译腔层 of `references/chinese-patterns-to-remove.md`.
-- [@dotey on X](https://x.com/dotey/status/2022774029220749538) — discussion of de-AI prompt techniques (role-setting, negative constraints) that shaped the 改写心态 section and the Chinese rewrite prompt block.
+- [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh): a 24-pattern Chinese humanizer skill, itself a Chinese adaptation of blader/humanizer (MIT). Informed the copula-"是" avoidance and synonym-cycling tells in the Chinese track.
+- ["AI 中文翻译腔" by yage.ai](https://yage.ai/share/ai-chinese-translationese-20260418.html): the analysis of Chinese translationese (物理动作动词写抽象 / 形容词加冒号预判读者 / 抽象名词主语). Informed the 翻译腔层 of `references/chinese-patterns-to-remove.md`.
+- [@dotey on X](https://x.com/dotey/status/2022774029220749538): discussion of de-AI prompt techniques (role-setting, negative constraints) that shaped the 改写心态 section and the Chinese rewrite prompt block.
 
 These are independent projects with their own scope; this repo borrows ideas, not code. If you maintain one of them and want a credit adjusted, open an issue.
 
@@ -159,12 +159,20 @@ This project is open source under the MIT License. See `LICENSE`.
 
 ## Version highlights
 
+**1.5.0**
+- New typographic-tells layer targeting the signals readers, platforms (Reddit and others), and detectors catch first: the em-dash (`—` / `——`), en-dash connectors, smart quotes `“ ” ‘ ’`, the `…` character, and stray `→ • ·` in prose. Replace each by the job it does (period, comma, colon, parentheses, straight quotes) while leaving Chinese full-width quotes alone
+- New format-forms mapping: swaps the AI *layout* habits (scattered bolding, a heading per short chunk, bullets where a sentence works, `1. 2. 3.` frameworks, `> callouts`, `---` rules, tables for 2–3 items) for the plainest thing a person actually types. Rule of thumb: if you wouldn't type the formatting into a message to a friend, cut it
+- Human-texture mode reconciled: the em-dash used to be a "personal voice" signal, but AI now overuses it into a tell, so it's downgraded to rare-and-deliberate with parenthesis/period alternatives
+- Stated plainly: stripping these symbols is not a trick to dodge a detector. It makes the text genuinely read like keyboard typing, and lower false-positive flags are just a side effect
+- A sixth scenario preset: Reddit / English forum comments. Comment-as-genuine-help constraints, a hard "no em-dashes at all" rule (some subreddit automods flag em-dash density and auto-remove comments as low-effort/AI), break too-symmetric "it's not X, it's Y" parallelism, casual connectors, plus disclosure / anti-sock-puppet guardrails
+- New example `10`: an em-dash / typographic-tell before-after in both English and Chinese
+
 **1.4.0**
-- Human-texture mode gains a "casual typing" (随手打) layer: a social-only, default-off, hard-guardrailed sliver of phone-typing texture (dropped punctuation / no caps / omitted particle) — never on numbers or names, never meaning-changing typos, and not for dodging detectors
+- Human-texture mode gains a "casual typing" (随手打) layer: a social-only, default-off, hard-guardrailed sliver of phone-typing texture (dropped punctuation / no caps / omitted particle), never on numbers or names, never meaning-changing typos, and not for dodging detectors
 
 **1.3.0**
 - A sharper Chinese track for more idiomatic (地道) output: a 翻译腔 / 欧化句式 layer (被字句, 作为一个…, 不仅…而且…, 对…进行…, 复数"们"), a 四字成语 overuse rule, and a 改写心态 section that swaps the 资深文案 / 营销专家 stance for a friend / 公众号 editor / journalist voice
-- New sentence-level English tells (copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing), adapted from open humanizer projects — see Credits
+- New sentence-level English tells (copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing), adapted from open humanizer projects (see Credits)
 - Three new examples: a Chinese X/Twitter post (`07`), a Chinese translationese demo (`08`), and an English sentence-tells demo (`09`)
 - A ready-to-use "中文改写（带负向约束）" prompt block in `assets/rewrite-prompt-template.md`, plus an optional five-dimension scoring pass in the final-pass checklist
 

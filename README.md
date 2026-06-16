@@ -3,22 +3,22 @@
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.4.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.5.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > **目标只有一个：让 AI 说话，倍儿地道。**
 
 一个用于去除文档"AI 生成感"的 agent 写作技能。同时支持中英文，并提供可选模式用于贴合特定作者的语言风格。
 
-它最适合放在初稿之后做最终润色——Claude Code、Codex 等任何基于大模型的 agent 起完稿之后，由它收尾。目标不是把文字写得更花。目标是在不改原意的前提下，去掉那些明显的生成式痕迹：模板措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲，以及那种"什么都讲一点、什么都不下判断"的伪平衡。
+它最适合放在初稿之后做最终润色。Claude Code、Codex 等任何基于大模型的 agent 起完稿之后，由它收尾。目标不是把文字写得更花。目标是在不改原意的前提下，去掉那些明显的生成式痕迹：模板措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲，以及那种"什么都讲一点、什么都不下判断"的伪平衡。
 
 如果默认的"干净模式"还不够，skill 还提供：
 - **人味儿质感模式**：在合适的位置注入倒装、语气词、残句、非标准标点等真人写作痕迹（可选）
 - **学习模式**：基于用户提供的真实样本提取一份可复用的 host profile，让后续稿子像"那个人写的"
-- **场景预设**：针对推特 / 微博 / 博客 / 播客 / 专业报告五个场景的具体约束
+- **场景预设**：针对推特 / 微博 / Reddit / 博客 / 播客 / 专业报告六个场景的具体约束
 
 ## 快速上手
 
-本质上它就是一套 markdown 规则（`SKILL.md` + `references/` + `assets/`），不绑定任何一个 agent。Claude Code、Codex、Kimi、work-buddy、Hermes 之类——只要能读文件、或能接受一段指令，就能用。
+本质上它就是一套 markdown 规则（`SKILL.md` + `references/` + `assets/`），不绑定任何一个 agent。Claude Code、Codex、Kimi、work-buddy、Hermes 之类，只要能读文件、或能接受一段指令，就能用。
 
 **1. 拿到规则**
 
@@ -30,8 +30,8 @@ git clone https://github.com/weijt606/anti-vibe-writing.git
 
 **2. 喂给你的 agent（挑一种顺手的）**
 
-- **最简单：直接把仓库链接丢给它**。不用先 clone——把 `https://github.com/weijt606/anti-vibe-writing` 发给 agent，让它自己读 `SKILL.md` 和 `references/`，照着配置、改写。能联网或能跑 git 的 agent 基本都行。
-- **临时用一次（任何 agent 都行）**：打开 `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`，里面有现成的指令块——英文的 Full Rewrite / Light Cleanup，和中文的「中文改写（带负向约束）」。复制对应语言那一段，连同草稿一起发给 agent。
+- **最简单：直接把仓库链接丢给它**。不用先 clone，把 `https://github.com/weijt606/anti-vibe-writing` 发给 agent，让它自己读 `SKILL.md` 和 `references/`，照着配置、改写。能联网或能跑 git 的 agent 基本都行。
+- **临时用一次（任何 agent 都行）**：打开 `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`，里面有现成的指令块：英文的 Full Rewrite / Light Cleanup，和中文的「中文改写（带负向约束）」。复制对应语言那一段，连同草稿一起发给 agent。
 - **让它长期照这套规则走**：把 `SKILL.md` 和对应语言的 `references/*patterns-to-remove.md` 放进你的 agent 加载上下文的地方。各家叫法不同：
   - 有 skills 目录的（如 Claude Code）：放到 `~/.claude/skills/anti-vibe-writing/`，之后用 `/anti-vibe-writing` 调用
   - 有项目指令文件的（如 Codex 的 `AGENTS.md`）：把规则写进去或 include 进去
@@ -60,11 +60,11 @@ git clone https://github.com/weijt606/anti-vibe-writing.git
 
 模式可与场景预设（推特 / 微博 / 博客 / 播客 / 报告）叠加。冲突时的优先级在 `SKILL.md` 里写明。
 
-人味儿质感模式下还有一个**社交专用的「随手打」子档**（默认关，需明确要求才开——说"开随手打"或"像手机随手发的"都行，按意图识别，不认死某句话；只说"放松一点"不会触发）：只在推特 / 微博等休闲场景加极少量随手感——漏句末标点、不大写、漏个虚词，**绝不碰数字、名称、链接**，也不做会改义的错别字。它是手机口语手感，不是"制造错误骗检测"。
+人味儿质感模式下还有一个**社交专用的「随手打」子档**（默认关，需明确要求才开，说"开随手打"或"像手机随手发的"都行，按意图识别，不认死某句话；只说"放松一点"不会触发）：只在推特 / 微博等休闲场景加极少量随手感，比如漏句末标点、不大写、漏个虚词，**绝不碰数字、名称、链接**，也不做会改义的错别字。它是手机口语手感，不是"制造错误骗检测"。
 
 ## 适用场景
 
-**最典型的一个场景:中文推特(X)。** 中文里的 AI 味在 X 上最容易露馅——"赋能、打通""首先其次"、三连排比、机翻句式,一眼就能看出是 AI 写的。这个 skill 就是专门冲着这种"明显是机器写的"中文短贴去的,把它改回像真人随手发的那种。前后对照见 [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md) 和 [`examples/08-translationese-zh.md`](./examples/08-translationese-zh.md)。
+**最典型的一个场景：中文推特（X）。** 中文里的 AI 味在 X 上最容易露馅："赋能、打通""首先其次"、三连排比、机翻句式，一眼就能看出是 AI 写的。这个 skill 就是专门冲着这种"明显是机器写的"中文短贴去的，把它改回像真人随手发的那种。前后对照见 [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md) 和 [`examples/08-translationese-zh.md`](./examples/08-translationese-zh.md)。
 
 其他常见场景:
 
@@ -131,13 +131,13 @@ LICENSE
 这个 skill 借鉴了几个开源的 de-AI / humanizer 项目和文章。下面这些 pattern 是研究后改写进本项目自己的结构里的，原始分析和措辞归原作者所有。感谢：
 
 英文：
-- [blader/humanizer](https://github.com/blader/humanizer) —— 30 条 pattern 的 humanizer skill（MIT）。启发了英文的句子级痕迹：回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写而非按现状写。
-- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) —— AI slop 检测 skill（MIT）。`assets/final-pass-checklist.md` 里那套可选的五维打分（直接 / 节奏 / 信任 / 真人感 / 密度）来自它。
+- [blader/humanizer](https://github.com/blader/humanizer)：30 条 pattern 的 humanizer skill（MIT）。启发了英文的句子级痕迹：回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写而非按现状写。
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop)：AI slop 检测 skill（MIT）。`assets/final-pass-checklist.md` 里那套可选的五维打分（直接 / 节奏 / 信任 / 真人感 / 密度）来自它。
 
 中文：
-- [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh) —— 24 条 pattern 的中文 humanizer skill，本身是 blader/humanizer 的中文改编（MIT）。启发了中文轨里"回避系动词'是'"和"同义词循环"两条。
-- [yage.ai《AI 中文翻译腔》](https://yage.ai/share/ai-chinese-translationese-20260418.html) —— 对中文翻译腔的拆解（用身体动作词写抽象 / 形容词加冒号替读者下判断 / 抽象名词当主语）。启发了 `references/chinese-patterns-to-remove.md` 的"翻译腔层"。
-- [X 上的 @dotey](https://x.com/dotey/status/2022774029220749538) —— 关于去 AI 味提示词技巧的讨论（身份设定、负向约束），影响了"改写心态"一节和中文改写提示词块。
+- [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh)：24 条 pattern 的中文 humanizer skill，本身是 blader/humanizer 的中文改编（MIT）。启发了中文轨里"回避系动词'是'"和"同义词循环"两条。
+- [yage.ai《AI 中文翻译腔》](https://yage.ai/share/ai-chinese-translationese-20260418.html)：对中文翻译腔的拆解（用身体动作词写抽象 / 形容词加冒号替读者下判断 / 抽象名词当主语）。启发了 `references/chinese-patterns-to-remove.md` 的"翻译腔层"。
+- [X 上的 @dotey](https://x.com/dotey/status/2022774029220749538)：关于去 AI 味提示词技巧的讨论（身份设定、负向约束），影响了"改写心态"一节和中文改写提示词块。
 
 这些都是各自独立、各有边界的项目，本仓库借鉴的是思路，不是代码。如果你是其中某个项目的维护者、想调整致谢写法，欢迎开 issue。
 
@@ -157,12 +157,20 @@ LICENSE
 
 ## 版本亮点
 
+**1.5.0**
+- 新增"标点符号痕迹"层：把最容易被一眼认出、也最常被平台（Reddit 等）和检测工具拦的 AI 标点拎出来专门处理：破折号 `——` / `—`、英文弯引号、`…` 字符、句中乱入的 `→ • ·`。按它们在干的活换成句号 / 逗号 / 冒号 / 括号；中文全角引号 `""` 正常，不动
+- 新增"格式形式"对照表：把 AI 爱用的*排版*（满屏加粗、每小段一个标题、该用句子却列点、`1. 2. 3.` 框架、`> 提示框`、分割线、表格塞两三条信息）一一换成真人随手会打的最朴素形式。判断标准：这个格式你会不会打进给朋友的微信里？不会就删
+- 同步修正人味儿质感模式：破折号曾被当作"个人语气"信号，现已被 AI 用滥成痕迹，故改为克制使用，并提供括号 / 句号等替代
+- 立场写清楚：去掉这些符号不是"骗检测"，而是让文字真的回到人随手打字的样子，少被误判只是顺带的结果
+- 新增第六个场景预设：Reddit / 英文论坛评论。评论当"帮人"写、硬性"破折号一个都别用"（有些子版块的 automod 把破折号密度当 AI 信号自动删评论）、打散过于对称的对仗、口语连接词，外加披露与反"小号自吹"的底线
+- 新增示例 `10`：破折号等标点痕迹的中英前后对照
+
 **1.4.0**
 - 人味儿质感模式新增「随手打」子档：社交专用、默认关、带硬护栏的极少量"手机随手打"手感（漏标点 / 不大写 / 漏虚词），不碰数字与名称，不做会改义的错别字，也不为骗检测
 
 **1.3.0**
-- 中文表达更地道：新增"翻译腔 / 欧化句式"层（被字句、作为一个……、不仅……而且……、对……进行……、复数"们"）、"四字成语堆砌"规则，以及"改写心态"一节——改写时不当资深文案 / 营销专家，换成发微信的朋友 / 公众号编辑 / 资深媒体人来写，改完念一遍
-- 新增英文句子级痕迹（回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写），改编自开源 humanizer 项目——见「参考与致谢」
+- 中文表达更地道：新增"翻译腔 / 欧化句式"层（被字句、作为一个……、不仅……而且……、对……进行……、复数"们"）、"四字成语堆砌"规则，以及"改写心态"一节，改写时不当资深文案 / 营销专家，换成发微信的朋友 / 公众号编辑 / 资深媒体人来写，改完念一遍
+- 新增英文句子级痕迹（回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写），改编自开源 humanizer 项目，见「参考与致谢」
 - 新增三个示例：中文推特 / X 发帖（`07`）、中文翻译腔专项（`08`）、英文句子级痕迹（`09`）
 - `assets/rewrite-prompt-template.md` 新增"中文改写（带负向约束）"提示词块；final-pass 清单新增可选的五维打分
 

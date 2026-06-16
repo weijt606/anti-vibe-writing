@@ -24,8 +24,8 @@ Try it out today! 👇
 ## After
 
 ```
-AI drafts that read like AI drafts have a problem. Not that they're wrong —
-they're just clearly assembled. Anti-Vibe Writing is the final pass that
+AI drafts that read like AI drafts have a problem. Not that they're wrong.
+They're just clearly assembled. Anti-Vibe Writing is the final pass that
 removes the assembly marks.
 
 Works in English and Chinese.
@@ -36,6 +36,6 @@ Works in English and Chinese.
 - Emoji preamble cut
 - "In today's fast-paced world" gone
 - Three benefit bullets condensed into one sharp claim
-- No "try it out today" — the post earns the click on its own
-- Length dropped from 110+ words to 30 — fits Twitter's actual rhythm
+- No "try it out today"; the post earns the click on its own
+- Length dropped from 110+ words to 30, which fits Twitter's actual rhythm
 - Final short line ("Works in English and Chinese") adds a concrete fact instead of a CTA

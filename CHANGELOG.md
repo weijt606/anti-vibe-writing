@@ -4,6 +4,28 @@ All notable changes to the `anti-vibe-writing` skill are recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the skill itself (declared in `skills/anti-vibe-writing/SKILL.md` frontmatter).
 
+## [1.5.0] — 2026-06-16
+
+### Added
+
+- **Typographic-tells layer** — a first-class category for the symbols that flag generated text fastest (with readers, platforms like Reddit, and detectors). Em-dash front and center:
+  - English: a "Typographic Tells (Strip These First)" section at the top of `references/patterns-to-remove.md` covering the em-dash `—` / en-dash connector, smart quotes `“ ” ‘ ’`, the `…` character, and stray `→ • ·`, each with a job-based replacement (period / comma / colon / parentheses / straight quotes)
+  - Chinese: a rewritten, em-dash-led `## 标点和排版的痕迹` section in `references/chinese-patterns-to-remove.md` — `——` overuse is called out as the most recognizable Chinese AI punctuation tell, with replacements; an explicit note that full-width quotes `“”` are normal and stay; plus a new 快速识别法 signal for `——` density
+- **Format-forms mapping** — a "Format Forms → Plain Human Forms" table in `references/patterns-to-remove.md` and a parallel "格式形式：换成人最常用的写法" table in `references/chinese-patterns-to-remove.md`. Maps each AI *layout* habit (scattered bolding, a heading per short chunk, bullets where a sentence works, `1. 2. 3.` frameworks, `> callouts`, `---` rules, label blocks, tables for 2–3 items) to the plainest thing a person actually types, with the rule of thumb: if you wouldn't type the formatting into a message to a friend, cut it
+- `examples/10-typographic-tells.md` — em-dash / smart-quote / ellipsis before-after in both English and Chinese, with the full-width-quote exception called out
+- "Problem: Typographic AI Tells" entry in `references/common-problems-and-fixes.md`
+- **Sixth scenario preset: Reddit / English forum comments** in `references/scenario-presets.md` — comment-as-genuine-help constraints, a hard "no em-dashes at all" rule (some subreddit automods flag em-dash density and auto-remove comments as low-effort/AI), break too-symmetric "it's not X, it's Y" parallelism, casual connectors, one oddly-specific real detail, plus disclosure/anti-sock-puppet guardrails. Framed the same honest way: write a genuinely human, useful comment; not getting falsely flagged is a side effect, not a trick to push ads past moderators
+
+### Changed
+
+- **Human-texture mode reconciled with the new layer.** `references/human-texture.md` Section 5 no longer recommends the em-dash as a "personal voice" move (AI overuse has turned it into a tell); it now offers parenthesis/period alternatives and caps em-dash use at rare-and-deliberate, especially in platform-scanned social copy. Section 4 self-correction and Section 3 half-sentence examples reworked off the em-dash.
+- `SKILL.md`: `metadata.version` `1.4.0` → `1.5.0`; frontmatter description now names the typographic tells; new bullets under "What to Remove Early" and "Default Editing Moves" for both typographic tells and AI layout forms
+- `assets/final-pass-checklist.md`: new checks for typographic tells (with the English-quotes-only / Chinese-quotes-stay distinction) and leftover AI layout forms
+- `assets/rewrite-prompt-template.md`: typographic-tell instructions added to the Full Rewrite, Light Cleanup, and 中文改写（带负向约束）blocks
+- Framing kept honest throughout: tell-stripping makes the text genuinely read like keyboard typing; it is **not** sold as a way to beat a detector, and lower false-positive flags are described as a side effect
+- **Dogfooding sweep — the repo now practices what it preaches.** Removed the project's own prose em-dashes across both READMEs, `SKILL.md`, every reference and asset file, and the examples (converting to periods, commas, colons, or parentheses per the new rule), plus fixed Chinese full-width-punctuation slips in the README's flagship paragraph. Em-dashes that remain are deliberate: backtick character references that *teach* the rule, "before"-block AI text in the examples, and before→after demos. Also corrected three example *after*-blocks (`03`, `05`, `07`, alongside the earlier `04`) that had modeled the now-discouraged em-dash in exemplary output
+- READMEs: version badge → 1.5.0, a 1.5.0 entry in Version highlights, and example `10` listed in `examples/README.md`
+
 ## [1.4.0] — 2026-06-05
 
 ### Added

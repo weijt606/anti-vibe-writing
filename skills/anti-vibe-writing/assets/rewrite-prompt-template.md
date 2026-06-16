@@ -10,6 +10,7 @@ Goals:
 - Keep the meaning, claims, names, numbers, and technical accuracy intact.
 - Make the writing sound written, not generated.
 - Remove templated phrasing, consultant-speak, vague abstraction, stock markdown modules, emoji or icon headings, decorative bolding, and empty balance.
+- Strip typographic AI tells: replace em-dashes (—) and en-dash connectors with periods, commas, colons, or parentheses; turn smart quotes “ ” ‘ ’ into straight quotes; replace the … character with three periods. (Leave Chinese full-width quotes alone.)
 - Reduce markdown unless it clearly helps the reader.
 - Keep warmth through specificity, cadence, and judgment rather than friendly filler.
 - Prefer direct sentences and concrete nouns and verbs.
@@ -45,6 +46,7 @@ Goals:
 - Remove the most obvious AI markers.
 - Keep the current structure unless it is clearly hurting readability.
 - Cut emoji, icon headings, decorative markdown, and filler transitions.
+- Remove em-dashes (—), smart quotes, and the … character (the typographic tells platforms and detectors catch first) by swapping in plain keyboard punctuation.
 - Make the wording more concrete and the rhythm less robotic.
 - Do not add new facts or change the intended meaning.
 
@@ -66,6 +68,7 @@ Return the edited text directly.
 - 说教词：让我们一起、不可否认、毋庸置疑、综上所述、总而言之、值得注意的是
 - 欧化 / 翻译腔句式：不仅……而且……、一方面……另一方面……、作为一个……、被……所……、对……进行……
 - 结构套路：首先 / 其次 / 最后、【】段头、emoji 段头、三连排比、段尾升华到"行业 / 时代 / 未来"
+- 标点痕迹：破折号 `——` 别用密（最容易被一眼认出是 AI，平台和检测也最先盯它），多数换成逗号、句号、冒号或括号；别夹弯引号、`…`、`→` 这类符号。中文全角引号 `""` 正常，不用动。
 
 正向要求：
 - 多用短句，多用大白话；一句最多一个四字成语，能用动词就别名词化。

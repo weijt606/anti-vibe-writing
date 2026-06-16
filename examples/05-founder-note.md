@@ -25,7 +25,7 @@ We're building a final pass that helps the text sound like someone meant it.
 
 That matters more now than it used to. Teams can draft anything in seconds
 and still struggle to publish anything with a point of view. Most "AI
-writing tools" make this worse — they double down on the assembly. We're
+writing tools" make this worse. They double down on the assembly. We're
 trying to undo that last layer.
 
 It's a narrow tool. On purpose.
@@ -37,7 +37,7 @@ It's a narrow tool. On purpose.
 - "Empower / unlock / differentiated experience / meaningful outcomes" all gone
 - The actual point arrives in line 1, not paragraph 2
 - Three short sentences set up a contrast; a half-sentence ("On purpose.") closes
-- No bullet points — the prose carries the weight
+- No bullet points; the prose carries the weight
 - Inversion in the opening pair adds rhythm: "We're not building X. We're building Y."
 
 ## Why human-texture mode

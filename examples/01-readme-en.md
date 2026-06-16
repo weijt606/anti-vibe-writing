@@ -42,4 +42,4 @@ meant it.
 - "Innovative solution / seamless / efficient" → concrete description of what it does
 - Three vague benefit bullets collapsed into one sentence about scope
 - "In today's fast-paced landscape" cut entirely
-- A line about when to use it added — turns a description into a recommendation
+- A line about when to use it added, turning a description into a recommendation

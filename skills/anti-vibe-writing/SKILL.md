@@ -1,11 +1,11 @@
 ---
 name: anti-vibe-writing
-description: 'Use when the user wants to humanize, de-AI, polish, or warm up an AI-generated document, in English or Chinese. Good for social posts (X/Weibo/Jike/RedNote), blogs, podcast show notes, README cleanup, product docs, landing page copy, proposals, founder notes, and technical memos. Removes templated phrasing, consultant-speak, vague abstraction, emoji or icon headings, markdown templates, and overly balanced tone while preserving meaning. Supports optional voice modes: human-texture (light irregularities) and learning mode (match a specific host''s style from samples).'
-argument-hint: 'Paste the draft, or describe the document, audience, scenario (tweet/weibo/blog/podcast/report), how much structure should remain, and optionally provide host samples for learning mode.'
+description: 'Use when the user wants to humanize, de-AI, polish, or warm up an AI-generated document, in English or Chinese. Good for social posts (X/Weibo/Jike/RedNote), Reddit and forum comments, blogs, podcast show notes, README cleanup, product docs, landing page copy, proposals, founder notes, and technical memos. Removes templated phrasing, consultant-speak, vague abstraction, emoji or icon headings, markdown templates, overly balanced tone, and the typographic tells that flag generated text (em-dashes `—`/`——`, smart quotes, the `…` character) while preserving meaning. Supports optional voice modes: human-texture (light irregularities) and learning mode (match a specific host''s style from samples).'
+argument-hint: 'Paste the draft, or describe the document, audience, scenario (tweet/weibo/reddit/blog/podcast/report), how much structure should remain, and optionally provide host samples for learning mode.'
 user-invocable: true
 disable-model-invocation: false
 metadata:
-  version: 1.4.0
+  version: 1.5.0
   language_support: [en, zh]
   tools: [Read, Edit, Write, Grep, Glob, Bash, WebFetch, WebSearch, TaskCreate, Agent]
 ---
@@ -23,7 +23,7 @@ The skill works best as a final pass after drafting with tools like Claude Code,
 - Preserve the writer's meaning. Improve delivery, not substance.
 - Human writing chooses what matters. AI writing often hedges, formats, and explains by habit.
 - Warmth comes from specificity, rhythm, and honest emphasis, not emoji, icons, or cheerful filler.
-- Chinese AI-smell and English AI-smell are different problems — apply the matching reference.
+- Chinese AI-smell and English AI-smell are different problems. Apply the matching reference.
 - Several narrow editing passes work better than one vague rewrite.
 - Clean is not the goal. Sounding like the person who meant it is the goal.
 
@@ -39,6 +39,7 @@ The skill works best as a final pass after drafting with tools like Claude Code,
 ## Typical Fits
 
 - Social posts: X / Twitter, Weibo, Jike, RedNote (XHS)
+- Reddit and English forum comments
 - Blog posts, newsletters, public WeChat articles
 - Podcast show notes and video scripts
 - README cleanup
@@ -83,7 +84,7 @@ Triggered by user signals such as:
 - "Like the founder actually wrote it"
 - "A little less polished is fine"
 
-Within this mode there is one further, tightly-gated layer — **casual typing (随手打)** — for social posts only. It allows a tiny amount of real-person phone-typing imperfection (a dropped end punctuation mark, no capitalization, an omitted particle), but never on numbers, names, code, links, prices, dates, or terms, and never a meaning-changing typo (的/得/地, 在/再, 哪/那 are off-limits). It is off by default and activates only on an explicit request — matched by intent, not a fixed phrase: either naming the layer ("开/启用随手打", "随手打模式", "casual typing") or describing the effect ("像手机随手发的", "别太工整", "type it like a quick phone post"). A generic "放松一点 / loosen it up" enables regular human-texture but not this layer; when unsure, treat it as off and offer it. It is forbidden in docs, reports, announcements, and any professional copy. When used, cap it at 1–2 touches and state them at the end. This is phone-typing texture, not error injection to evade AI detection. See the 随手打 section in [human-texture.md](./references/human-texture.md).
+Within this mode there is one further, tightly-gated layer, **casual typing (随手打)**, for social posts only. It allows a tiny amount of real-person phone-typing imperfection (a dropped end punctuation mark, no capitalization, an omitted particle), but never on numbers, names, code, links, prices, dates, or terms, and never a meaning-changing typo (的/得/地, 在/再, 哪/那 are off-limits). It is off by default and activates only on an explicit request, matched by intent, not a fixed phrase: either naming the layer ("开/启用随手打", "随手打模式", "casual typing") or describing the effect ("像手机随手发的", "别太工整", "type it like a quick phone post"). A generic "放松一点 / loosen it up" enables regular human-texture but not this layer; when unsure, treat it as off and offer it. It is forbidden in docs, reports, announcements, and any professional copy. When used, cap it at 1–2 touches and state them at the end. This is phone-typing texture, not error injection to evade AI detection. See the 随手打 section in [human-texture.md](./references/human-texture.md).
 
 Details and concrete techniques: [human-texture.md](./references/human-texture.md).
 
@@ -139,6 +140,8 @@ When changing the skill itself, compare behavior against [before-after-benchmark
 - Prefer an earned point of view over fake balance.
 - Cut consultant-speak, hype, and process jargon. In Chinese this includes 赋能 / 打通 / 闭环 / 抓手 / 链路 and friends.
 - Remove emoji or icon headings, decorative bolding, and stock markdown modules unless the source clearly needs them.
+- Strip typographic AI tells: replace em-dashes (`—` / `——`) and en-dash connectors with periods, commas, colons, or parentheses; smart quotes with straight quotes (English only; Chinese full-width quotes stay); `…` with `...`. This makes the text genuinely read like keyboard typing, not as a trick to dodge detectors.
+- Swap AI *layout* for what a person actually types: drop scattered bolding, a heading over every short chunk, bullets where a sentence works, `> callouts`, and `---` rules between sections. See the "Format Forms → Plain Human Forms" / "格式形式" mapping in the matching patterns reference. Test: if you wouldn't type the formatting into a message to a friend, cut it.
 - Keep sentences varied in length, but not ornamental.
 - Prefer prose over bullets when list structure adds no value.
 - Let warmth come from concrete detail and restraint, not upbeat filler.
@@ -147,6 +150,7 @@ When changing the skill itself, compare behavior against [before-after-benchmark
 
 ## What to Remove Early
 
+- Typographic tells, the fastest thing readers and detectors catch: em-dashes (`—` / `——`), en-dashes used as connectors, smart quotes `“ ” ‘ ’`, the `…` character, and stray `→ • ·` in prose. Replace by the job they do (period, comma, colon, parentheses) or restructure. See the typographic sections in the matching patterns reference.
 - Generic setup paragraphs that delay the point
 - Empty transitions: "it is important to note", "in today's landscape", 在……方面, 值得注意的是, 综上所述
 - Headings that only label the obvious
@@ -163,14 +167,14 @@ When changing the skill itself, compare behavior against [before-after-benchmark
 - If the paragraph makes a point only after a long runway, start closer to the point.
 - If the tone keeps "balancing" instead of deciding, make the claim and carry the nuance in the sentence rather than around it.
 - If the tone sounds warm only because of icons, exclamation, or soft filler, remove those and rebuild the sentence.
-- Chinese-specific: if a paragraph contains "首先 / 其次", a three-clause parallelism, AND ends with "让 X 更 Y", it's almost certainly AI-shaped — rewrite the paragraph, don't just edit it.
-- Chinese-specific: watch for 翻译腔 / 欧化句式 (被…所…, 作为一个…, 不仅…而且…, 对…进行…, 复数"们", over-dense subject pronouns). These read like machine translation even when no buzzword is present — restore active voice and verbs.
-- Chinese-specific: drop the "资深文案 / 营销专家" stance — it pulls in ad vocabulary. Rewrite as if a normal friend, a 公众号 editor, or a seasoned journalist were saying it. Read the result aloud; if you wouldn't talk to a friend that way, edit again. See the 改写心态 section in [chinese-patterns-to-remove.md](./references/chinese-patterns-to-remove.md).
+- Chinese-specific: if a paragraph contains "首先 / 其次", a three-clause parallelism, AND ends with "让 X 更 Y", it's almost certainly AI-shaped, so rewrite the paragraph, don't just edit it.
+- Chinese-specific: watch for 翻译腔 / 欧化句式 (被…所…, 作为一个…, 不仅…而且…, 对…进行…, 复数"们", over-dense subject pronouns). These read like machine translation even when no buzzword is present. Restore active voice and verbs.
+- Chinese-specific: drop the "资深文案 / 营销专家" stance; it pulls in ad vocabulary. Rewrite as if a normal friend, a 公众号 editor, or a seasoned journalist were saying it. Read the result aloud; if you wouldn't talk to a friend that way, edit again. See the 改写心态 section in [chinese-patterns-to-remove.md](./references/chinese-patterns-to-remove.md).
 
 ## Task Questions
 
 - What language is the draft in? (Different rules apply.)
-- What scenario is this for? (Tweet / Weibo / blog / podcast / report — picks the preset.)
+- What scenario is this for? (Tweet / Weibo / Reddit / blog / podcast / report, picks the preset.)
 - Who is reading this?
 - What should the reader understand, feel, or do after reading it?
 - Which claims, names, or terms cannot change?
@@ -187,7 +191,7 @@ Add a short note only when one of these is true:
 - Facts were ambiguous in the source.
 - Proof is missing and the stronger version would require inventing it.
 - The source asked for a very specific voice that conflicts with this skill.
-- A non-default voice mode was used — name it ("Ran in human-texture mode" / "Applied host profile X").
+- A non-default voice mode was used, so name it ("Ran in human-texture mode" / "Applied host profile X").
 
 When adding a note, keep it to three lines or fewer.
 
@@ -208,7 +212,7 @@ Chinese-track:
 Voice modes:
 - [human-texture.md](./references/human-texture.md): Optional irregularities for personal voice
 - [learning-mode.md](./references/learning-mode.md): Sample-driven host profile workflow
-- [scenario-presets.md](./references/scenario-presets.md): Per-scenario constraints (tweet, Weibo, blog, podcast, report)
+- [scenario-presets.md](./references/scenario-presets.md): Per-scenario constraints (tweet, Weibo, Reddit, blog, podcast, report)
 
 Assets:
 - [final-pass-checklist.md](./assets/final-pass-checklist.md): Last review before returning copy

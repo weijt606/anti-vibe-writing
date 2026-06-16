@@ -44,6 +44,12 @@ Use this reference when the draft is bad in recognizable ways and you need a dir
 
 **Fix:** Simplify the formatting until the actual writing has to carry the meaning. If the prose cannot stand without the scaffolding, the prose still needs work.
 
+## Problem: Typographic AI Tells
+
+**Symptom:** The text is peppered with em-dashes (`—` / `——`), smart quotes `“ ” ‘ ’`, the `…` character, or stray `→ • ·`. These are rare on a real keyboard but constant in model output, so platforms (Reddit and others) and detectors flag them, and readers feel it even when they can't name it.
+
+**Fix:** Replace each character by the job it was doing: period for a hard stop, comma for a pause, colon to introduce, parentheses for an aside, straight quotes for curly ones (English only; Chinese full-width quotes are normal), `...` for `…`. The goal is text that genuinely reads like keyboard typing, not a swap to slip past a detector. No symbol trick beats a real one.
+
 ## Problem: Mirrored Ending
 
 **Symptom:** The ending just replays the intro with slightly different words.
