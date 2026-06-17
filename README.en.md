@@ -1,5 +1,7 @@
 # anti-vibe-writing
 
+![anti-vibe-writing: a black-and-white comic banner, four panels showing AI writing going from em-dash-and-emoji clutter that gets auto-removed, through a human cleanup pass, to clean copy that reads human](./anti-vibe-writing-banner.png)
+
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
