@@ -1,6 +1,6 @@
 # anti-vibe-writing
 
-![anti-vibe-writing：黑白漫画风 banner，四格讲述 AI 写作如何从满屏破折号、emoji 被平台删帖，到人工去味、最终干净过审](./anti-vibe-writing-banner.png)
+![anti-vibe-writing：黑白漫画风 banner，四格讲述 AI 写作如何从满屏破折号、emoji 被平台删帖，到人工去味、最终"倍地道"过审](./anti-vibe-writing-banner-cn.png)
 
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
