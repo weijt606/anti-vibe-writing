@@ -14,3 +14,4 @@ Pick the file that matches your use case:
 - [08-translationese-zh.md](./08-translationese-zh.md): 中文翻译腔专项（1.3.0 新 pattern）
 - [09-sentence-tells-en.md](./09-sentence-tells-en.md): English sentence-level tells (1.3.0 patterns)
 - [10-typographic-tells.md](./10-typographic-tells.md): Em-dash, typographic tells, and AI layout forms → plain prose, EN + 中文 (1.5.0 patterns)
+- [11-sentence-structures-zh.md](./11-sentence-structures-zh.md): 中文套路化句式专项（套路开头 / 收尾、以前…现在…对比、鸡汤升华、圆滑结论，1.6.0 新 pattern）

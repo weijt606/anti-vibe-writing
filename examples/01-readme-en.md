@@ -41,5 +41,5 @@ meant it.
 - All emoji headings removed
 - "Innovative solution / seamless / efficient" → concrete description of what it does
 - Three vague benefit bullets collapsed into one sentence about scope
-- "In today's fast-paced landscape" cut entirely
+- "In today's fast-paced landscape" cut entirely (the "in this era of X" template opener, named in 1.6.0)
 - A line about when to use it added, turning a description into a recommendation
