@@ -4,6 +4,20 @@ All notable changes to the `anti-vibe-writing` skill are recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the skill itself (declared in `skills/anti-vibe-writing/SKILL.md` frontmatter).
 
+## [1.6.0] — 2026-06-27
+
+### Added
+
+- **Final Verify Pass** in `SKILL.md` — turns `assets/final-pass-checklist.md` from a passive reference into an executed step: re-read the rewrite against every item; if any check fails or the optional five-dimension score is below 35 / 50, do one *targeted* revision (fix only the flagged spots, no full rewrite) and re-check; stop after at most two rounds. This is the lightest form of a generate → check → revise loop — one model, one conversation, no subagents or orchestration, so the skill stays a pure set of markdown rules
+- **Deterministic gate** in `assets/final-pass-checklist.md` — an optional one-line `grep` to run before returning, covering the exact-string tells self-review misses most (em-dash `—`, the `…` character, stray `→ •` in prose) plus a fast subset of the Chinese jargon list. Two caveats documented: shared double curly quotes `“ ”` are left to human judgment by language (so Chinese full-width quotes aren't stripped by mistake), and the full jargon lists still live in the `references/*patterns-to-remove.md` files
+- **Learning-mode closing check** — the Final Verify Pass adds one line for learning mode: compare the output's sentence rhythm and punctuation against the numbers already recorded in the host profile, and nudge it back if it has drifted (closes the loop on numbers the profile template captures but nothing previously checked against)
+- **Banned-sentence-structure patterns** — `references/chinese-patterns-to-remove.md` gains coverage for AI's template openers and closers that were previously uncovered: the "以前……现在……" time-contrast frame (added beside the existing "不是 X 而是 Y"), the "在这个 XX 的时代，我们每个人都……" opener, the "记住，真正重要的是……" preachy opener, and the "总之 / 综上所述 / 归根结底 / 说到底" summary-closer. 强行升华 now also names 鸡汤 / 口号 endings, and 伪平衡 calls out the slick all-correct-but-empty 圆滑结论. Synced into the 中文改写（带负向约束）block in `assets/rewrite-prompt-template.md` and a greppable subset added to the deterministic gate in `assets/final-pass-checklist.md`. Already-covered items from the same request (不是…而是, 值得注意的是, 让我们 openers, per-paragraph subheadings) were left as-is rather than duplicated
+
+### Changed
+
+- `SKILL.md`: `metadata.version` `1.5.0` → `1.6.0`; new "Final Verify Pass" section before "Response Format"
+- READMEs: version badge → 1.6.0, a 1.6.0 entry in Version highlights / 版本亮点
+
 ## [1.5.0] — 2026-06-16
 
 ### Added

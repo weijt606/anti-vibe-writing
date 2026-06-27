@@ -5,7 +5,7 @@ argument-hint: 'Paste the draft, or describe the document, audience, scenario (t
 user-invocable: true
 disable-model-invocation: false
 metadata:
-  version: 1.5.0
+  version: 1.6.0
   language_support: [en, zh]
   tools: [Read, Edit, Write, Grep, Glob, Bash, WebFetch, WebSearch, TaskCreate, Agent]
 ---
@@ -181,6 +181,17 @@ When changing the skill itself, compare behavior against [before-after-benchmark
 - Should the markdown be preserved, reduced, or rebuilt?
 - Which voice mode? Default, human texture, or learning mode?
 - If learning mode: are samples available?
+
+## Final Verify Pass
+
+Treat [final-pass-checklist.md](./assets/final-pass-checklist.md) as a step you run, not a list you glance at. This is the lightest form of a generate → check → revise loop: one model, one conversation, no extra agents.
+
+1. Re-read the rewrite against every checklist item.
+2. Run the deterministic gate at the bottom of that file when you can use a shell: a one-line `grep` for the typographic tells and the fixed jargon list. It catches the exact strings self-review skims past.
+3. If any check fails, or the optional five-dimension score is below 35 / 50, do one targeted revision: fix only the flagged spots, do not rewrite the whole piece. Then re-check once.
+4. Stop after at most two revision rounds. If something still fails on a real trade-off (a claim you cannot verify, a house style that genuinely wants the formatting), leave it and say so in the closing note.
+
+In learning mode, add one check: compare the output's sentence rhythm and punctuation against the numbers recorded in the host profile, and nudge it back if it has drifted.
 
 ## Response Format
 

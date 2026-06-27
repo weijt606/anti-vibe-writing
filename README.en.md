@@ -5,7 +5,7 @@
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.5.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.6.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > **One goal: make AI sound genuinely idiomatic, 倍儿地道.**
 
@@ -160,6 +160,12 @@ This project is open source under the MIT License. See `LICENSE`.
 - Keep structure only when it helps the reader.
 
 ## Version highlights
+
+**1.6.0**
+- The final checklist is now a step you run, not a list you glance at: after rewriting, work through `final-pass-checklist.md`, fix only the flagged spots, re-check, and stop after at most two rounds. It's the lightest form of a generate → check → revise loop. One model, one conversation, no extra agents, still just markdown
+- New deterministic gate: a one-line `grep` at the bottom of the checklist catches the *exact* tells self-review skims past (em-dash `—`, the `…` character, stray `→ •` in prose, and a fast subset of the jargon list). Shared double curly quotes `“ ”` are left to human judgment by language, so Chinese full-width quotes aren't deleted by mistake
+- Learning mode gains a closing check: compare the output's sentence rhythm and punctuation against the numbers recorded in the host profile, and nudge it back if it drifted
+- New banned-sentence-structure coverage in the Chinese track (the gaps that weren't covered before): template openers ("在这个 XX 的时代…", the preachy "记住，真正重要的是…"), the "以前…现在…" time-contrast frame, the "总之 / 归根结底 / 说到底" summary-closer, plus 鸡汤/slogan endings and the slick all-correct-but-empty conclusion. Synced into the Chinese rewrite-prompt block and the deterministic gate. Items already covered (不是…而是, 值得注意的是, 让我们 openers, per-paragraph subheadings) were left as-is, not duplicated
 
 **1.5.0**
 - New typographic-tells layer targeting the signals readers, platforms (Reddit and others), and detectors catch first: the em-dash (`—` / `——`), en-dash connectors, smart quotes `“ ” ‘ ’`, the `…` character, and stray `→ • ·` in prose. Replace each by the job it does (period, comma, colon, parentheses, straight quotes) while leaving Chinese full-width quotes alone
