@@ -11,6 +11,7 @@ Use this checklist before returning rewritten copy.
 - Emoji, icons, and decorative markdown are gone unless the source clearly requires them.
 - No typographic AI tells: em-dashes (`—` / `——`), smart quotes, the `…` character, and stray `→ • ·` are replaced or restructured (English quotes straightened; Chinese full-width quotes left as is) unless the house style genuinely uses them everywhere.
 - No AI layout left over: scattered bolding, a heading per short chunk, bullets that should be a sentence, `> callouts`, and `---` rules are swapped for plain prose. Would you type this formatting in a message to a friend? If not, it's gone.
+- No copy-paste residue from chat or search models: `contentReference` / `oaicite` / `turn0search0` / `[cite: 1]` / `grok_card` / `ppl-ai-file-upload`, stray `【】` or `†` citation scaffolding, leftover "Here is the revised version" / "Sources:" framing, and unsourced `[1][2]` brackets.
 - Stock sections such as Overview, Key Features, or Conclusion are gone unless they earn their keep.
 - Repetition is gone.
 - The tone has a point of view instead of artificial balance.
@@ -39,6 +40,9 @@ Some tells are exact strings, which makes them the easiest thing to miss by eye 
 ```bash
 # Language-agnostic tells: em-dash, the … character, stray arrows / bullets in prose
 grep -nE '—|…|→|•' draft.txt
+
+# Copy-paste residue from chat / search models (any language)
+grep -nE 'contentReference|oaicite|turn[0-9]+(search|news|view)|\[cite[:_]|grok_card|ppl-ai-file-upload' draft.txt
 
 # Chinese jargon and marketing-speak (run on Chinese drafts)
 grep -nE '赋能|打通|闭环|抓手|对齐|链路|底层逻辑|一站式|全链路|端到端|打造|致力于|助力|释放潜能|丝滑|无缝|干货满满' draft.txt

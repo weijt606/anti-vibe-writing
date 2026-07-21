@@ -5,7 +5,7 @@ argument-hint: 'Paste the draft, or describe the document, audience, scenario (t
 user-invocable: true
 disable-model-invocation: false
 metadata:
-  version: 1.6.0
+  version: 1.7.0
   language_support: [en, zh]
   tools: [Read, Edit, Write, Grep, Glob, Bash, WebFetch, WebSearch, TaskCreate, Agent]
 ---
@@ -151,6 +151,7 @@ When changing the skill itself, compare behavior against [before-after-benchmark
 ## What to Remove Early
 
 - Typographic tells, the fastest thing readers and detectors catch: em-dashes (`—` / `——`), en-dashes used as connectors, smart quotes `“ ” ‘ ’`, the `…` character, and stray `→ • ·` in prose. Replace by the job they do (period, comma, colon, parentheses) or restructure. See the typographic sections in the matching patterns reference.
+- Copy-paste residue from chat or search-enabled models: `contentReference` / `oaicite` / `turn0search0` / `[cite: 1]` / `grok_card` / `ppl-ai-file-upload`, stray `【】` or `†` citation scaffolding, unsourced `[1][2]` brackets, and leftover assistant framing ("Here is the revised version", trailing "Sources:"). Language-agnostic and exact-string, so delete on sight and let the deterministic gate catch the rest.
 - Generic setup paragraphs that delay the point
 - Empty transitions: "it is important to note", "in today's landscape", 在……方面, 值得注意的是, 综上所述
 - Headings that only label the obvious

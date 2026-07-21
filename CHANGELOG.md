@@ -4,6 +4,23 @@ All notable changes to the `anti-vibe-writing` skill are recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the skill itself (declared in `skills/anti-vibe-writing/SKILL.md` frontmatter).
 
+## [1.7.0] — 2026-07-21
+
+### Added
+
+- **Copy-paste model-residue layer** — a new category for the machine-only tokens that current chat and search-enabled models leave behind when a draft is pasted straight out of them. These are exact strings, language-agnostic, and pure noise, which makes them both the easiest tell to miss by eye and the easiest to catch by command:
+  - `references/patterns-to-remove.md` gains a "Copy-Paste Residue from Chat and Search Models" section covering search/citation scaffolding (`contentReference`, `oaicite`, `turn0search0`, `filecite`, trailing `[1][2]`), assistant citation markup (`[cite: 1]`, `[cite_start]`, `[span_1]`, `grok_card`, `ppl-ai-file-upload`), lenticular-bracket `【】` and dagger `† ‡` footnote scaffolding, and leftover conversational framing ("Here is the revised version:", trailing "Sources:")
+  - `references/chinese-patterns-to-remove.md` adds the same residue note under 其他机器排版痕迹 (DeepSeek-style `【】`/`†` scaffolding called out specifically), plus an 附和 / 谄媚开头 item under 语气层 (问得好 / 你说得对 / 好的，下面是……) and an 无源的权威铺垫 item under 词汇层 (研究表明 / 数据显示 / 专家指出 with no source named)
+  - A greppable subset added to the deterministic gate in `assets/final-pass-checklist.md`, a checklist bullet, and the residue instructions synced into all three blocks of `assets/rewrite-prompt-template.md`
+- **Sentence-level tells for current models** in `references/patterns-to-remove.md`: sycophantic openers (chat residue — "Great question!", "You're absolutely right", unprompted disclaimers) and unsourced authority ("studies show" / "experts agree" with nothing named)
+- **Generational-drift note** on the AI vocabulary list — the 2024 delve/tapestry set has partly given way to a newer high-frequency band (showcasing, highlighting, emphasizing, enhance, fostering, "align with", underscore, boasts); the tell is the reflex, not the exact word, so no single list is treated as final
+
+### Changed
+
+- `SKILL.md`: `metadata.version` `1.6.0` → `1.7.0`; new "What to Remove Early" bullet for copy-paste model residue
+- READMEs: version badge → 1.7.0, a 1.7.0 entry in Version highlights / 版本亮点
+- No structural or design change: all additions are new pattern coverage folded into the existing references, gate, and prompt template. The skill stays a lightweight set of markdown rules
+
 ## [1.6.0] — 2026-06-27
 
 ### Added

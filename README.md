@@ -5,7 +5,7 @@
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.6.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.7.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > 本 README 提供中英文两个版本：**中文**（本页，默认）和 **[English](./README.en.md)**。点上方徽章切换。
 
@@ -160,6 +160,12 @@ LICENSE
 - 只有在结构确实帮助读者时才保留结构。
 
 ## 版本亮点
+
+**1.7.0**
+- 新增"模型复制粘贴残留"层：专门对付当前对话 / 联网模型在稿子被直接粘出来时留下的机器 token——`contentReference` / `oaicite` / `turn0search0`、`[cite: 1]` / `[cite_start]` / `[span_1]`、`grok_card`、`ppl-ai-file-upload`、正文里查无实据的 `[1][2]` 角标、DeepSeek 爱用的【】/† 引用脚手架，以及结尾多出来的"参考资料 / Sources"、开头的"好的，下面是……"。这类是确定字符串、跨语言通用，所以同步进了中英两份 pattern 库、确定性 grep 闸、检查清单和改写提示词块
+- 中文轨新增"附和 / 谄媚开头"痕迹（问得好 / 你说得对 / 好的，下面是……）和"无源的权威铺垫"痕迹（研究表明 / 数据显示 / 专家指出，后面却没有哪项研究、哪个数据、哪位专家）
+- 英文轨新增句子级痕迹（谄媚开头、无源权威），并说明 AI 词表会随模型代际漂移（showcasing / highlighting / emphasizing / enhance 已和老的 delve / tapestry 并列），所以不把任何一份词表当最终版
+- 纯加性升级：骨架、理念、工作流都没动，仍是一套轻量的 markdown 规则
 
 **1.6.0**
 - 把"最终检查清单"从被动文档升级成一次必跑的「自检 → 定点改」步骤:改写后逐条过 `final-pass-checklist.md`,有未过项就只修该项再过一遍,最多两轮。这是最轻量的 generate→check→revise 回路,单模型、单段对话内完成,不引入多 agent 编排,skill 还是一套 markdown

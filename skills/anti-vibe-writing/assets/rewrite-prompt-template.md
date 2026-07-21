@@ -11,6 +11,7 @@ Goals:
 - Make the writing sound written, not generated.
 - Remove templated phrasing, consultant-speak, vague abstraction, stock markdown modules, emoji or icon headings, decorative bolding, and empty balance.
 - Strip typographic AI tells: replace em-dashes (—) and en-dash connectors with periods, commas, colons, or parentheses; turn smart quotes “ ” ‘ ’ into straight quotes; replace the … character with three periods. (Leave Chinese full-width quotes alone.)
+- Delete copy-paste residue from chat or search models: contentReference, oaicite, turn0search0, [cite: 1], grok_card, ppl-ai-file-upload, stray 【】 / † citation scaffolding, unsourced [1][2] brackets, and leftover assistant framing ("Here is the revised version", "Certainly!", a trailing "Sources:" block).
 - Reduce markdown unless it clearly helps the reader.
 - Keep warmth through specificity, cadence, and judgment rather than friendly filler.
 - Prefer direct sentences and concrete nouns and verbs.
@@ -47,6 +48,7 @@ Goals:
 - Keep the current structure unless it is clearly hurting readability.
 - Cut emoji, icon headings, decorative markdown, and filler transitions.
 - Remove em-dashes (—), smart quotes, and the … character (the typographic tells platforms and detectors catch first) by swapping in plain keyboard punctuation.
+- Delete copy-paste model residue (contentReference, oaicite, turn0search0, [cite: 1], grok_card, ppl-ai-file-upload, stray 【】/† scaffolding, leftover "Here is the revised version" / "Sources:" framing).
 - Make the wording more concrete and the rhythm less robotic.
 - Do not add new facts or change the intended meaning.
 
@@ -69,6 +71,7 @@ Return the edited text directly.
 - 欧化 / 翻译腔句式：不仅……而且……、一方面……另一方面……、作为一个……、被……所……、对……进行……
 - 结构套路：首先 / 其次 / 最后、【】段头、emoji 段头、三连排比、段尾升华到"行业 / 时代 / 未来"、"在这个 XX 的时代我们每个人都……"开头、"以前……现在……"成段对比、"不是 X 而是 Y"成段对比、鸡汤 / 口号收尾
 - 标点痕迹：破折号 `——` 别用密（最容易被一眼认出是 AI，平台和检测也最先盯它），多数换成逗号、句号、冒号或括号；别夹弯引号、`…`、`→` 这类符号。中文全角引号 `""` 正常，不用动。
+- 机器残留：从对话 / 联网模型直接粘来的角标和内部标记（oaicite、turn0search0、[cite: 1]、grok_card、ppl-ai-file-upload、正文里查无实据的 `[1][2]` 角标、DeepSeek 爱用的【】/† 脚手架）、结尾多出来的"参考资料 / Sources"、开头的"好的，下面是……""问得好""当然可以"这类附和，全删。
 
 正向要求：
 - 多用短句，多用大白话；一句最多一个四字成语，能用动词就别名词化。

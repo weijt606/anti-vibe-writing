@@ -5,7 +5,7 @@
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.6.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.7.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > This README comes in two versions: **[中文](./README.md)** (default) and **English** (this page). Use the badges above to switch.
 
@@ -162,6 +162,12 @@ This project is open source under the MIT License. See `LICENSE`.
 - Keep structure only when it helps the reader.
 
 ## Version highlights
+
+**1.7.0**
+- New copy-paste model-residue layer for the machine-only tokens current chat and search models leave in a pasted draft: `contentReference` / `oaicite` / `turn0search0`, `[cite: 1]` / `[cite_start]` / `[span_1]`, `grok_card`, `ppl-ai-file-upload`, stray `【】`/`†` citation scaffolding, unsourced `[1][2]` brackets, and leftover "Here is the revised version" / "Sources:" framing. Exact-string and language-agnostic, so it's added to both patterns references, the deterministic grep gate, the checklist, and the rewrite-prompt template
+- Chinese track adds an 附和 / 谄媚开头 tell (问得好 / 你说得对 / 好的，下面是……) and an 无源的权威铺垫 tell (研究表明 / 数据显示 / 专家指出 with no source named)
+- New English sentence-level tells (sycophantic openers, unsourced authority) and a note that the AI vocabulary list drifts by model generation (showcasing / highlighting / emphasizing / enhance now sit beside the older delve / tapestry set), so no single wordlist is treated as final
+- Additive only: no change to the skeleton, philosophy, or workflow. Still a lightweight set of markdown rules
 
 **1.6.0**
 - The final checklist is now a step you run, not a list you glance at: after rewriting, work through `final-pass-checklist.md`, fix only the flagged spots, re-check, and stop after at most two rounds. It's the lightest form of a generate → check → revise loop. One model, one conversation, no extra agents, still just markdown

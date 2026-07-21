@@ -19,6 +19,17 @@ These are the cheapest signals to catch and the ones readers, platforms, and AI 
 
 One honest caveat: none of this defeats a determined detector by itself, and that is not the goal. The goal is that the text stops *being* machine-set. Tell-stripping lowers false-positive flags as a side effect of the writing actually reading like a person.
 
+## Copy-Paste Residue from Chat and Search Models
+
+When a draft is pasted straight out of a chat or search-enabled model, it often carries machine-only tokens the model never meant for a reader. These are dead giveaways and pure noise. None of them belong in finished text; delete every one on sight. They are language-agnostic, so this applies to Chinese drafts too.
+
+- **Citation and search scaffolding**: `contentReference`, `oaicite`, `:contentReference[oaicite:0]`, `turn0search0` / `turn1news2` / `turn0view1`, `filecite`, and trailing `[1][2][3]` reference brackets pasted out of a search answer.
+- **Assistant-specific citation markup**: `[cite: 1]`, `[cite_start]`, `[span_1]`, `grok_card`, `ppl-ai-file-upload`, and similar internal tags.
+- **Lenticular brackets `【 】` and dagger marks `† ‡`** used as citation or footnote scaffolding rather than real content. Keep `【】` only when it is genuine house style; as an auto-inserted label or reference marker, cut it.
+- **Leftover conversational framing**: "Here is the revised version:", "Certainly! Below is...", "Sure, here's...", "I hope this helps! Let me know if...", and a trailing "Sources:" block the reader never asked for.
+
+These are exact strings, so a grep catches what the eye skims past. See the deterministic gate in the final-pass checklist.
+
 ## Format Forms → Plain Human Forms
 
 AI doesn't only reach for AI *symbols*. It reaches for AI *layout*: bold on every key term, a heading over every short chunk, bullets where a sentence would do, rules and callouts between sections. Someone typing into a text box, an email, or a Slack message almost never formats like that. Swap each generated form for the plainest thing a person would actually type.
@@ -53,6 +64,8 @@ Cut or rewrite patterns such as:
 - Leverage, unlock, facilitate, empower
 
 These phrases sound pre-assembled. They signal polish without carrying meaning.
+
+The vocabulary drifts by model generation, so don't treat any single wordlist as final. The 2024-era favorites (delve, tapestry, testament, intricate, meticulous) have partly given way to a newer high-frequency band: showcasing, highlighting, emphasizing, enhance, fostering, "align with", underscore, boasts. The tell is the reflex, not the exact word. Any term that recurs with unusual regularity is worth a second look, classic or not.
 
 ## Over-Structured Outlines
 
@@ -171,6 +184,14 @@ Signposting announcements: narrating the structure instead of writing it:
 Diff-anchored writing: describing what changed instead of what is:
 - Weak: We've now updated the API to also support streaming.
 - Strong: The API supports streaming. (Unless the change itself is the point, describe the current state.)
+
+Sycophantic openers: chat residue where the model agrees or flatters before answering:
+- Cut: "Great question!", "You're absolutely right", "That's a great point", "Excellent choice", and unprompted disclaimers ("It's worth noting I'm not a...").
+- Finished prose has no one to flatter. Delete the throat-clearing and start on the substance.
+
+Unsourced authority: leaning on evidence that isn't there:
+- Weak: Studies show, experts agree, research indicates, it's widely known that... (with no study, expert, or source named).
+- Strong: Name who said it and where, or drop the prop and make the claim in your own voice.
 
 ## Faux Warmth
 
