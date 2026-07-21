@@ -13,7 +13,7 @@
 
 An agent writing skill that removes the AI-generated feel from documents. Works in English and Chinese, with optional modes for matching a specific author's voice.
 
-It runs best as a final pass after drafting with Claude Code, Codex, or any LLM-backed agent. The goal is not to make the prose prettier. The goal is to keep the substance and remove the tells: templated phrasing, vague abstraction, consultant-speak, markdown-heavy formatting, over-structured outlines, and the cautious over-balancing that makes writing feel assembled.
+It runs best as a final pass after drafting with Claude Code, Codex, or any LLM-backed agent. The goal is not to make the prose prettier. The goal is to keep the substance and remove the tells: templated phrasing, vague abstraction, consultant-speak, markdown-heavy formatting, over-structured outlines, the copy-paste residue chat and search models leave behind (`oaicite` / `turn0search0` / `[cite: 1]` / stray `【】` markers), and the cautious over-balancing that makes writing feel assembled.
 
 If the default "clean" mode is not enough, the skill also supports:
 - **Human-texture mode**: inject controlled irregularities (inversions, particles, half-sentences, non-standard punctuation) for personal voice

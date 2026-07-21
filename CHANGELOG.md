@@ -18,7 +18,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 ### Changed
 
 - `SKILL.md`: `metadata.version` `1.6.0` → `1.7.0`; new "What to Remove Early" bullet for copy-paste model residue
-- READMEs: version badge → 1.7.0, a 1.7.0 entry in Version highlights / 版本亮点
+- READMEs: version badge → 1.7.0, a 1.7.0 entry in Version highlights / 版本亮点, and the copy-paste model-residue tell woven into the intro "what it removes" sentence in both languages so the new coverage is visible without scrolling to the version list
 - No structural or design change: all additions are new pattern coverage folded into the existing references, gate, and prompt template. The skill stays a lightweight set of markdown rules
 
 ## [1.6.0] — 2026-06-27
