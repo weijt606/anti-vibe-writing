@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
 [![Skill version](https://img.shields.io/badge/skill-1.7.0-orange?style=flat-square)](./CHANGELOG.md)
 
-> This README comes in two versions: **[中文](./README.md)** (default) and **English** (this page). Use the badges above to switch.
+> 本 README 提供中英文两个版本：**[中文](./README.md)**（默认）和 **English**（本页）。点上方徽章切换。
 
 > **One goal: make AI sound genuinely idiomatic, 倍儿地道.**
 
