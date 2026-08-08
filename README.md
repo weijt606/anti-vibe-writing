@@ -1,201 +1,203 @@
 # anti-vibe-writing
 
-![anti-vibe-writing：黑白漫画风 banner，四格讲述 AI 写作如何从满屏破折号、emoji 被平台删帖，到人工去味、最终"倍地道"过审](./anti-vibe-writing-banner-cn.png)
+![anti-vibe-writing: a black-and-white comic banner, four panels showing AI writing going from em-dash-and-emoji clutter that gets auto-removed, through a human cleanup pass, to clean copy that reads human](./anti-vibe-writing-banner.png)
 
-[![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.md)
-[![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.en.md)
+[![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
+[![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
 [![Skill version](https://img.shields.io/badge/skill-1.7.0-orange?style=flat-square)](./CHANGELOG.md)
 
-> This README comes in two languages: **中文** (this page, the default) and **[English](./README.en.md)**. Use the badges above to switch.
+> 本 README 提供中英文两个版本：**English**（本页，默认）和 **[中文](./README.zh.md)**。点上方徽章切换。
 
-> **目标只有一个：让 AI 说话，倍儿地道。**
+> **One goal: make AI sound genuinely idiomatic, 倍儿地道.**
 
-一个用于去除文档"AI 生成感"的 agent 写作技能。同时支持中英文，并提供可选模式用于贴合特定作者的语言风格。
+An agent writing skill that removes the AI-generated feel from documents. Works in English and Chinese, with optional modes for matching a specific author's voice.
 
-它最适合放在初稿之后做最终润色。Claude Code、Codex 等任何基于大模型的 agent 起完稿之后，由它收尾。目标不是把文字写得更花。目标是在不改原意的前提下，去掉那些明显的生成式痕迹：模板措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲、直接从对话或联网模型粘出来时残留的机器标记（`oaicite` / `turn0search0` / `[cite: 1]` / 【】角标之类），以及那种"什么都讲一点、什么都不下判断"的伪平衡。
+It runs best as a final pass after drafting with Claude Code, Codex, or any LLM-backed agent. The goal is not to make the prose prettier. The goal is to keep the substance and remove the tells: templated phrasing, vague abstraction, consultant-speak, markdown-heavy formatting, over-structured outlines, the copy-paste residue chat and search models leave behind (`oaicite` / `turn0search0` / `[cite: 1]` / stray `【】` markers), and the cautious over-balancing that makes writing feel assembled.
 
-如果默认的"干净模式"还不够，skill 还提供：
-- **人味儿质感模式**：在合适的位置注入倒装、语气词、残句、非标准标点等真人写作痕迹（可选）
-- **学习模式**：基于用户提供的真实样本提取一份可复用的 host profile，让后续稿子像"那个人写的"
-- **场景预设**：针对推特 / 微博 / Reddit / 博客 / 播客 / 专业报告六个场景的具体约束
+If the default "clean" mode is not enough, the skill also supports:
+- **Human-texture mode**: inject controlled irregularities (inversions, particles, half-sentences, non-standard punctuation) for personal voice
+- **Learning mode**: build a reusable host profile from real samples so future drafts sound like the person who would write them
+- **Scenario presets**: format and tone constraints tuned for tweets, Weibo, blogs, podcast show notes, and professional reports
 
-## 快速上手
+## Quick start
 
-本质上它就是一套 markdown 规则（`SKILL.md` + `references/` + `assets/`），不绑定任何一个 agent。Claude Code、Codex、Kimi、work-buddy、Hermes 之类，只要能读文件、或能接受一段指令，就能用。
+At its core this is just a set of markdown rules (`SKILL.md` + `references/` + `assets/`), not tied to any one agent. Claude Code, Codex, Kimi, work-buddy, Hermes. If it can read files or take an instruction prompt, it can use this.
 
-**1. 拿到规则**
+**1. Get the rules**
 
-clone 本仓库，或只复制 `skills/anti-vibe-writing/` 这个目录：
+Clone the repo, or just copy the `skills/anti-vibe-writing/` folder:
 
 ```bash
 git clone https://github.com/weijt606/anti-vibe-writing.git
 ```
 
-**2. 喂给你的 agent（挑一种顺手的）**
+**2. Feed it to your agent (pick whichever fits)**
 
-- **最简单：直接把仓库链接丢给它**。不用先 clone，把 `https://github.com/weijt606/anti-vibe-writing` 发给 agent，让它自己读 `SKILL.md` 和 `references/`，照着配置、改写。能联网或能跑 git 的 agent 基本都行。
-- **临时用一次（任何 agent 都行）**：打开 `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`，里面有现成的指令块：英文的 Full Rewrite / Light Cleanup，和中文的「中文改写（带负向约束）」。复制对应语言那一段，连同草稿一起发给 agent。
-- **让它长期照这套规则走**：把 `SKILL.md` 和对应语言的 `references/*patterns-to-remove.md` 放进你的 agent 加载上下文的地方。各家叫法不同：
-  - 有 skills 目录的（如 Claude Code）：放到 `~/.claude/skills/anti-vibe-writing/`，之后用 `/anti-vibe-writing` 调用
-  - 有项目指令文件的（如 Codex 的 `AGENTS.md`）：把规则写进去或 include 进去
-  - 其他：贴进 system prompt / 自定义指令 / 知识库
+- **Simplest: just hand it the repo link.** No need to clone first: send `https://github.com/weijt606/anti-vibe-writing` and let the agent read `SKILL.md` and `references/` and configure itself. Works with any agent that can browse the web or run git.
+- **One-off (any agent)**: open `skills/anti-vibe-writing/assets/rewrite-prompt-template.md`. It has ready-made instruction blocks: Full Rewrite / Light Cleanup in English, and "中文改写（带负向约束）" for Chinese. Copy the block for your language and send it with your draft.
+- **Persistent**: put `SKILL.md` and the matching `references/*patterns-to-remove.md` wherever your agent loads context. Names differ by tool:
+  - Agents with a skills directory (e.g. Claude Code): drop it in `~/.claude/skills/anti-vibe-writing/`, then call `/anti-vibe-writing`
+  - Agents with a project-instructions file (e.g. Codex's `AGENTS.md`): write or include the rules there
+  - Otherwise: paste into the system prompt / custom instructions / knowledge base
 
-**3.（可选）说清场景和模式**
+**3. (Optional) Name the scenario and mode**
 
-一句话给够上下文，结果差很多：
-- 场景：「这是一条推特 / 一篇公众号 / 一份技术备忘」
-- 放松：「放松一点 / 博客风 / 像本人写的」→ 启用人味儿质感模式
-- 学风格：贴几段你自己写的，说「学我的风格」→ 启用学习模式
+One line of context changes the result a lot:
+- Scenario: "this is a tweet / a newsletter / a technical memo"
+- Loosen up: "make it feel personal" / "blog voice" → enables human-texture mode
+- Match a voice: paste a few of your own samples and say "learn my style" → enables learning mode
 
-拿不准就先什么都不说，默认的"干净模式"对大多数稿子都够用。
+When in doubt, say nothing. The default clean mode is right for most drafts.
 
-## 快速示例
+## Quick examples
 
-外部读者扫一眼就能看到的前后对照在 [examples/](./examples/) 目录下。完整的回归基准仍放在 `references/` 里。
+Curated before/after snippets live in [examples/](./examples/) for anyone scanning the repo. The full regression set stays under `references/`.
 
-## 三种声音模式
+## Voice modes
 
-| 模式 | 适用场景 | 触发方式 |
+The skill runs in one of three modes:
+
+| Mode | When to use | Triggered by |
 |---|---|---|
-| 默认（干净） | 大部分产品、文档、专业稿件 | 默认行为，无需声明 |
-| 人味儿质感 | 个人博客、创始人笔记、社交媒体 | "放松一点 / 博客风 / 像本人写的" |
-| 学习模式 | 系列内容、个人 newsletter、声音一致的对外沟通 | 用户提供样本，或说"学我的风格" |
+| Default (clean) | Most product, docs, and professional copy | Default, no opt-in needed |
+| Human texture | Personal blogs, founder notes, social posts | "Loosen it up" / "blog voice" / "make it feel personal" |
+| Learning mode | Series content, personal newsletters, voice-consistent comms | User provides samples, or asks "learn my style" |
 
-模式可与场景预设（推特 / 微博 / 博客 / 播客 / 报告）叠加。冲突时的优先级在 `SKILL.md` 里写明。
+Modes combine with scenario presets (tweet / Weibo / blog / podcast / report). Conflict resolution rules are documented in `SKILL.md`.
 
-人味儿质感模式下还有一个**社交专用的「随手打」子档**（默认关，需明确要求才开，说"开随手打"或"像手机随手发的"都行，按意图识别，不认死某句话；只说"放松一点"不会触发）：只在推特 / 微博等休闲场景加极少量随手感，比如漏句末标点、不大写、漏个虚词，**绝不碰数字、名称、链接**，也不做会改义的错别字。它是手机口语手感，不是"制造错误骗检测"。
+Human-texture mode also has a **social-only "casual typing" (随手打) layer** (off by default; turn it on by naming it, "casual typing" / "开随手打", or describing the effect, "like a quick phone post"; matched by intent, not a fixed phrase, and a plain "loosen it up" won't trigger it): a tiny amount of phone-typing texture on casual posts (dropped end punctuation, no capitalization, an omitted particle) that **never touches numbers, names, or links** and never makes meaning-changing typos. It's phone-typing texture, not error injection to dodge AI detectors.
 
-## 适用场景
+## Use cases
 
-**最典型的一个场景：中文推特（X）。** 中文里的 AI 味在 X 上最容易露馅："赋能、打通""首先其次"、三连排比、机翻句式，一眼就能看出是 AI 写的。这个 skill 就是专门冲着这种"明显是机器写的"中文短贴去的，把它改回像真人随手发的那种。前后对照见 [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md) 和 [`examples/08-translationese-zh.md`](./examples/08-translationese-zh.md)。
+**The flagship case: Chinese posts on X.** Chinese AI-smell is most obvious on X: 赋能 / 打通, 首先 / 其次, three-clause parallelism, and machine-translation syntax give it away at a glance. This skill is built for exactly that: take an "obviously AI-written" Chinese post and make it read like something a person actually typed. See [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md) and [`examples/08-translationese-zh.md`](./examples/08-translationese-zh.md).
 
-其他常见场景:
+Other common cases:
 
-- 社交媒体（X、微博、即刻、小红书）
-- 博客、newsletter、公众号
-- 播客 show notes 与视频脚本
-- README 清理
-- 产品文档、落地页文案
-- 提案、创始人笔记、技术备忘、内部报告
+- Social posts (X, Weibo, Jike, RedNote)
+- Blogs, newsletters, public WeChat articles
+- Podcast show notes and video scripts
+- README cleanup
+- Product docs and landing page copy
+- Proposals, founder notes, technical memos, internal reports
 
-## 目标输出
+## Output goals
 
-- 更像人写的节奏
-- 更有意图的结构
-- 更干净的措辞
-- 更明确的声音
-- 更少的"AI 味"
-- 读起来像有人选过每一个字，而不是被系统组装出来
+- More human rhythm
+- More intentional structure
+- Cleaner phrasing
+- Stronger voice
+- Less AI smell
+- Sounds chosen by a person, not assembled by a system
 
-## 仓库结构
+## Repository layout
 
 ```text
 agents/
   README.md
-  anti-vibe-writing-dev.agent.md           # 本地，不进 git
+  anti-vibe-writing-dev.agent.md           # local, gitignored
   anti-vibe-writing-dev.agent.example.md
 skills/
   anti-vibe-writing/
     SKILL.md
     references/
-      patterns-to-remove.md                # 英文 AI 味
+      patterns-to-remove.md                # English AI-smell
       chinese-patterns-to-remove.md        # 中文 AI 味
-      before-after-benchmarks.md           # 英文基准
+      before-after-benchmarks.md           # English benchmarks
       chinese-before-after.md              # 中文基准
       common-problems-and-fixes.md
       human-passes.md
-      human-texture.md                     # 可选不规范
-      learning-mode.md                     # 样本驱动的风格学习
-      scenario-presets.md                  # 分场景约束
+      human-texture.md                     # Optional irregularity
+      learning-mode.md                     # Sample-driven style learning
+      scenario-presets.md                  # Per-scenario constraints
     assets/
       final-pass-checklist.md
       rewrite-prompt-template.md
-      host-profile-template.md             # 可填的 host profile
-      style-extraction-prompt.md           # 一次性提取提示词
+      host-profile-template.md             # Fillable host profile
+      style-extraction-prompt.md           # One-shot extraction prompt
 examples/
   ...
 CHANGELOG.md
 CONTRIBUTING.md
-README.md                                    # 中文（默认）
-README.en.md                                 # 英文
+README.md                                    # English (default)
+README.zh.md                                 # Chinese
 LICENSE
 ```
 
-## 文件使用说明
+## Working with the files
 
-技能文件会进入版本控制。开发用 agent 文件默认为本地文件，并通过 Git 忽略，方便每个贡献者单独调整而不污染公开仓库。
+Skill files are versioned. The developer agent file is local and gitignored by default, so contributors can adjust it without changing the public repository.
 
-如果你要创建本地 agent 文件，可以将 `agents/anti-vibe-writing-dev.agent.example.md` 复制为 `agents/anti-vibe-writing-dev.agent.md`。
+To create a local agent file, copy `agents/anti-vibe-writing-dev.agent.example.md` to `agents/anti-vibe-writing-dev.agent.md`.
 
-如果你需要某个具体 agent 平台自动发现这些文件，仍然可能需要把它们同步到该平台要求的位置。
+If you want tool-specific auto-discovery, you may still need to mirror these files into the locations required by the target agent platform.
 
-## 参考与致谢
+## Credits & references
 
-这个 skill 借鉴了几个开源的 de-AI / humanizer 项目和文章。下面这些 pattern 是研究后改写进本项目自己的结构里的，原始分析和措辞归原作者所有。感谢：
+This skill stands on the shoulders of several open de-AI / humanizer projects and writeups. The patterns below were studied and adapted into this skill's own structure; the original analysis and wording belong to their authors. Thanks to:
 
-英文：
-- [blader/humanizer](https://github.com/blader/humanizer)：30 条 pattern 的 humanizer skill（MIT）。启发了英文的句子级痕迹：回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写而非按现状写。
-- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop)：AI slop 检测 skill（MIT）。`assets/final-pass-checklist.md` 里那套可选的五维打分（直接 / 节奏 / 信任 / 真人感 / 密度）来自它。
+English:
+- [blader/humanizer](https://github.com/blader/humanizer): a 30-pattern humanizer skill (MIT). Informed the sentence-level tells: copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing.
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop): AI-slop detection skill (MIT). Source of the optional five-dimension scoring pass (Directness / Rhythm / Trust / Authenticity / Density) in `assets/final-pass-checklist.md`.
 
-中文：
-- [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh)：24 条 pattern 的中文 humanizer skill，本身是 blader/humanizer 的中文改编（MIT）。启发了中文轨里"回避系动词'是'"和"同义词循环"两条。
-- [yage.ai《AI 中文翻译腔》](https://yage.ai/share/ai-chinese-translationese-20260418.html)：对中文翻译腔的拆解（用身体动作词写抽象 / 形容词加冒号替读者下判断 / 抽象名词当主语）。启发了 `references/chinese-patterns-to-remove.md` 的"翻译腔层"。
-- [X 上的 @dotey](https://x.com/dotey/status/2022774029220749538)：关于去 AI 味提示词技巧的讨论（身份设定、负向约束），影响了"改写心态"一节和中文改写提示词块。
+中文 / Chinese:
+- [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh): a 24-pattern Chinese humanizer skill, itself a Chinese adaptation of blader/humanizer (MIT). Informed the copula-"是" avoidance and synonym-cycling tells in the Chinese track.
+- ["AI 中文翻译腔" by yage.ai](https://yage.ai/share/ai-chinese-translationese-20260418.html): the analysis of Chinese translationese (物理动作动词写抽象 / 形容词加冒号预判读者 / 抽象名词主语). Informed the 翻译腔层 of `references/chinese-patterns-to-remove.md`.
+- [@dotey on X](https://x.com/dotey/status/2022774029220749538): discussion of de-AI prompt techniques (role-setting, negative constraints) that shaped the 改写心态 section and the Chinese rewrite prompt block.
 
-这些都是各自独立、各有边界的项目，本仓库借鉴的是思路，不是代码。如果你是其中某个项目的维护者、想调整致谢写法，欢迎开 issue。
+These are independent projects with their own scope; this repo borrows ideas, not code. If you maintain one of them and want a credit adjusted, open an issue.
 
-## 贡献
+## Contributing
 
-新增 pattern、benchmark、场景预设的规则见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to add new patterns, benchmarks, or scenario presets.
 
-## 许可证
+## License
 
-本项目采用 MIT 协议开源，见 `LICENSE`。
+This project is open source under the MIT License. See `LICENSE`.
 
-## 贡献说明
+## Contributor notes
 
-- 保留原意，不要在润色过程中改动事实。
-- 优先给出具体改写，不要给空泛风格建议。
-- 只有在结构确实帮助读者时才保留结构。
+- Preserve meaning. Sharpen the writing without changing facts.
+- Prefer concrete edits over generic style advice.
+- Keep structure only when it helps the reader.
 
-## 版本亮点
+## Version highlights
 
 **1.7.0**
-- 新增"模型复制粘贴残留"层：专门对付当前对话 / 联网模型在稿子被直接粘出来时留下的机器 token——`contentReference` / `oaicite` / `turn0search0`、`[cite: 1]` / `[cite_start]` / `[span_1]`、`grok_card`、`ppl-ai-file-upload`、正文里查无实据的 `[1][2]` 角标、DeepSeek 爱用的【】/† 引用脚手架，以及结尾多出来的"参考资料 / Sources"、开头的"好的，下面是……"。这类是确定字符串、跨语言通用，所以同步进了中英两份 pattern 库、确定性 grep 闸、检查清单和改写提示词块
-- 中文轨新增"附和 / 谄媚开头"痕迹（问得好 / 你说得对 / 好的，下面是……）和"无源的权威铺垫"痕迹（研究表明 / 数据显示 / 专家指出，后面却没有哪项研究、哪个数据、哪位专家）
-- 英文轨新增句子级痕迹（谄媚开头、无源权威），并说明 AI 词表会随模型代际漂移（showcasing / highlighting / emphasizing / enhance 已和老的 delve / tapestry 并列），所以不把任何一份词表当最终版
-- 纯加性升级：骨架、理念、工作流都没动，仍是一套轻量的 markdown 规则
+- New copy-paste model-residue layer for the machine-only tokens current chat and search models leave in a pasted draft: `contentReference` / `oaicite` / `turn0search0`, `[cite: 1]` / `[cite_start]` / `[span_1]`, `grok_card`, `ppl-ai-file-upload`, stray `【】`/`†` citation scaffolding, unsourced `[1][2]` brackets, and leftover "Here is the revised version" / "Sources:" framing. Exact-string and language-agnostic, so it's added to both patterns references, the deterministic grep gate, the checklist, and the rewrite-prompt template
+- Chinese track adds an 附和 / 谄媚开头 tell (问得好 / 你说得对 / 好的，下面是……) and an 无源的权威铺垫 tell (研究表明 / 数据显示 / 专家指出 with no source named)
+- New English sentence-level tells (sycophantic openers, unsourced authority) and a note that the AI vocabulary list drifts by model generation (showcasing / highlighting / emphasizing / enhance now sit beside the older delve / tapestry set), so no single wordlist is treated as final
+- Additive only: no change to the skeleton, philosophy, or workflow. Still a lightweight set of markdown rules
 
 **1.6.0**
-- 把"最终检查清单"从被动文档升级成一次必跑的「自检 → 定点改」步骤:改写后逐条过 `final-pass-checklist.md`,有未过项就只修该项再过一遍,最多两轮。这是最轻量的 generate→check→revise 回路,单模型、单段对话内完成,不引入多 agent 编排,skill 还是一套 markdown
-- 新增"确定性兜底":清单末尾给一条 grep 命令,把破折号 `—`、`…`、句中乱入的 `→ •` 和固定黑话表这些*完全确定*的痕迹用命令兜住(自检最容易漏的恰恰是这些);中英共用的弯引号 `""` 仍交给人按语言判断,不误删中文全角引号
-- 学习模式补一句闭环:返回前把输出的句子节奏和标点,跟 host profile 里记的数字对一眼,偏了就调
-- 新增"套路化开头 / 收尾"与"对比骨架"痕迹(中文轨之前没覆盖的):开头套路("在这个 XX 的时代,我们每个人都……"、说教式的"记住,真正重要的是……")、收尾套路("总之 / 归根结底 / 说到底"、鸡汤 / 口号升华、"什么都对但什么都没说"的圆滑结论)、"以前……现在……"时间对比。这些都同步进了改写提示词块和确定性 grep,并新增示例 11(`examples/11-sentence-structures-zh.md`)专门演示;已覆盖的(不是…而是、值得注意的是、让我们开头、每段小标题)保持原样,不重复堆叠
+- The final checklist is now a step you run, not a list you glance at: after rewriting, work through `final-pass-checklist.md`, fix only the flagged spots, re-check, and stop after at most two rounds. It's the lightest form of a generate → check → revise loop. One model, one conversation, no extra agents, still just markdown
+- New deterministic gate: a one-line `grep` at the bottom of the checklist catches the *exact* tells self-review skims past (em-dash `—`, the `…` character, stray `→ •` in prose, and a fast subset of the jargon list). Shared double curly quotes `“ ”` are left to human judgment by language, so Chinese full-width quotes aren't deleted by mistake
+- Learning mode gains a closing check: compare the output's sentence rhythm and punctuation against the numbers recorded in the host profile, and nudge it back if it drifted
+- New banned-sentence-structure coverage in the Chinese track (the gaps that weren't covered before): template openers ("在这个 XX 的时代…", the preachy "记住，真正重要的是…"), the "以前…现在…" time-contrast frame, the "总之 / 归根结底 / 说到底" summary-closer, plus 鸡汤/slogan endings and the slick all-correct-but-empty conclusion. Synced into the Chinese rewrite-prompt block and the deterministic gate, with a new example 11 (`examples/11-sentence-structures-zh.md`) demonstrating them. Items already covered (不是…而是, 值得注意的是, 让我们 openers, per-paragraph subheadings) were left as-is, not duplicated
 
 **1.5.0**
-- 新增"标点符号痕迹"层：把最容易被一眼认出、也最常被平台（Reddit 等）和检测工具拦的 AI 标点拎出来专门处理：破折号 `——` / `—`、英文弯引号、`…` 字符、句中乱入的 `→ • ·`。按它们在干的活换成句号 / 逗号 / 冒号 / 括号；中文全角引号 `""` 正常，不动
-- 新增"格式形式"对照表：把 AI 爱用的*排版*（满屏加粗、每小段一个标题、该用句子却列点、`1. 2. 3.` 框架、`> 提示框`、分割线、表格塞两三条信息）一一换成真人随手会打的最朴素形式。判断标准：这个格式你会不会打进给朋友的微信里？不会就删
-- 同步修正人味儿质感模式：破折号曾被当作"个人语气"信号，现已被 AI 用滥成痕迹，故改为克制使用，并提供括号 / 句号等替代
-- 立场写清楚：去掉这些符号不是"骗检测"，而是让文字真的回到人随手打字的样子，少被误判只是顺带的结果
-- 新增第六个场景预设：Reddit / 英文论坛评论。评论当"帮人"写、硬性"破折号一个都别用"（有些子版块的 automod 把破折号密度当 AI 信号自动删评论）、打散过于对称的对仗、口语连接词，外加披露与反"小号自吹"的底线
-- 新增示例 `10`：破折号等标点痕迹的中英前后对照
+- New typographic-tells layer targeting the signals readers, platforms (Reddit and others), and detectors catch first: the em-dash (`—` / `——`), en-dash connectors, smart quotes `“ ” ‘ ’`, the `…` character, and stray `→ • ·` in prose. Replace each by the job it does (period, comma, colon, parentheses, straight quotes) while leaving Chinese full-width quotes alone
+- New format-forms mapping: swaps the AI *layout* habits (scattered bolding, a heading per short chunk, bullets where a sentence works, `1. 2. 3.` frameworks, `> callouts`, `---` rules, tables for 2–3 items) for the plainest thing a person actually types. Rule of thumb: if you wouldn't type the formatting into a message to a friend, cut it
+- Human-texture mode reconciled: the em-dash used to be a "personal voice" signal, but AI now overuses it into a tell, so it's downgraded to rare-and-deliberate with parenthesis/period alternatives
+- Stated plainly: stripping these symbols is not a trick to dodge a detector. It makes the text genuinely read like keyboard typing, and lower false-positive flags are just a side effect
+- A sixth scenario preset: Reddit / English forum comments. Comment-as-genuine-help constraints, a hard "no em-dashes at all" rule (some subreddit automods flag em-dash density and auto-remove comments as low-effort/AI), break too-symmetric "it's not X, it's Y" parallelism, casual connectors, plus disclosure / anti-sock-puppet guardrails
+- New example `10`: an em-dash / typographic-tell before-after in both English and Chinese
 
 **1.4.0**
-- 人味儿质感模式新增「随手打」子档：社交专用、默认关、带硬护栏的极少量"手机随手打"手感（漏标点 / 不大写 / 漏虚词），不碰数字与名称，不做会改义的错别字，也不为骗检测
+- Human-texture mode gains a "casual typing" (随手打) layer: a social-only, default-off, hard-guardrailed sliver of phone-typing texture (dropped punctuation / no caps / omitted particle), never on numbers or names, never meaning-changing typos, and not for dodging detectors
 
 **1.3.0**
-- 中文表达更地道：新增"翻译腔 / 欧化句式"层（被字句、作为一个……、不仅……而且……、对……进行……、复数"们"）、"四字成语堆砌"规则，以及"改写心态"一节，改写时不当资深文案 / 营销专家，换成发微信的朋友 / 公众号编辑 / 资深媒体人来写，改完念一遍
-- 新增英文句子级痕迹（回避系动词、否定式排比、同义词循环、假范围、结构预告、按改动写），改编自开源 humanizer 项目，见「参考与致谢」
-- 新增三个示例：中文推特 / X 发帖（`07`）、中文翻译腔专项（`08`）、英文句子级痕迹（`09`）
-- `assets/rewrite-prompt-template.md` 新增"中文改写（带负向约束）"提示词块；final-pass 清单新增可选的五维打分
+- A sharper Chinese track for more idiomatic (地道) output: a 翻译腔 / 欧化句式 layer (被字句, 作为一个…, 不仅…而且…, 对…进行…, 复数"们"), a 四字成语 overuse rule, and a 改写心态 section that swaps the 资深文案 / 营销专家 stance for a friend / 公众号 editor / journalist voice
+- New sentence-level English tells (copula avoidance, negative parallelism, synonym cycling, false ranges, signposting, diff-anchored writing), adapted from open humanizer projects (see Credits)
+- Three new examples: a Chinese X/Twitter post (`07`), a Chinese translationese demo (`08`), and an English sentence-tells demo (`09`)
+- A ready-to-use "中文改写（带负向约束）" prompt block in `assets/rewrite-prompt-template.md`, plus an optional five-dimension scoring pass in the final-pass checklist
 
 **1.2.0**
-- 中文 AI 味规则与中文前后对照基准（`references/chinese-*.md`）
-- 人味儿质感模式（`references/human-texture.md`）
-- 学习模式与 host profile 工作流（`references/learning-mode.md`）
-- 五个场景预设：X / 微博 / 博客 / 播客 / 报告（`references/scenario-presets.md`）
-- host profile 模板与一次性风格提取提示词
-- 修正 SKILL.md 中 `tools:` 字段为 Claude Code 真实工具名
+- Chinese AI-smell rules and Chinese before/after benchmarks (`references/chinese-*.md`)
+- Human-texture mode for opt-in irregularity (`references/human-texture.md`)
+- Learning mode with host profile workflow (`references/learning-mode.md`)
+- Five scenario presets: X / Weibo / blog / podcast / report (`references/scenario-presets.md`)
+- Host profile template and one-shot style extraction prompt
+- Fixed `tools:` field in SKILL.md to use Claude Code's real tool names
 
-完整版本历史见 [CHANGELOG.md](./CHANGELOG.md)。
+See [CHANGELOG.md](./CHANGELOG.md) for the full version history.
