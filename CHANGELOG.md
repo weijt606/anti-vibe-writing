@@ -6,8 +6,27 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-11-15
+
+Catches up with how models write in late 2026 and fixes places where the skill broke its own rules. Sources: Wikipedia's "Signs of AI writing" (October 2026 revision), Graphite's 2026 model-by-model tell analysis as reported by TechCrunch, and 蒋雨恬's 2026 Chinese de-AI guide (公众号「有三思 U Sense」, reprinted by 36kr).
+
+### Added
+
+- **Newer-model reflexes** in `references/patterns-to-remove.md`: "this matters" / "why X matters" (about 100x human frequency in Claude Opus 5.5, per Graphite) and dependable (23x), "another dimension of" and "may/can provide" hedges from an OpenAI model, and quietly, multifaceted, prioritize, leverage, echoed from Wikipedia's mid-2026 list, plus a note that every model version has its own set of tells
+- **2026 contrast-frame variants**: "is more than an X, it's a Y", "not simply X", "rather than relying on X", "should be treated as X rather than Y", and in Chinese 不仅仅是……更是 / 而不是简单的 / 应该被看作……而不是
+- **Source-gap hedging** ("the available information does not establish...", "should not be confused with...") and **trailing participle analysis** (", highlighting...", ", ensuring...") as English sentence-level tells
+- **Chinese**: 过度拔高 (历史性 / 里程碑 / 关键时刻 / "XX 的象征"), "最"字泛滥 (the 2026 "豆包体" tell), 学术套话 openers (随着……的发展 / 近年来), 有学者指出 under unsourced authority, fake "从 X 到 Y" ranges, and 挑战与展望 endings. 快速识别法 gains items 11 and 12
+- **Residue**: `utm_source=chatgpt.com` / `utm_source=openai` tracking parameters, `↩` footnote arrows, and unfilled placeholders (`[Insert X]`, `2025-XX-XX`, `INSERT_SOURCE_URL`, `[需补充真实数据]`). Placeholders are flagged in the closing note and never filled with invented values
+- **Tidy endings**: "Despite these challenges" / Future Outlook sections and endings that resolve more neatly than the facts allow, in both languages
+- **Weak evidence / 不能单独当证据的特征**: perfect grammar, mixed register, a lone "Additionally", missing sources, and a couple of em-dashes don't prove AI authorship alone. The list governs diagnosis; critique mode now judges by co-occurrence
+- Credits in both READMEs list the three new sources
+- Deterministic gate: four new `grep` lines (2026 contrast variants, newer-model reflexes, placeholders and tracking, Chinese inflation plus a `最` count)
+
 ### Changed
 
+- **Em-dash repositioned.** The newest frontier models (late 2026) have largely stopped using it. The patterns references and `common-problems-and-fixes.md` now treat it as a tell for older-model and pasted drafts and say plainly that its absence proves nothing. The Chinese reference adds that one or two dashes are no evidence of AI and raises the density cue to 三处以上 in a paragraph; human-texture and the prompt templates soften the old "most recognizable" wording
+- **The skill now follows its own contrast-frame rule.** About 30 "not X, but Y" sentences in `SKILL.md`, the references, the checklist, and both READMEs were rewritten, including the opening of `SKILL.md` and a "Strong" example ("Repetition reads as precision, not poverty"). Factual distinctions (`……` vs `...`) and deliberate human-texture demos were kept
+- `SKILL.md` metadata `tools` trimmed to what a markdown skill uses (Read, Edit, Write, Grep, Glob, Bash)
 - READMEs drop the long per-version highlights list (it duplicated CHANGELOG and the GitHub Releases) for a short "What's new" / "最近更新" line at the end that names the latest version and links to Releases and CHANGELOG
 
 ## [1.8.0] - 2026-11-15
