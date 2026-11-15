@@ -22,6 +22,13 @@ write," as one early user put it. That's the whole pitch.
 
 What changed: the first em-dash becomes a period (hard stop); the second becomes a colon (it introduces the list); the smart quotes `“ ”` become straight quotes `" "`; the trailing `…` becomes a plain period and the sentence finishes its thought.
 
+This After only touches symbols, so the "didn't build X. We built Y" frame is still there. A full pass removes it too (negative parallelism, see `references/patterns-to-remove.md`):
+
+```
+It's a thinking tool. Fast, quiet, and yours: no account, no sync, no cloud.
+One early user put it as "just open it and write."
+```
+
 ## 中文
 
 ### Before
@@ -39,7 +46,14 @@ What changed: the first em-dash becomes a period (hard stop); the second becomes
 注册，不用同步，不上云。"打开就写"，一个早期用户这么说。这就是全部。
 ```
 
-What changed: the first `——` becomes a comma (the turn rides inside the sentence); the second becomes a colon (it introduces the list); the third becomes a comma; the trailing `……` becomes a period. The Chinese full-width quotes `""` stay — those are normal, not a tell.
+What changed: the first `——` becomes a comma (the turn rides inside the sentence); the second becomes a colon (it introduces the list); the third becomes a comma; the trailing `……` becomes a period. The Chinese full-width quotes `""` stay. Those are normal, not a tell.
+
+这版只动了标点，"不是……而是……"的对比骨架还在。完整改写会连它一起去掉（见 `references/chinese-patterns-to-remove.md` 的对比骨架一条）：
+
+```
+我们做的是一个思考工具。它快，安静，属于你：不用注册，不用同步，不上云。
+一个早期用户的说法是"打开就写"。
+```
 
 ## Format forms (English)
 
