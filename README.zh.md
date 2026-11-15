@@ -160,7 +160,12 @@ LICENSE
 - [yage.ai《AI 中文翻译腔》](https://yage.ai/share/ai-chinese-translationese-20260418.html)：对中文翻译腔的拆解（用身体动作词写抽象 / 形容词加冒号替读者下判断 / 抽象名词当主语）。启发了 `references/chinese-patterns-to-remove.md` 的"翻译腔层"。
 - [X 上的 @dotey](https://x.com/dotey/status/2022774029220749538)：关于去 AI 味提示词技巧的讨论（身份设定、负向约束），影响了"改写心态"一节和中文改写提示词块。
 
-这些都是各自独立、各有边界的项目，本仓库借鉴的是思路，不是代码。如果你是其中某个项目的维护者、想调整致谢写法，欢迎开 issue。
+AI 写作研究（1.9.0 新增）：
+- [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)：社区维护的 AI 写作特征清单（2026 年 10 月版）。2026 年中期的新词表、资料空白式含糊、句尾追加的"凸显了……""确保了……"式点评、占位符和 `utm_source` 残留、"挑战与展望"式收尾，以及"不能单独当证据的特征"都参考了它。
+- [Graphite 的 2026 年模型痕迹统计（TechCrunch 报道）](https://techcrunch.com/2026/10/01/opus-5-5-loves-to-tell-you-this-matters-and-other-ai-writing-tells/)："this matters" / "why X matters"、"dependable"、2026 年对比句变体和破折号减少的各模型数据来源。
+- [《消除"罪证"：给写作去除"AI味"的不完全手册（2026版）》](https://eu.36kr.com/zh/p/3824601267196037)（蒋雨恬，原发于公众号「有三思 U Sense」，36氪授权转载）：过度拔高、"最"字泛滥（豆包体）、学术套话开头、虚假范围，以及有人因两个破折号被误判的例子，都参考了这篇。
+
+这些都是各自独立、各有边界的项目和文章，本仓库只借鉴思路，没有用它们的代码。如果你是其中某个项目的维护者、想调整致谢写法，欢迎开 issue。
 
 ## 贡献
 

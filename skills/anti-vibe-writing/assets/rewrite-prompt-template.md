@@ -13,18 +13,18 @@ Goals:
 - Strip typographic AI tells: replace em-dashes (—) and en-dash connectors with periods, commas, colons, or parentheses; turn smart quotes “ ” ‘ ’ into straight quotes; replace the … character with three periods. (Leave Chinese full-width quotes alone.)
 - Delete copy-paste residue from chat or search models: contentReference, oaicite, turn0search0, [cite: 1], grok_card, ppl-ai-file-upload, stray 【】 / † citation scaffolding, unsourced [1][2] brackets, and leftover assistant framing ("Here is the revised version", "Certainly!", a trailing "Sources:" block).
 - Reduce markdown unless it clearly helps the reader.
-- Keep warmth through specificity, cadence, and judgment rather than friendly filler.
+- Keep warmth through specificity, cadence, and judgment, and cut friendly filler.
 - Prefer direct sentences and concrete nouns and verbs.
 - Drop "not X, but Y" setups ("It's not X, it's Y", "Not that X. Just Y"): state the claim directly.
 - Vary sentence length, and don't over-correct into a run of short fragments or one-line paragraphs.
-- Cut newer-model reflexes too: "this matters" / "why X matters", dependable, genuinely, quietly, "is more than an X, it's a Y", "not simply X", "rather than relying on X", "the available information does not establish...", and trailing ", highlighting..." / ", ensuring..." clauses.
+- Cut newer-model reflexes when they decorate or repeat, and keep one that carries a literal meaning: "this matters" / "why X matters", dependable, quietly, "is more than an X, it's a Y", "not simply X", "rather than relying on X", "the available information does not establish...", and trailing ", highlighting..." / ", ensuring..." clauses.
 - Strip utm_source= tracking from links and ↩ footnote arrows. Leave unfilled placeholders ([Insert X], 2025-XX-XX) in place and list them in a note; never invent a value.
 - End where the facts end: no "Despite these challenges" wrap-up and no tidier resolution than the source supports.
 - Do not add new facts, examples, proof, or hype.
 
 Output:
 - Return revised copy first.
-- Add a short note only if facts are ambiguous, proof is missing, or the structure changed materially.
+- Add a short note only if facts are ambiguous, proof is missing, the structure changed materially, or unfilled placeholders remain (list them).
 
 Audience:
 [Describe the reader]
@@ -52,13 +52,13 @@ Goals:
 - Remove the most obvious AI markers.
 - Keep the current structure unless it is clearly hurting readability.
 - Cut emoji, icon headings, decorative markdown, and filler transitions.
-- Remove em-dashes (—), smart quotes, and the … character (the typographic tells platforms and detectors catch first) by swapping in plain keyboard punctuation.
+- Remove em-dashes (—), smart quotes, and the … character (still the first thing readers catch in older-model or pasted drafts) by swapping in plain keyboard punctuation.
 - Delete copy-paste model residue (contentReference, oaicite, turn0search0, [cite: 1], grok_card, ppl-ai-file-upload, stray 【】/† scaffolding, leftover "Here is the revised version" / "Sources:" framing).
 - Make the wording more concrete and the rhythm less robotic, without chopping it into short fragments. Drop "not X, but Y" setups and newer reflexes like "this matters" or "not simply X".
 - Strip utm_source= tracking and ↩ arrows; flag unfilled placeholders instead of filling them.
 - Do not add new facts or change the intended meaning.
 
-Return the edited text directly.
+Return the edited text directly. If any placeholders are unfilled, list them on one line at the end.
 
 ## 中文改写（带负向约束）
 
@@ -73,7 +73,7 @@ Return the edited text directly.
 负向约束（禁止出现）：
 - 互联网黑话：赋能、打通、闭环、抓手、对齐、心智、链路、底层逻辑、一站式、全链路、端到端
 - 营销腔：打造、致力于、助力、释放潜能、极致、丝滑、无缝、干货满满、强烈推荐
-- 拔高与套话：历史性、里程碑、关键时刻、意义深远；一段里堆好几个没有依据的"最"；"随着……的发展""近年来""有学者指出"起手；"从 X 到 Y"的虚假跨度
+- 拔高与套话：历史性、里程碑、关键时刻、意义深远；一段里三个以上没有依据的"最"；"随着……的发展""近年来"起手；"从 X 到 Y"的虚假跨度
 - 说教词：让我们一起、不可否认、毋庸置疑、综上所述、总而言之、值得注意的是、总之、归根结底、说到底、记住真正重要的是
 - 欧化 / 翻译腔句式：不仅……而且……、一方面……另一方面……、作为一个……、被……所……、对……进行……
 - 结构套路：首先 / 其次 / 最后、【】段头、emoji 段头、三连排比、段尾升华到"行业 / 时代 / 未来"、"在这个 XX 的时代我们每个人都……"开头、"以前……现在……"成段对比、"不是 X 而是 Y""不在 X，在 Y""从来不是 X""不仅仅是 X，更是 Y""而不是简单的 X"这类先否定再亮观点的对比句（一处都别留）、"挑战与机遇并存 / 未来可期"式收尾、鸡汤 / 口号收尾
@@ -86,7 +86,7 @@ Return the edited text directly.
 - 不编事实，不加新内容，不替原作者强化立场。
 - 改完把句子念一遍，不像平时说话的地方再改。
 
-直接返回改好的中文，不要解释。有没填的占位符时，在最后用一行列出来。
+直接返回改好的中文，不要解释。稿子里还留着空占位符的话，在最后用一行列出来。
 
 待改文本：
 [粘贴原文]

@@ -2,11 +2,13 @@
 
 Use this reference when a draft still sounds generated after a first rewrite pass.
 
+The specific facts in the Strong examples are illustrations. In a real rewrite, every concrete detail comes from the source; if the source has none, cut the empty phrase or ask the writer in the closing note.
+
 ## Typographic Tells (Strip These First)
 
-These are the cheapest signals to catch. In drafts from older models, or text pasted straight out of a chat window, they are still what readers and platforms notice first. The characters below are rare on a real keyboard or phone, so a page full of them reads as machine-set. Removing them makes the writing look like something a person typed; fooling a detector is beside the point.
+These are the cheapest signals to catch. In drafts from older models, or text pasted straight out of a chat window, they are still what readers and platforms notice first. The characters below are rare on a real keyboard or phone, so a page full of them reads as machine-set. Removing them makes the writing look like something a person typed.
 
-- **The em-dash `—` (and the en-dash `–` used as a connector).** Through 2025 this was the most recognizable sign of AI prose: models spliced clauses with it constantly, and most people don't, because it isn't a key you press. Frontier models released in 2026 have largely dropped it (one 2026 analysis measured a 99% cut from one Claude generation to the next, and Gemini 3.1 Pro barely uses it). Treat it as a tell for older-model output and pasted drafts, and remember that a draft with no em-dashes can still be fully machine-shaped. Replace it by the job it was doing:
+- **The em-dash `—` (and the en-dash `–` used as a connector).** Until late 2026 this was the most recognizable sign of AI prose: models spliced clauses with it constantly, and most people don't, because it isn't a key you press. The newest frontier models have largely dropped it (Graphite's 2026 analysis, reported by TechCrunch, measured a 99% cut from Claude Opus 5 to Opus 5.5, and Gemini 3.1 Pro barely uses it). Treat it as a tell for older-model output and pasted drafts, and remember that a draft with no em-dashes can still be fully machine-shaped. Replace it by the job it was doing:
   - hard stop → period: "The tool does one thing — it finishes drafts." → "The tool does one thing. It finishes drafts."
   - introduce → colon: "It does one thing: it finishes drafts."
   - aside → parentheses or commas: "the system — the engine —" → "the system (the engine)"
@@ -17,7 +19,7 @@ These are the cheapest signals to catch. In drafts from older models, or text pa
 - **Stray symbols dropped into prose**: `→`, `•`, `·`, `▪` mid-sentence. Use words or restructure.
 - **Decorative bolding of key terms** and **Title Case On Every Heading** both scan as generated. Bold sparingly; use sentence case for headings unless the house style says otherwise.
 
-One honest caveat: none of this defeats a determined detector by itself, and dodging detectors is outside this skill's purpose. What it aims for is text that stops *being* machine-set. Tell-stripping lowers false-positive flags as a side effect of the writing actually reading like a person. The reverse holds too: a couple of em-dashes in someone's post prove nothing on their own (see Weak Evidence at the end of this file).
+A caveat: none of this defeats a determined detector, and the skill doesn't try to. Tell-stripping lowers false-positive flags as a side effect of the writing actually reading like a person. The reverse holds too: a couple of em-dashes in someone's post prove nothing on their own (see Weak Evidence at the end of this file).
 
 ## Copy-Paste Residue from Chat and Search Models
 
@@ -29,7 +31,7 @@ When a draft is pasted straight out of a chat or search-enabled model, it often 
 - **Leftover conversational framing**: "Here is the revised version:", "Certainly! Below is...", "Sure, here's...", "I hope this helps! Let me know if...", "Would you like me to...", and a trailing "Sources:" block the reader never asked for.
 - **Tracking parameters in links**: `utm_source=chatgpt.com`, `utm_source=openai`, and similar tags that chat search appends to URLs. Strip the parameter and keep the clean link.
 - **Footnote return arrows `↩`** carried over from a chat interface's footnotes.
-- **Unfilled placeholders**: `[Insert X]`, `[Your Name]`, `[Article Title 1]`, `2025-XX-XX`, `INSERT_SOURCE_URL`, `PASTE_..._HERE`, `example.com` links, and notes addressed to the user such as "Delete this section before submission". Never fill a placeholder with an invented value. Leave it visible and name it in the closing note so the writer supplies the real thing.
+- **Unfilled placeholders**: `[Insert X]`, `[Your Name]`, `[Article Title 1]`, `2025-XX-XX`, `INSERT_SOURCE_URL`, `PASTE_..._HERE`, `example.com` links standing in for a real source the text cites, and notes addressed to the user such as "Delete this section before submission". Never fill a placeholder with an invented value. Leave it visible and name it in the closing note so the writer supplies the real thing.
 
 These are exact strings, so a grep catches what the eye skims past. See the deterministic gate in the final-pass checklist.
 
@@ -68,7 +70,7 @@ Cut or rewrite patterns such as:
 
 These phrases sound pre-assembled. They signal polish without carrying meaning.
 
-The vocabulary drifts by model generation, so no wordlist is final. The 2023-24 favorites (delve, tapestry, testament, intricate, meticulous) gave way to showcasing, highlighting, emphasizing, enhance, fostering, "align with", underscore, boasts. Models released in 2026 bring their own band: "this matters" and "why X matters" (one analysis found Claude Opus 5.5 using them about 100 times as often as human writers), dependable, genuine / genuinely, quietly, multifaceted, prioritize, leverage, echoed, "another dimension of", and soft benefit hedges such as "may provide" / "can provide". The same analysis put roughly two thirds of measured tells inside a single model family, so look for whatever this particular draft repeats with unusual regularity. A reflex counts whether the word is classic or brand new.
+The vocabulary drifts by model generation, so no wordlist is final. The 2023-24 favorites (delve, tapestry, testament, intricate, meticulous) gave way to showcasing, highlighting, emphasizing, enhance, fostering, "align with", underscore, boasts. Models released in 2026 bring their own band. Graphite's 2026 analysis, reported by TechCrunch, found Claude Opus 5.5 writing "this matters" and "why X matters" about 100 times as often as human writers and "dependable" 23 times as often, and an OpenAI model leaning on "another dimension of" and soft benefit hedges such as "may provide" / "can provide". Wikipedia's "Signs of AI writing" adds quietly, multifaceted, prioritize, leverage, and echoed for mid-2026 output. Graphite also found that every model version has its own set of tells, so look for whatever this particular draft repeats with unusual regularity. A reflex counts whether the word is classic or brand new.
 
 ## Over-Structured Outlines
 
@@ -177,7 +179,7 @@ Negative parallelism / tailing negation: "It's not X, it's Y" and its variants (
 - Weak: AI drafts have a problem. Not that they're wrong. They're just clearly assembled.
 - Strong: Most AI drafts get the facts right and still read like a machine put them together.
 
-Newer models disguise the same move. Watch for "is more than an X, it's a Y", "not simply X", "rather than relying on X", and "should be treated as X rather than Y": a 2026 analysis found the "not simply" / "rather than" framing more than 100 times as often in one OpenAI model as in human writing.
+Newer models disguise the same move. Watch for "is more than an X, it's a Y", "not simply X", "rather than relying on X", and "should be treated as X rather than Y": in Graphite's 2026 analysis, the "not simply" / "rather than" framing was the top tell of an OpenAI model (called Astra in TechCrunch's report), at more than 100 times human frequency.
 
 Exception: in learning mode, keep it at the host's own rate if their samples use it.
 
@@ -236,7 +238,7 @@ Warmth should come from useful detail, respect for the reader, and confident res
 
 ## Weak Evidence (Don't Flag These Alone)
 
-Some features show up in AI text and in plenty of careful human writing, so on their own they prove nothing. Don't rewrite them by reflex, and in critique mode don't call a text AI-written because of them:
+Some features show up in AI text and in plenty of careful human writing, so on their own they prove nothing. This list is about diagnosis: in critique mode, don't call a text AI-written because of these. In a rewrite, the typographic rules above still apply to em-dashes and curly quotes.
 
 - Perfect grammar and spelling
 - A mix of casual and formal registers
@@ -245,4 +247,4 @@ Some features show up in AI text and in plenty of careful human writing, so on t
 - One or two em-dashes, or curly quotes from a word processor
 - Prose that is plain, or prose that is fancy
 
-What counts is co-occurrence: several tells in the same piece, or one reflex repeated. Score the draft on that and leave the rest alone.
+What counts is co-occurrence: several tells in the same piece, or one reflex repeated. Judge by that.

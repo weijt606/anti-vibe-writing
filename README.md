@@ -162,7 +162,12 @@ English:
 - ["AI 中文翻译腔" by yage.ai](https://yage.ai/share/ai-chinese-translationese-20260418.html): the analysis of Chinese translationese (物理动作动词写抽象 / 形容词加冒号预判读者 / 抽象名词主语). Informed the 翻译腔层 of `references/chinese-patterns-to-remove.md`.
 - [@dotey on X](https://x.com/dotey/status/2022774029220749538): discussion of de-AI prompt techniques (role-setting, negative constraints) that shaped the 改写心态 section and the Chinese rewrite prompt block.
 
-These are independent projects with their own scope; this repo borrows ideas, not code. If you maintain one of them and want a credit adjusted, open an issue.
+AI-writing research (added in 1.9.0):
+- [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing): the community-maintained catalog of AI-writing signs (October 2026 revision). Source of the mid-2026 vocabulary band, source-gap hedging, trailing participle analysis, placeholder and `utm_source` residue, the "Challenges and Future Outlook" ending, and the weak-evidence list.
+- [Graphite's 2026 model-tell analysis, reported by TechCrunch](https://techcrunch.com/2026/10/01/opus-5-5-loves-to-tell-you-this-matters-and-other-ai-writing-tells/): per-model frequencies behind "this matters" / "why X matters", "dependable", the 2026 contrast-frame variants, and the em-dash decline.
+- [《消除"罪证"：给写作去除"AI味"的不完全手册（2026版）》](https://eu.36kr.com/zh/p/3824601267196037) by 蒋雨恬, first published on the WeChat account 有三思 U Sense and reprinted by 36kr: informed 过度拔高, the "最" (豆包体) rule, 学术套话 openers, 虚假范围, and the note about people misjudged over two dashes.
+
+These are independent projects and writeups with their own scope; this repo borrows their ideas and none of their code. If you maintain one of them and want a credit adjusted, open an issue.
 
 ## Contributing
 
@@ -180,4 +185,4 @@ This project is open source under the MIT License. See `LICENSE`.
 
 ## What's new
 
-**1.9.0**: catches up with how models write in late 2026 ("this matters", "not simply X", fewer em-dashes, Chinese 过度拔高 and "最" overuse, placeholders and tracking links), adds a list of weak evidence that shouldn't be called AI on its own, and fixes places where the skill broke its own rules. Each version's full notes are in [Releases](https://github.com/weijt606/anti-vibe-writing/releases), and the whole history is in [CHANGELOG.md](./CHANGELOG.md).
+**1.9.0**: catches up with how models write in late 2026 ("this matters", "not simply X", fewer em-dashes, Chinese 过度拔高 and "最" overuse, placeholders and tracking links), adds a list of features too weak to call a text AI-written on their own, and fixes places where the skill broke its own rules. Each version's full notes are in [Releases](https://github.com/weijt606/anti-vibe-writing/releases), and the whole history is in [CHANGELOG.md](./CHANGELOG.md).

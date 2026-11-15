@@ -96,7 +96,7 @@ We are excited to share that Anti-Vibe Writing represents an important step in o
 **After:**
 
 ```md
-Most AI writing tools help agents produce more text. Anti-Vibe Writing is the pass after that one, and it makes the text sound like someone meant it. Teams can now draft anything in seconds and still struggle to publish something with a point of view, so that last pass is where the time goes.
+Anti-Vibe Writing is a final pass for agent-drafted text: it makes the text sound like someone meant it. Teams can draft anything in seconds now, and many still struggle to publish something with a point of view.
 ```
 
 **Why this is better:**

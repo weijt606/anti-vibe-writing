@@ -46,9 +46,9 @@ Use this reference when the draft is bad in recognizable ways and you need a dir
 
 ## Problem: Typographic AI Tells
 
-**Symptom:** The text is peppered with em-dashes (`—` / `——`), smart quotes `“ ” ‘ ’`, the `…` character, or stray `→ • ·`. These are rare on a real keyboard and were constant in model output through 2025, so platforms (Reddit and others) and detectors still flag them, and readers feel it even when they can't name it. Frontier models from 2026 rarely produce em-dashes, so their absence proves nothing.
+**Symptom:** The text is peppered with em-dashes (`—` / `——`), smart quotes `“ ” ‘ ’`, the `…` character, or stray `→ • ·`. These are rare on a real keyboard and were constant in model output until late 2026, so platforms (Reddit and others) and detectors still flag them, and readers feel it even when they can't name it. The newest frontier models rarely produce em-dashes, so their absence proves nothing.
 
-**Fix:** Replace each character by the job it was doing: period for a hard stop, comma for a pause, colon to introduce, parentheses for an aside, straight quotes for curly ones (English only; Chinese full-width quotes are normal), `...` for `…`. The goal is text that genuinely reads like keyboard typing. Swapping symbols to slip past a detector misses the point, and it rarely works anyway.
+**Fix:** Replace each character by the job it was doing: period for a hard stop, comma for a pause, colon to introduce, parentheses for an aside, straight quotes for curly ones (English only; Chinese full-width quotes are normal), `...` for `…`. The goal is text that reads like keyboard typing. Swapping symbols to slip past a detector rarely works.
 
 ## Problem: Mirrored Ending
 
