@@ -165,9 +165,19 @@ Copula avoidance: the model dodges plain "is" / "has":
 - Weak: The tool serves as a final pass. It boasts three modes and features bilingual support.
 - Strong: The tool is a final pass. It has three modes and works in two languages.
 
-Negative parallelism / tailing negation: "It's not X, it's Y" used as a reflex:
+Negative parallelism / tailing negation: "It's not X, it's Y" and its variants ("Not that X. Just Y", "This isn't about X. It's about Y", "less X, more Y"). The setup knocks down a claim nobody made, and readers spot the shape instantly even when the words change. Default to none per piece: make the claim, and if the contrast really matters, fold X in as a concession.
 - Weak: This isn't about speed. It's about trust.
-- Strong: This is about trust. (Make the claim; drop the setup.) One per piece at most.
+- Strong: This is about trust.
+- Weak: AI drafts have a problem. Not that they're wrong. They're just clearly assembled.
+- Strong: Most AI drafts get the facts right and still read like a machine put them together.
+
+Exception: in learning mode, keep it at the host's own rate if their samples use it.
+
+Staccato fragments (over-correction): the de-AI fix taken too far. Every thought gets chopped into short punchy sentences, paragraphs shrink to one line each, and a lone fragment closes the piece ("Works in English and Chinese."). It reads as staged, the way ad copy does, and it's as recognizable as the long-winded version. Let a sentence carry a whole thought and vary the length.
+- Weak: It's fast. It's quiet. It's yours. No accounts. No sync. That's it.
+- Strong: It's fast, quiet, and yours, with no account and no sync.
+
+Rule of thumb: three or more short sentences in a row, or a piece where every paragraph is a single line, means merge.
 
 Synonym cycling: renaming the same thing to avoid repetition:
 - Weak: The model... the system... the assistant... the engine... (all the same thing)

@@ -9,7 +9,7 @@
       "name": "anti-vibe-writing",
       "source": "./",
       "description": "Bilingual (English + 中文) skill that removes the AI-generated feel from drafts while preserving meaning.",
-      "version": "1.7.1",
+      "version": "1.8.0",
       "category": "writing"
     }
   ]

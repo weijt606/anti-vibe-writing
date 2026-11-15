@@ -5,7 +5,7 @@
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.7.1-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.8.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > 本 README 提供中英文两个版本：**English**（本页，默认）和 **[中文](./README.zh.md)**。点上方徽章切换。
 
@@ -179,6 +179,11 @@ This project is open source under the MIT License. See `LICENSE`.
 - Keep structure only when it helps the reader.
 
 ## Version highlights
+
+**1.8.0**
+- "Not X, but Y" frames ("it's not X, it's Y", "Not that X. Just Y") now default to zero instead of one per piece, with every common variant listed. Our own examples were using them, which is how we noticed
+- New over-correction tell: rewrites chopped into runs of short sentences, one-line paragraphs, or a lone closing fragment. De-AI'd text that reads staged is still AI-shaped
+- Both rules reach the checklist, the rewrite prompts, and the grep gate. The README now opens with a before/after image built from the fixed examples
 
 **1.7.1**
 - Installable as a Claude Code plugin in one line (see Quick start). Skill rules unchanged

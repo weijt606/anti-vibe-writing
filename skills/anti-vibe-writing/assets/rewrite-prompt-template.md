@@ -15,6 +15,8 @@ Goals:
 - Reduce markdown unless it clearly helps the reader.
 - Keep warmth through specificity, cadence, and judgment rather than friendly filler.
 - Prefer direct sentences and concrete nouns and verbs.
+- Drop "not X, but Y" setups ("It's not X, it's Y", "Not that X. Just Y"): state the claim directly.
+- Vary sentence length, and don't over-correct into a run of short fragments or one-line paragraphs.
 - Do not add new facts, examples, proof, or hype.
 
 Output:
@@ -49,7 +51,7 @@ Goals:
 - Cut emoji, icon headings, decorative markdown, and filler transitions.
 - Remove em-dashes (—), smart quotes, and the … character (the typographic tells platforms and detectors catch first) by swapping in plain keyboard punctuation.
 - Delete copy-paste model residue (contentReference, oaicite, turn0search0, [cite: 1], grok_card, ppl-ai-file-upload, stray 【】/† scaffolding, leftover "Here is the revised version" / "Sources:" framing).
-- Make the wording more concrete and the rhythm less robotic.
+- Make the wording more concrete and the rhythm less robotic, without chopping it into short fragments. Drop "not X, but Y" setups.
 - Do not add new facts or change the intended meaning.
 
 Return the edited text directly.
@@ -69,12 +71,12 @@ Return the edited text directly.
 - 营销腔：打造、致力于、助力、释放潜能、极致、丝滑、无缝、干货满满、强烈推荐
 - 说教词：让我们一起、不可否认、毋庸置疑、综上所述、总而言之、值得注意的是、总之、归根结底、说到底、记住真正重要的是
 - 欧化 / 翻译腔句式：不仅……而且……、一方面……另一方面……、作为一个……、被……所……、对……进行……
-- 结构套路：首先 / 其次 / 最后、【】段头、emoji 段头、三连排比、段尾升华到"行业 / 时代 / 未来"、"在这个 XX 的时代我们每个人都……"开头、"以前……现在……"成段对比、"不是 X 而是 Y"成段对比、鸡汤 / 口号收尾
+- 结构套路：首先 / 其次 / 最后、【】段头、emoji 段头、三连排比、段尾升华到"行业 / 时代 / 未来"、"在这个 XX 的时代我们每个人都……"开头、"以前……现在……"成段对比、"不是 X 而是 Y""不在 X，在 Y""从来不是 X"这类先否定再亮观点的对比句（一处都别留）、鸡汤 / 口号收尾
 - 标点痕迹：破折号 `——` 别用密（最容易被一眼认出是 AI，平台和检测也最先盯它），多数换成逗号、句号、冒号或括号；别夹弯引号、`…`、`→` 这类符号。中文全角引号 `""` 正常，不用动。
 - 机器残留：从对话 / 联网模型直接粘来的角标和内部标记（oaicite、turn0search0、[cite: 1]、grok_card、ppl-ai-file-upload、正文里查无实据的 `[1][2]` 角标、DeepSeek 爱用的【】/† 脚手架）、结尾多出来的"参考资料 / Sources"、开头的"好的，下面是……""问得好""当然可以"这类附和，全删。
 
 正向要求：
-- 多用短句，多用大白话；一句最多一个四字成语，能用动词就别名词化。
+- 多用大白话，句子长短混着来：别切成一串短句，也别一段只放一句，一句话能说完的意思一口气说完；一句最多一个四字成语，能用动词就别名词化。
 - 论点早出现，例子要具体到能复现（哪个产品 / 哪个数字 / 哪个场景）。
 - 不编事实，不加新内容，不替原作者强化立场。
 - 改完把句子念一遍，不像平时说话的地方再改。

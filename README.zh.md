@@ -5,7 +5,7 @@
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.7.1-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.8.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > This README comes in two languages: **[English](./README.md)** (the default) and **中文** (this page). Use the badges above to switch.
 
@@ -177,6 +177,11 @@ LICENSE
 - 只有在结构确实帮助读者时才保留结构。
 
 ## 版本亮点
+
+**1.8.0**
+- "不是 X，而是 Y""不在 X，在 Y""从来不是 X"这类对比句，从"一篇最多一两处"收紧到默认一处不留，常见变体都列进了规则。起因是我们自己的示例里就在用
+- 新增"改过头"痕迹：去 AI 味时把句子切成一串短句、一段只放一句、结尾单独甩一个残句，读着像在演，照样是 AI 味
+- 两条规则都同步进了检查清单、改写提示词和 grep 检查。README 开头新增前后对比图，用的就是修好的示例
 
 **1.7.1**
 - 可以作为 Claude Code 插件一行命令安装（见快速上手）。规则本身没改

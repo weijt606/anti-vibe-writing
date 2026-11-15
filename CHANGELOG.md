@@ -4,10 +4,21 @@ All notable changes to the `anti-vibe-writing` skill are recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the skill itself (declared in `skills/anti-vibe-writing/SKILL.md` frontmatter).
 
-## [Unreleased]
+## [1.8.0] - 2026-11-15
+
+The skill's own examples were caught using two tells: the "not X, but Y" frame, and rewrites chopped into strings of short fragments. This release fixes the examples and tightens the rules that let both through.
+
+### Changed
+
+- **"Not X, but Y" frames now default to zero.** The old rule tolerated one per piece (English) or flagged them only at two or more (Chinese). Both patterns references now treat the frame as a tell on sight and list the variants: it's not X, it's Y / Not that X. Just Y / This isn't about X. It's about Y / less X, more Y, and 不是 X，而是 Y / 不是 X，是 Y / 不在 X，在 Y / 从来不是 X，而是 Y / 与其说 X，不如说 Y / X 不等于 Y / 省的是 X，省不掉 Y. The fix is to state the claim, folding X in as a concession if it matters. Learning mode keeps the frame at the host's own rate when their samples use it
+- **"多用短句" rebalanced.** The Chinese rewrite stance and prompt block used to push short sentences without a limit, which is how the examples got chopped. They now say to mix lengths and not split a single thought into four or five comma-separated pieces. `human-passes.md` and the human-texture 残句 section carry the same cap
+- The 是……的 rule's "strong" example (这次改的是产品定位，不是功能) was itself a contrast frame; replaced
 
 ### Added
 
+- **Staccato fragments (over-correction)** as a new tell in both patterns references: runs of short sentences, comma-chopped clauses, one-line paragraphs throughout, a lone fragment as the closer. Rule of thumb: three or more short sentences in a row, more than four commas in one sentence, or every paragraph a single line means merge. Added to the Chinese 快速识别法 (items 9 and 10) and the 格式形式 table
+- `SKILL.md` editing heuristics, `final-pass-checklist.md`, and all three blocks of `rewrite-prompt-template.md` gain both rules. The scoring pass's Rhythm dimension now penalizes staccato as well as monotone
+- Deterministic gate: a contrast-frame `grep` line for Chinese and English, with a caveat that plain negation also matches and only the setup-then-reveal shape counts
 - Before/after comparison image at the top of each README (`anti-vibe-writing-before-after.png`, `-cn.png`), built from the real pairs in examples `03` and `07` with each removed tell struck through
 
 ### Fixed

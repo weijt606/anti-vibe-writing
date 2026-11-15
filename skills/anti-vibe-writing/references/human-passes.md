@@ -88,7 +88,7 @@ Use these passes in order for a full rewrite. After each pass, make a quick sani
 **Process:**
 1. Read aloud or simulate the cadence mentally.
 2. Shorten sentences that wander.
-3. Keep some short sentences where emphasis helps.
+3. Keep some short sentences where emphasis helps, but don't chop everything: a run of short sentences or one-line paragraphs reads as staged.
 4. Remove friendliness that exists only as filler.
 5. Add warmth through concrete detail, measured confidence, and cleaner emphasis.
 

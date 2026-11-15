@@ -14,6 +14,8 @@ Use this checklist before returning rewritten copy.
 - No copy-paste residue from chat or search models: `contentReference` / `oaicite` / `turn0search0` / `[cite: 1]` / `grok_card` / `ppl-ai-file-upload`, stray `【】` or `†` citation scaffolding, leftover "Here is the revised version" / "Sources:" framing, and unsourced `[1][2]` brackets.
 - Stock sections such as Overview, Key Features, or Conclusion are gone unless they earn their keep.
 - Repetition is gone.
+- No "not X, but Y" frames ("it's not X, it's Y", "Not that X. Just Y", 不是……而是, 不在……在, 从来不是): the claim is stated directly.
+- Not over-corrected into staccato: no run of three or more short sentences, no comma-chopped sentence, no one-line paragraphs throughout, no lone fragment as the closer.
 - The tone has a point of view instead of artificial balance.
 - Warmth comes from specificity and cadence, not filler friendliness.
 - The prose sounds written, not assembled.
@@ -26,7 +28,7 @@ Use this checklist before returning rewritten copy.
 For a borderline draft, score it on five dimensions (1–10 each) before returning. Adapted from the `stop-slop` rubric (see Credits in the README).
 
 - **Directness**: states things; doesn't announce that it's about to state them.
-- **Rhythm**: sentence lengths vary; no monotone march of equal clauses.
+- **Rhythm**: sentence lengths vary; no monotone march of equal clauses, and no staccato run of fragments either.
 - **Trust**: respects the reader's intelligence; no over-explaining the obvious.
 - **Authenticity**: reads like a person chose the words, not a system.
 - **Density**: every sentence earns its place; no filler.
@@ -49,9 +51,13 @@ grep -nE '赋能|打通|闭环|抓手|对齐|链路|底层逻辑|一站式|全�
 
 # Chinese template openers / closers (greppable subset of the banned sentence structures)
 grep -nE '让我们|值得注意的是|综上所述|总而言之|归根结底|说到底|在这个.*的时代|记住，真正' draft.txt
+
+# "Not X, but Y" contrast frames (Chinese and English)
+grep -nE '不是.{1,20}而是|不在.{1,15}[，,] *在|从来不是|与其说|不等于|[Nn]ot (just|only|that) |isn.t (about|just|only)|[Ii]t.s not ' draft.txt
 ```
 
-Each hit is a location to look at, not an automatic deletion. Two caveats:
+Each hit is a location to look at, not an automatic deletion. Three caveats:
 
 - Double curly quotes (`“ ”`) are shared: an English smart quote (strip it) and a Chinese full-width quote (leave it) look identical to grep, so judge those by language, not by the command.
+- The contrast-frame line also hits plain negation ("这不是我的错", "it's not ready yet"). Only the setup-then-reveal shape is a tell.
 - The jargon line is a fast subset. The full lists live in [patterns-to-remove.md](../references/patterns-to-remove.md) and [chinese-patterns-to-remove.md](../references/chinese-patterns-to-remove.md).
