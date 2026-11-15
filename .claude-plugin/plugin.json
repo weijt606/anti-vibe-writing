@@ -1,6 +1,6 @@
 {
   "name": "anti-vibe-writing",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Bilingual (English + 中文) writing skill that strips the AI-generated feel from drafts: templated phrasing, consultant-speak, markdown clutter, typographic tells, and copy-paste model residue, while preserving meaning.",
   "author": { "name": "weijt606", "url": "https://github.com/weijt606" },
   "homepage": "https://github.com/weijt606/anti-vibe-writing",

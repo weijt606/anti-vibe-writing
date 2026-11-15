@@ -5,7 +5,7 @@
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.8.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.9.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > 本 README 提供中英文两个版本：**English**（本页，默认）和 **[中文](./README.zh.md)**。点上方徽章切换。
 
@@ -17,7 +17,7 @@ An agent writing skill that removes the AI-generated feel from documents. Works 
 
 <sub>A real pair from [`examples/03-tweet.md`](./examples/03-tweet.md). More in [examples/](./examples/).</sub>
 
-It runs best as a final pass after drafting with Claude Code, Codex, or any LLM-backed agent. The goal is not to make the prose prettier. The goal is to keep the substance and remove the tells: templated phrasing, vague abstraction, consultant-speak, markdown-heavy formatting, over-structured outlines, the copy-paste residue chat and search models leave behind (`oaicite` / `turn0search0` / `[cite: 1]` / stray `【】` markers), and the cautious over-balancing that makes writing feel assembled.
+It runs best as a final pass after drafting with Claude Code, Codex, or any LLM-backed agent. Its job is to keep the substance and remove the tells: templated phrasing, vague abstraction, consultant-speak, markdown-heavy formatting, over-structured outlines, the copy-paste residue chat and search models leave behind (`oaicite` / `turn0search0` / `[cite: 1]` / stray `【】` markers), and the cautious over-balancing that makes writing feel assembled.
 
 If the default "clean" mode is not enough, the skill also supports:
 - **Human-texture mode**: inject controlled irregularities (inversions, particles, half-sentences, non-standard punctuation) for personal voice
@@ -100,7 +100,7 @@ Other common cases:
 - Cleaner phrasing
 - Stronger voice
 - Less AI smell
-- Sounds chosen by a person, not assembled by a system
+- Sounds like a person chose every word
 
 ## Repository layout
 
@@ -180,4 +180,4 @@ This project is open source under the MIT License. See `LICENSE`.
 
 ## What's new
 
-**1.8.0**: "not X, but Y" frames now default to zero, and a rewrite chopped into strings of short fragments counts as a tell of its own. Each version's full notes are in [Releases](https://github.com/weijt606/anti-vibe-writing/releases), and the whole history is in [CHANGELOG.md](./CHANGELOG.md).
+**1.9.0**: catches up with how models write in late 2026 ("this matters", "not simply X", fewer em-dashes, Chinese 过度拔高 and "最" overuse, placeholders and tracking links), adds a list of weak evidence that shouldn't be called AI on its own, and fixes places where the skill broke its own rules. Each version's full notes are in [Releases](https://github.com/weijt606/anti-vibe-writing/releases), and the whole history is in [CHANGELOG.md](./CHANGELOG.md).

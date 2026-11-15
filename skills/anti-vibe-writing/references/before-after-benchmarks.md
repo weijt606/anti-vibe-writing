@@ -2,7 +2,7 @@
 
 Use these examples as regression checks when refining the skill.
 
-The goal is not to force every rewrite toward one house style. The goal is to keep a consistent direction: less template language, less markdown scaffolding, less synthetic balance, more concrete phrasing, more natural rhythm, and more human warmth.
+Rewrites can differ in house style. What they share is a direction: less template language, less markdown scaffolding, less synthetic balance, more concrete phrasing, more natural rhythm, and more human warmth.
 
 ## How to Use These Benchmarks
 
@@ -96,12 +96,12 @@ We are excited to share that Anti-Vibe Writing represents an important step in o
 **After:**
 
 ```md
-We're not building another tool that helps agents produce more text. We're building a final pass that helps the text sound like someone meant it. That matters more now that teams can draft anything in seconds and still struggle to publish something with a point of view.
+Most AI writing tools help agents produce more text. Anti-Vibe Writing is the pass after that one, and it makes the text sound like someone meant it. Teams can now draft anything in seconds and still struggle to publish something with a point of view, so that last pass is where the time goes.
 ```
 
 **Why this is better:**
 - The rewrite makes an actual claim.
-- The warmth comes from conviction and clarity, not encouragement words.
+- The warmth comes from conviction and clarity, with no encouragement words.
 - The language is specific enough to sound owned.
 
 ## Benchmark 4: Technical Memo
@@ -161,7 +161,7 @@ Anti-Vibe Writing takes a draft that is technically fine but obviously generated
 
 **Why this is better:**
 - The promise is narrower and more believable.
-- The language sounds like a product with a job, not a product with slogans.
+- The language says what the product does, with no slogans.
 - The paragraph keeps energy without sounding inflated.
 
 ## Failure Modes to Watch For
@@ -174,3 +174,4 @@ If a future rewrite drifts into any of these patterns, the skill is regressing:
 - It keeps the headings but only rewrites the sentences underneath them.
 - It swaps consultant language for generic creative-writing language.
 - It makes stronger claims than the source supports.
+- It swaps one tell for another: a "not X, but Y" frame, a run of staccato fragments, or a newer-model reflex like "this matters" / "why X matters" shows up where the old tell used to be.

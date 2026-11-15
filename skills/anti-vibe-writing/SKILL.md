@@ -5,27 +5,27 @@ argument-hint: 'Paste the draft, or describe the document, audience, scenario (t
 user-invocable: true
 disable-model-invocation: false
 metadata:
-  version: 1.8.0
+  version: 1.9.0
   language_support: [en, zh]
-  tools: [Read, Edit, Write, Grep, Glob, Bash, WebFetch, WebSearch, TaskCreate, Agent]
+  tools: [Read, Edit, Write, Grep, Glob, Bash]
 ---
 
 # Anti-Vibe Writing
 
 You are an editorial finishing skill for AI-drafted writing, in English or Chinese.
 
-Use this after the substance is already there. The point is not to make the prose prettier. The point is to keep the meaning and remove the habits that make generated writing feel assembled: template language, vague abstraction, safe hedging, consultant tone, and default markdown scaffolding.
+Use this after the substance is already there, to keep the meaning while removing the habits that make generated writing feel assembled: template language, vague abstraction, safe hedging, consultant tone, and default markdown scaffolding.
 
-The skill works best as a final pass after drafting with tools like Claude Code, Codex, or any large-model assistant. It handles English and Chinese as two distinct dialects of AI-smell, not one.
+The skill works best as a final pass after drafting with tools like Claude Code, Codex, or any large-model assistant. It treats English and Chinese AI-smell as two distinct dialects.
 
 ## Core Philosophy
 
-- Preserve the writer's meaning. Improve delivery, not substance.
+- Preserve the writer's meaning. Improve the delivery and leave the substance alone.
 - Human writing chooses what matters. AI writing often hedges, formats, and explains by habit.
-- Warmth comes from specificity, rhythm, and honest emphasis, not emoji, icons, or cheerful filler.
+- Warmth comes from specificity, rhythm, and honest emphasis. Emoji, icons, and cheerful filler add none.
 - Chinese AI-smell and English AI-smell are different problems. Apply the matching reference.
 - Several narrow editing passes work better than one vague rewrite.
-- Clean is not the goal. Sounding like the person who meant it is the goal.
+- Aim for the voice of the person who meant it. A draft that is merely clean still falls short.
 
 ## Best Uses
 
@@ -112,7 +112,7 @@ Modes 2 and 3 can combine with each other and with scenario presets. Order of pr
 - Cleaner phrasing
 - Stronger voice
 - Less AI smell
-- Sounds chosen by a person, not assembled by a system
+- Sounds like a person chose every word
 
 ## Human Passes
 
@@ -144,14 +144,14 @@ When changing the skill itself, compare behavior against [before-after-benchmark
 - Swap AI *layout* for what a person actually types: drop scattered bolding, a heading over every short chunk, bullets where a sentence works, `> callouts`, and `---` rules between sections. See the "Format Forms → Plain Human Forms" / "格式形式" mapping in the matching patterns reference. Test: if you wouldn't type the formatting into a message to a friend, cut it.
 - Keep sentences varied in length, but not ornamental.
 - Prefer prose over bullets when list structure adds no value.
-- Let warmth come from concrete detail and restraint, not upbeat filler.
+- Let warmth come from concrete detail and restraint, and cut upbeat filler.
 - Do not invent examples, numbers, or evidence.
-- Default to returning rewritten copy, not commentary.
+- Default to returning the rewritten copy; add commentary only when the note rules below call for it.
 
 ## What to Remove Early
 
-- Typographic tells, the fastest thing readers and detectors catch: em-dashes (`—` / `——`), en-dashes used as connectors, smart quotes `“ ” ‘ ’`, the `…` character, and stray `→ • ·` in prose. Replace by the job they do (period, comma, colon, parentheses) or restructure. See the typographic sections in the matching patterns reference.
-- Copy-paste residue from chat or search-enabled models: `contentReference` / `oaicite` / `turn0search0` / `[cite: 1]` / `grok_card` / `ppl-ai-file-upload`, stray `【】` or `†` citation scaffolding, unsourced `[1][2]` brackets, and leftover assistant framing ("Here is the revised version", trailing "Sources:"). Language-agnostic and exact-string, so delete on sight and let the deterministic gate catch the rest.
+- Typographic tells, still the fastest thing readers catch in older-model or pasted drafts: em-dashes (`—` / `——`), en-dashes used as connectors, smart quotes `“ ” ‘ ’`, the `…` character, and stray `→ • ·` in prose. Replace by the job they do (period, comma, colon, parentheses) or restructure. See the typographic sections in the matching patterns reference.
+- Copy-paste residue from chat or search-enabled models: `contentReference` / `oaicite` / `turn0search0` / `[cite: 1]` / `grok_card` / `ppl-ai-file-upload`, stray `【】` or `†` citation scaffolding, unsourced `[1][2]` brackets, and leftover assistant framing ("Here is the revised version", trailing "Sources:"). Also tracking parameters (`utm_source=chatgpt.com`), footnote arrows `↩`, and unfilled placeholders (`[Insert X]`, `2025-XX-XX`, `INSERT_SOURCE_URL`). Language-agnostic and exact-string, so delete on sight and let the deterministic gate catch the rest. Never fill a placeholder with an invented value; name it in the closing note.
 - Generic setup paragraphs that delay the point
 - Empty transitions: "it is important to note", "in today's landscape", 在……方面, 值得注意的是, 综上所述
 - Headings that only label the obvious
@@ -169,6 +169,7 @@ When changing the skill itself, compare behavior against [before-after-benchmark
 - If the tone keeps "balancing" instead of deciding, make the claim and carry the nuance in the sentence rather than around it.
 - If the tone sounds warm only because of icons, exclamation, or soft filler, remove those and rebuild the sentence.
 - If a sentence knocks down a claim nobody made before stating its own ("it's not X, it's Y", "Not that X. Just Y", 不是……而是……, 不在……在……, 从来不是……), state the claim directly. Default to none per piece; learning mode keeps the host's own rate.
+- Newer models carry their own reflexes: "this matters" / "why X matters", dependable, genuinely, quietly, "is more than an X, it's a Y", "not simply X", "rather than relying on X", "the available information does not establish...". In Chinese: 过度拔高 (历史性 / 里程碑), a "最" in every sentence (豆包体), 学术套话 openers (随着……的发展 / 近年来), and fake "从 X 到 Y" ranges. Look for whatever this draft repeats; the lists are a starting point.
 - Don't over-correct into staccato. A run of short sentences, comma-chopped clauses, one-line paragraphs throughout, or a lone fragment as the closer reads as staged. Let a sentence carry a whole thought and vary the length.
 - Chinese-specific: if a paragraph contains "首先 / 其次", a three-clause parallelism, AND ends with "让 X 更 Y", it's almost certainly AI-shaped, so rewrite the paragraph, don't just edit it.
 - Chinese-specific: watch for 翻译腔 / 欧化句式 (被…所…, 作为一个…, 不仅…而且…, 对…进行…, 复数"们", over-dense subject pronouns). These read like machine translation even when no buzzword is present. Restore active voice and verbs.
@@ -209,7 +210,7 @@ Add a short note only when one of these is true:
 
 When adding a note, keep it to three lines or fewer.
 
-If the user asks for critique rather than a rewrite, list the main sources of AI smell first, then show representative fixes.
+If the user asks for critique rather than a rewrite, list the main sources of AI smell first, then show representative fixes. Judge by co-occurrence: perfect grammar, a mixed register, a lone "Additionally", missing sources, or a couple of em-dashes are weak evidence on their own, so don't call a text AI-written because of them (see Weak Evidence / 不能单独当证据的特征 in the patterns references).
 
 ## References
 

@@ -5,7 +5,7 @@
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.8.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.9.0-orange?style=flat-square)](./CHANGELOG.md)
 
 > This README comes in two languages: **[English](./README.md)** (the default) and **中文** (this page). Use the badges above to switch.
 
@@ -17,7 +17,7 @@
 
 <sub>真实示例，出自 [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md)。更多见 [examples/](./examples/)。</sub>
 
-它最适合放在初稿之后做最终润色。Claude Code、Codex 等任何基于大模型的 agent 起完稿之后，由它收尾。目标不是把文字写得更花。目标是在不改原意的前提下，去掉那些明显的生成式痕迹：模板措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲、直接从对话或联网模型粘出来时残留的机器标记（`oaicite` / `turn0search0` / `[cite: 1]` / 【】角标之类），以及那种"什么都讲一点、什么都不下判断"的伪平衡。
+它最适合放在初稿之后做最终润色。Claude Code、Codex 等任何基于大模型的 agent 起完稿之后，由它收尾。它做的是在不改原意的前提下，去掉那些明显的生成式痕迹：模板措辞、空泛抽象、咨询腔、过重的 Markdown 结构、过度分层的大纲、直接从对话或联网模型粘出来时残留的机器标记（`oaicite` / `turn0search0` / `[cite: 1]` / 【】角标之类），以及那种"什么都讲一点、什么都不下判断"的伪平衡。
 
 如果默认的"干净模式"还不够，skill 还提供：
 - **人味儿质感模式**：在合适的位置注入倒装、语气词、残句、非标准标点等真人写作痕迹（可选）
@@ -98,7 +98,7 @@ git clone https://github.com/weijt606/anti-vibe-writing.git
 - 更干净的措辞
 - 更明确的声音
 - 更少的"AI 味"
-- 读起来像有人选过每一个字，而不是被系统组装出来
+- 读起来像有人选过每一个字
 
 ## 仓库结构
 
@@ -178,4 +178,4 @@ LICENSE
 
 ## 最近更新
 
-**1.8.0**："不是 X，而是 Y"这类对比句默认一处不留，改写时把句子切成一串短句也算作一种痕迹。每个版本的完整说明见 [Releases](https://github.com/weijt606/anti-vibe-writing/releases)，全部历史记录见 [CHANGELOG.md](./CHANGELOG.md)。
+**1.9.0**：跟上 2026 年新模型的写法（"this matters"、"not simply X"、破折号变少、中文的过度拔高和"最"字泛滥、占位符和追踪链接），新增一份"不能单独当证据的特征"，并修掉 skill 自己违反自身规则的地方。每个版本的完整说明见 [Releases](https://github.com/weijt606/anti-vibe-writing/releases)，全部历史记录见 [CHANGELOG.md](./CHANGELOG.md)。
