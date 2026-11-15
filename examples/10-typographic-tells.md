@@ -1,6 +1,6 @@
 # Example 10: Typographic tells (em-dash and friends) (1.5.0)
 
-Demonstrates the AI tells added in 1.5.0 — both the symbols (em-dash `—` / `——`, smart quotes, the `…` character, stray `→ • ·`) and the layout forms (scattered bolding, a heading per chunk, `> callouts`, `---` rules). These are the fastest signals readers, platforms (Reddit and others), and detectors catch, and they survive even after the wording is clean. Mode: default (clean).
+Demonstrates the AI tells added in 1.5.0: both the symbols (em-dash `—` / `——`, smart quotes, the `…` character, stray `→ • ·`) and the layout forms (scattered bolding, a heading per chunk, `> callouts`, `---` rules). These are the fastest signals readers, platforms (Reddit and others), and detectors catch, and they survive even after the wording is clean. Mode: default (clean).
 
 ## English
 

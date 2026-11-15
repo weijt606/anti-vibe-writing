@@ -5,7 +5,7 @@ argument-hint: 'Paste the draft, or describe the document, audience, scenario (t
 user-invocable: true
 disable-model-invocation: false
 metadata:
-  version: 1.7.0
+  version: 1.7.1
   language_support: [en, zh]
   tools: [Read, Edit, Write, Grep, Glob, Bash, WebFetch, WebSearch, TaskCreate, Agent]
 ---

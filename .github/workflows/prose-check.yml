@@ -1,0 +1,17 @@
+name: prose-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dogfood:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Project prose passes its own rules
+        run: ./scripts/check-own-prose.sh

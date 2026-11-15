@@ -5,7 +5,7 @@
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.7.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.7.1-orange?style=flat-square)](./CHANGELOG.md)
 
 > 本 README 提供中英文两个版本：**English**（本页，默认）和 **[中文](./README.zh.md)**。点上方徽章切换。
 
@@ -23,6 +23,14 @@ If the default "clean" mode is not enough, the skill also supports:
 ## Quick start
 
 At its core this is just a set of markdown rules (`SKILL.md` + `references/` + `assets/`), not tied to any one agent. Claude Code, Codex, Kimi, work-buddy, Hermes. If it can read files or take an instruction prompt, it can use this.
+
+**Claude Code, one step:**
+
+```text
+/plugin install anti-vibe-writing --marketplace weijt606/anti-vibe-writing
+```
+
+Then call `/anti-vibe-writing`, or just ask Claude to de-AI a draft. On Claude Code older than 2.1.275, run `/plugin marketplace add weijt606/anti-vibe-writing` first, then `/plugin install anti-vibe-writing@anti-vibe-writing`. Other agents: follow the three steps below.
 
 **1. Get the rules**
 
@@ -93,6 +101,9 @@ Other common cases:
 ## Repository layout
 
 ```text
+.claude-plugin/
+  plugin.json                              # Claude Code plugin manifest
+  marketplace.json                         # lets `/plugin install` find it
 agents/
   README.md
   anti-vibe-writing-dev.agent.md           # local, gitignored
@@ -117,6 +128,8 @@ skills/
       style-extraction-prompt.md           # One-shot extraction prompt
 examples/
   ...
+scripts/
+  check-own-prose.sh                       # CI: project prose passes its own rules
 CHANGELOG.md
 CONTRIBUTING.md
 README.md                                    # English (default)
@@ -162,6 +175,10 @@ This project is open source under the MIT License. See `LICENSE`.
 - Keep structure only when it helps the reader.
 
 ## Version highlights
+
+**1.7.1**
+- Installable as a Claude Code plugin in one line (see Quick start). Skill rules unchanged
+- A CI check now holds the project's own docs to the rules the skill enforces (no em-dashes, no model residue)
 
 **1.7.0**
 - New copy-paste model-residue layer for the machine-only tokens current chat and search models leave in a pasted draft: `contentReference` / `oaicite` / `turn0search0`, `[cite: 1]` / `[cite_start]` / `[span_1]`, `grok_card`, `ppl-ai-file-upload`, stray `【】`/`†` citation scaffolding, unsourced `[1][2]` brackets, and leftover "Here is the revised version" / "Sources:" framing. Exact-string and language-agnostic, so it's added to both patterns references, the deterministic grep gate, the checklist, and the rewrite-prompt template

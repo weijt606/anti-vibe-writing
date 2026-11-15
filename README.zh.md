@@ -5,7 +5,7 @@
 [![English](https://img.shields.io/badge/README-English-1f6feb?style=flat-square)](./README.md)
 [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-15803d?style=flat-square)](./README.zh.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-111111?style=flat-square)](./LICENSE)
-[![Skill version](https://img.shields.io/badge/skill-1.7.0-orange?style=flat-square)](./CHANGELOG.md)
+[![Skill version](https://img.shields.io/badge/skill-1.7.1-orange?style=flat-square)](./CHANGELOG.md)
 
 > This README comes in two languages: **[English](./README.md)** (the default) and **中文** (this page). Use the badges above to switch.
 
@@ -23,6 +23,14 @@
 ## 快速上手
 
 本质上它就是一套 markdown 规则（`SKILL.md` + `references/` + `assets/`），不绑定任何一个 agent。Claude Code、Codex、Kimi、work-buddy、Hermes 之类，只要能读文件、或能接受一段指令，就能用。
+
+**Claude Code 一步装好：**
+
+```text
+/plugin install anti-vibe-writing --marketplace weijt606/anti-vibe-writing
+```
+
+装好后用 `/anti-vibe-writing` 调用，或者直接让 Claude 帮你去 AI 味。Claude Code 低于 2.1.275 的话，先跑 `/plugin marketplace add weijt606/anti-vibe-writing`，再跑 `/plugin install anti-vibe-writing@anti-vibe-writing`。其他 agent 照下面三步来。
 
 **1. 拿到规则**
 
@@ -91,6 +99,9 @@ git clone https://github.com/weijt606/anti-vibe-writing.git
 ## 仓库结构
 
 ```text
+.claude-plugin/
+  plugin.json                              # Claude Code 插件清单
+  marketplace.json                         # 让 `/plugin install` 找得到
 agents/
   README.md
   anti-vibe-writing-dev.agent.md           # 本地，不进 git
@@ -115,6 +126,8 @@ skills/
       style-extraction-prompt.md           # 一次性提取提示词
 examples/
   ...
+scripts/
+  check-own-prose.sh                       # CI：项目自己的文字也得过自己的规则
 CHANGELOG.md
 CONTRIBUTING.md
 README.md                                    # 英文（默认）
@@ -161,8 +174,12 @@ LICENSE
 
 ## 版本亮点
 
+**1.7.1**
+- 可以作为 Claude Code 插件一行命令安装（见快速上手）。规则本身没改
+- 新增 CI 检查，项目自己的文档也必须过这套规则（不许有破折号、不许有模型残留）
+
 **1.7.0**
-- 新增"模型复制粘贴残留"层：专门对付当前对话 / 联网模型在稿子被直接粘出来时留下的机器 token——`contentReference` / `oaicite` / `turn0search0`、`[cite: 1]` / `[cite_start]` / `[span_1]`、`grok_card`、`ppl-ai-file-upload`、正文里查无实据的 `[1][2]` 角标、DeepSeek 爱用的【】/† 引用脚手架，以及结尾多出来的"参考资料 / Sources"、开头的"好的，下面是……"。这类是确定字符串、跨语言通用，所以同步进了中英两份 pattern 库、确定性 grep 闸、检查清单和改写提示词块
+- 新增"模型复制粘贴残留"层，专门对付当前对话 / 联网模型在稿子被直接粘出来时留下的机器 token：`contentReference` / `oaicite` / `turn0search0`、`[cite: 1]` / `[cite_start]` / `[span_1]`、`grok_card`、`ppl-ai-file-upload`、正文里查无实据的 `[1][2]` 角标、DeepSeek 爱用的【】/† 引用脚手架，以及结尾多出来的"参考资料 / Sources"、开头的"好的，下面是……"。这类是确定字符串、跨语言通用，所以同步进了中英两份 pattern 库、确定性 grep 闸、检查清单和改写提示词块
 - 中文轨新增"附和 / 谄媚开头"痕迹（问得好 / 你说得对 / 好的，下面是……）和"无源的权威铺垫"痕迹（研究表明 / 数据显示 / 专家指出，后面却没有哪项研究、哪个数据、哪位专家）
 - 英文轨新增句子级痕迹（谄媚开头、无源权威），并说明 AI 词表会随模型代际漂移（showcasing / highlighting / emphasizing / enhance 已和老的 delve / tapestry 并列），所以不把任何一份词表当最终版
 - 纯加性升级：骨架、理念、工作流都没动，仍是一套轻量的 markdown 规则

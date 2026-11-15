@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for considering a contribution. This project is small and opinionated. The bar isn't "more rules" — it's "rules that change how the rewrite reads on real drafts."
+Thanks for considering a contribution. This project is small and opinionated. The bar isn't "more rules". It's "rules that change how the rewrite reads on real drafts."
 
 ## Ground rules
 
@@ -8,7 +8,7 @@ Thanks for considering a contribution. This project is small and opinionated. Th
 - Preserve meaning. Edits must not change facts, claims, names, numbers, or technical accuracy.
 - Concrete edits over generic style advice.
 - Keep structure light unless hierarchy is genuinely useful.
-- English and Chinese AI-smell are different problems. Don't translate one set of rules into the other — write the rules native to that language.
+- English and Chinese AI-smell are different problems. Don't translate one set of rules into the other. Write the rules native to that language.
 
 ## What to contribute
 
@@ -18,7 +18,7 @@ The most useful contributions, in rough order:
 2. **A new pattern** with a specific phrase, sentence shape, or structural tell to remove
 3. **A new scenario preset** for a writing context not yet covered
 4. **Host profile examples** (anonymized) showing how learning mode works in practice
-5. **Bug fixes** in existing references — typos, broken links, outdated examples
+5. **Bug fixes** in existing references: typos, broken links, outdated examples
 
 Less useful:
 
@@ -31,7 +31,7 @@ Less useful:
 Use the existing `patterns-to-remove.md` or `chinese-patterns-to-remove.md` structure:
 
 1. Pick the right file (English vs Chinese).
-2. Place under the right section (词汇 / 句式 / 结构 / 语气 — or the English equivalent).
+2. Place under the right section (词汇 / 句式 / 结构 / 语气, or the English equivalent).
 3. Give a 1-line description of why it signals AI writing.
 4. Show a "weak → stronger" example, ideally with a real-looking sample.
 5. If it's a Chinese-only or English-only phenomenon, don't try to make it bilingual.
@@ -67,11 +67,11 @@ If the new preset overlaps significantly with an existing one, consider whether 
 
 The learning mode workflow has three artifacts:
 
-- `references/learning-mode.md` — the method
-- `assets/host-profile-template.md` — the template
-- `assets/style-extraction-prompt.md` — the prompt
+- `references/learning-mode.md`: the method
+- `assets/host-profile-template.md`: the template
+- `assets/style-extraction-prompt.md`: the prompt
 
-If you've used learning mode in practice and found a missing feature dimension, add it to the template **and** the extraction prompt at the same time — they need to stay in sync.
+If you've used learning mode in practice and found a missing feature dimension, add it to the template **and** the extraction prompt at the same time. They need to stay in sync.
 
 ## Changing voice modes
 
@@ -97,12 +97,13 @@ This is meta but it matters: contribution docs should also avoid AI-smell. Speci
 - No "in conclusion" closings
 - Direct verbs, concrete examples
 
-If a contribution PR adds AI-smell to the project's own docs, it will be asked to revise — same standard the skill applies to its inputs.
+If a contribution PR adds AI-smell to the project's own docs, it will be asked to revise. Same standard the skill applies to its inputs.
 
 ## Local development
 
-- The skill is markdown-only — no build step
+- The skill is markdown-only, with no build step
 - Validate by reading the changed files in a markdown viewer and checking links
+- Run `./scripts/check-own-prose.sh` before opening a PR. CI runs it too: no em-dashes or model residue in the project's own prose (rule files that quote these tells are exempt)
 - The local developer agent in `agents/anti-vibe-writing-dev.agent.md` is gitignored; copy from `.example.md` to set yours up
 
 ## License
