@@ -4,6 +4,16 @@ All notable changes to the `anti-vibe-writing` skill are recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the skill itself (declared in `skills/anti-vibe-writing/SKILL.md` frontmatter).
 
+## [Unreleased]
+
+### Added
+
+- Before/after comparison image at the top of each README (`anti-vibe-writing-before-after.png`, `-cn.png`), built from the real pairs in examples `03` and `07` with each removed tell struck through
+
+### Fixed
+
+- Word counts in examples `03` (73 to 34 words, was "110+ to 30") and `07` (136 to 69 汉字, was "130 多到 60 出头") now match the actual text
+
 ## [1.7.1] - 2026-11-15
 
 Packaging and repo hygiene only. The skill rules are unchanged.

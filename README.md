@@ -13,6 +13,10 @@
 
 An agent writing skill that removes the AI-generated feel from documents. Works in English and Chinese, with optional modes for matching a specific author's voice.
 
+![Before and after: a 73-word AI-drafted launch tweet full of emoji, an em-dash, marketing adjectives and a benefits list, rewritten into 34 words: "AI drafts that read like AI drafts have a problem. Not that they're wrong. They're just clearly assembled. Anti-Vibe Writing is the final pass that removes the assembly marks."](./anti-vibe-writing-before-after.png)
+
+<sub>A real pair from [`examples/03-tweet.md`](./examples/03-tweet.md). More in [examples/](./examples/).</sub>
+
 It runs best as a final pass after drafting with Claude Code, Codex, or any LLM-backed agent. The goal is not to make the prose prettier. The goal is to keep the substance and remove the tells: templated phrasing, vague abstraction, consultant-speak, markdown-heavy formatting, over-structured outlines, the copy-paste residue chat and search models leave behind (`oaicite` / `turn0search0` / `[cite: 1]` / stray `【】` markers), and the cautious over-balancing that makes writing feel assembled.
 
 If the default "clean" mode is not enough, the skill also supports:

@@ -37,5 +37,5 @@ Works in English and Chinese.
 - "In today's fast-paced world" gone (the "in this era of X" template opener, named in 1.6.0)
 - Three benefit bullets condensed into one sharp claim
 - No "try it out today"; the post earns the click on its own
-- Length dropped from 110+ words to 30, which fits Twitter's actual rhythm
+- Length dropped from 73 words to 34, which fits Twitter's actual rhythm
 - Final short line ("Works in English and Chinese") adds a concrete fact instead of a CTA
