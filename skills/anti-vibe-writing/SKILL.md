@@ -2,6 +2,7 @@
 name: anti-vibe-writing
 description: 'Use when the user wants to humanize, de-AI, polish, or warm up an AI-generated document, in English or Chinese. Good for social posts (X/Weibo/Jike/RedNote), Reddit and forum comments, blogs, podcast show notes, README cleanup, product docs, landing page copy, proposals, founder notes, and technical memos. Removes templated phrasing, consultant-speak, vague abstraction, emoji or icon headings, markdown templates, overly balanced tone, and the typographic tells that flag generated text (em-dashes `—`/`——`, smart quotes, the `…` character) while preserving meaning. Supports optional voice modes: human-texture (light irregularities) and learning mode (match a specific host''s style from samples).'
 argument-hint: 'Paste the draft, or describe the document, audience, scenario (tweet/weibo/reddit/blog/podcast/report), how much structure should remain, and optionally provide host samples for learning mode.'
+license: MIT
 user-invocable: true
 disable-model-invocation: false
 metadata:

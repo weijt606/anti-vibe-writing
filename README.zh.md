@@ -34,7 +34,15 @@
 /plugin install anti-vibe-writing --marketplace weijt606/anti-vibe-writing
 ```
 
-装好后用 `/anti-vibe-writing` 调用，或者直接让 Claude 帮你去 AI 味。Claude Code 低于 2.1.275 的话，先跑 `/plugin marketplace add weijt606/anti-vibe-writing`，再跑 `/plugin install anti-vibe-writing@anti-vibe-writing`。其他 agent 照下面三步来。
+装好后用 `/anti-vibe-writing` 调用，或者直接让 Claude 帮你去 AI 味。Claude Code 低于 2.1.275 的话，先跑 `/plugin marketplace add weijt606/anti-vibe-writing`，再跑 `/plugin install anti-vibe-writing@anti-vibe-writing`。
+
+**Codex、Cursor、Gemini CLI 等其他 agent，用 GitHub CLI 一步装好**（需要 gh 2.90 或更新）：
+
+```bash
+gh skill install weijt606/anti-vibe-writing anti-vibe-writing --agent codex --scope user
+```
+
+把 `codex` 换成 `cursor`、`gemini-cli`、`claude-code`、`opencode`，或 `gh skill install --help` 里列出的其他名字就行。装的是最新发布的版本，以后用 `gh skill update` 更新。没装 GitHub CLI 的话，照下面三步来。
 
 **1. 拿到规则**
 

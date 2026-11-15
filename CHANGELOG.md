@@ -6,6 +6,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+- README: one-step install for Codex, Cursor, Gemini CLI and other agents via `gh skill install` (GitHub CLI 2.90+), tested with gh 2.104.0 for codex, cursor, gemini-cli and claude-code.
+- SKILL.md: add `license: MIT` to the frontmatter, the one field `gh skill publish --dry-run` flagged as missing.
+
 ## [1.9.0] - 2026-11-15
 
 Catches up with how models write in late 2026 and fixes places where the skill broke its own rules. Sources: Wikipedia's "Signs of AI writing" (October 2026 revision), Graphite's 2026 model-by-model tell analysis as reported by TechCrunch, and 蒋雨恬's 2026 Chinese de-AI guide (公众号「有三思 U Sense」, reprinted by 36kr).

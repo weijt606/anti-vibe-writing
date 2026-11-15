@@ -34,7 +34,15 @@ At its core this is just a set of markdown rules (`SKILL.md` + `references/` + `
 /plugin install anti-vibe-writing --marketplace weijt606/anti-vibe-writing
 ```
 
-Then call `/anti-vibe-writing`, or just ask Claude to de-AI a draft. On Claude Code older than 2.1.275, run `/plugin marketplace add weijt606/anti-vibe-writing` first, then `/plugin install anti-vibe-writing@anti-vibe-writing`. Other agents: follow the three steps below.
+Then call `/anti-vibe-writing`, or just ask Claude to de-AI a draft. On Claude Code older than 2.1.275, run `/plugin marketplace add weijt606/anti-vibe-writing` first, then `/plugin install anti-vibe-writing@anti-vibe-writing`.
+
+**Codex, Cursor, Gemini CLI and other agents, one step with the GitHub CLI** (gh 2.90 or newer):
+
+```bash
+gh skill install weijt606/anti-vibe-writing anti-vibe-writing --agent codex --scope user
+```
+
+Swap `codex` for `cursor`, `gemini-cli`, `claude-code`, `opencode` or any other name in `gh skill install --help`. It installs the latest release, and `gh skill update` pulls newer ones later. No GitHub CLI? Follow the three steps below.
 
 **1. Get the rules**
 
