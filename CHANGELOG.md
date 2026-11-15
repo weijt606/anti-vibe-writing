@@ -4,6 +4,12 @@ All notable changes to the `anti-vibe-writing` skill are recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the skill itself (declared in `skills/anti-vibe-writing/SKILL.md` frontmatter).
 
+## [Unreleased]
+
+### Changed
+
+- READMEs drop the long per-version highlights list (it duplicated CHANGELOG and the GitHub Releases) for a short "What's new" / "最近更新" line at the end that names the latest version and links to Releases and CHANGELOG
+
 ## [1.8.0] - 2026-11-15
 
 The skill's own examples were caught using two tells: the "not X, but Y" frame, and rewrites chopped into strings of short fragments. This release fixes the examples and tightens the rules that let both through.
