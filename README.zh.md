@@ -13,7 +13,7 @@
 
 一个用于去除文档"AI 生成感"的 agent 写作技能。同时支持中英文，并提供可选模式用于贴合特定作者的语言风格。
 
-![改写前后对比：一条 136 字的 AI 中文推文，带 emoji 开场、套路化开头、营销腔、破折号和 emoji 序号列表，改写成 65 字："AI 写的中文，语法挑不出错，可一读就知道是机器写的。"](./anti-vibe-writing-before-after-cn.png)
+![改写前后对比：一条 136 字的 AI 中文推文，带 emoji 开场、套路化开头、营销腔、破折号和 emoji 序号列表，改写成 78 字："AI 写的中文语法上挑不出毛病，可只要赋能、打通、不仅……而且、首先其次最后这几个词一冒头，读的人马上就知道是机器写的。"](./anti-vibe-writing-before-after-cn.png)
 
 <sub>真实示例，出自 [`examples/07-tweet-zh.md`](./examples/07-tweet-zh.md)。更多见 [examples/](./examples/)。</sub>
 

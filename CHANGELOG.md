@@ -13,7 +13,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 ### Fixed
 
 - The "after" text in examples `03`, `07`, and `11` used the very "not X, but Y" frame the skill tells writers to drop ("Not that they're wrong. They're just clearly assembled", 毛病不在语法，在……, 从来不是打字，是……). Rewritten without it, and the notes in `07` that praised the frame are corrected. Example `10` keeps its symbols-only After for the punctuation demo, now followed by a full-pass version without the frame
-- Word counts in examples `03` (73 to 32 words, was "110+ to 30") and `07` (136 to 65 汉字, was "130 多到 60 出头") now match the actual text
+- The rewrites in examples `03`, `07`, `10`, and `11` were over-corrected into strings of short clauses and lone fragments ("Works in English and Chinese."), which reads as staged. They now say the same thing in fewer, complete sentences
+- Word counts in examples `03` (73 to 37 words, was "110+ to 30") and `07` (136 to 78 汉字, was "130 多到 60 出头") now match the actual text
 
 ## [1.7.1] - 2026-11-15
 

@@ -25,9 +25,8 @@ Try it out today! 👇
 
 ```
 Most AI drafts get the facts right and still read like a machine put them
-together. Anti-Vibe Writing is the final pass that removes the assembly marks.
-
-Works in English and Chinese.
+together. Anti-Vibe Writing is a final editing pass that takes those assembly
+marks out, for drafts in English as well as Chinese.
 ```
 
 ## What changed
@@ -37,5 +36,6 @@ Works in English and Chinese.
 - Three benefit bullets condensed into one sharp claim
 - No "not that X, just Y" setup either: the first sentence states the problem directly, so the fix doesn't swap one tell for another
 - No "try it out today"; the post earns the click on its own
-- Length dropped from 73 words to 32, which fits Twitter's actual rhythm
-- Final short line ("Works in English and Chinese") adds a concrete fact instead of a CTA
+- Length dropped from 73 words to 37, which fits Twitter's actual rhythm
+- The concrete fact (English and Chinese) rides at the end of the second sentence instead of a CTA, not as a lone fragment
+- No staccato over-correction: two full sentences, not a string of short punchy lines. Chopping everything into fragments is its own tell

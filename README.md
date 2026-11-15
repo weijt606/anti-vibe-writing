@@ -13,7 +13,7 @@
 
 An agent writing skill that removes the AI-generated feel from documents. Works in English and Chinese, with optional modes for matching a specific author's voice.
 
-![Before and after: a 73-word AI-drafted launch tweet full of emoji, an em-dash, marketing adjectives and a benefits list, rewritten into 32 words: "Most AI drafts get the facts right and still read like a machine put them together. Anti-Vibe Writing is the final pass that removes the assembly marks."](./anti-vibe-writing-before-after.png)
+![Before and after: a 73-word AI-drafted launch tweet full of emoji, an em-dash, marketing adjectives and a benefits list, rewritten into 37 words: "Most AI drafts get the facts right and still read like a machine put them together. Anti-Vibe Writing is a final editing pass that takes those assembly marks out, for drafts in English as well as Chinese."](./anti-vibe-writing-before-after.png)
 
 <sub>A real pair from [`examples/03-tweet.md`](./examples/03-tweet.md). More in [examples/](./examples/).</sub>
 

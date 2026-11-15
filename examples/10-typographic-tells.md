@@ -25,8 +25,8 @@ What changed: the first em-dash becomes a period (hard stop); the second becomes
 This After only touches symbols, so the "didn't build X. We built Y" frame is still there. A full pass removes it too (negative parallelism, see `references/patterns-to-remove.md`):
 
 ```
-It's a thinking tool. Fast, quiet, and yours: no account, no sync, no cloud.
-One early user put it as "just open it and write."
+It's a thinking tool that is fast, quiet, and yours, with no account, no sync,
+and nothing in the cloud. One early user described it as "just open it and write."
 ```
 
 ## 中文
@@ -51,8 +51,8 @@ What changed: the first `——` becomes a comma (the turn rides inside the sent
 这版只动了标点，"不是……而是……"的对比骨架还在。完整改写会连它一起去掉（见 `references/chinese-patterns-to-remove.md` 的对比骨架一条）：
 
 ```
-我们做的是一个思考工具。它快，安静，属于你：不用注册，不用同步，不上云。
-一个早期用户的说法是"打开就写"。
+我们做的是一个又快又安静、完全属于你的思考工具，不用注册、不用同步，也不上云。
+一个早期用户管它叫"打开就写"。
 ```
 
 ## Format forms (English)
